@@ -1,5 +1,5 @@
 import { ktParkKorean, ParkGuide } from "../../assets/assets";
-import { Container, Image, ImageContainer } from "../PagesStyles";
+import { Container, Image, ImageContainer } from "./WizParkStyles";
 
 const Guide = () => {
   return (

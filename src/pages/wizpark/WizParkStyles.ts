@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../assets/Colors";
+import colors from "../../assets/Colors";
 
 //Intro에 쓸 CSS
 export const Container = styled.div`
