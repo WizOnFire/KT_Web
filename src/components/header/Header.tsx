@@ -1,15 +1,11 @@
 import { useState,useEffect } from "react";
 import { useScroll, useMotionValueEvent, useAnimation,AnimatePresence } from "framer-motion";
-//import ktwiz from "../../assets/images/landing/ktwiz.png"
 import { UpNav, Logo, Category, BottomNav, SubCategoryColumn, SubCategory } from "./HeaderStyles"; // 스타일 불러오기
 import { useLocationStore } from "../../stores/useLocation.store";
-import ktwizBtn from "../../assets/images/landing/ktwizBtn.png"
-//import ktwizBtnWhite from "../../assets/images/landing/ktwizBtnWhite.png"
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import React from "react";
 import newLogo from "../../assets/images/common/newLogo.png"
-import Button from "../common/button/Button";
-import colors from "../../assets/Colors";
+
 const Header = () => {
   const categories = [
     "kt wiz",
@@ -18,11 +14,12 @@ const Header = () => {
     "Player",
     "Media",
     "Shop",
+    "스폰서",
     "티켓구매",
   ];
 
   const categoriesForNav=[
-    "ktwiz","wizpark","game","player","media","shop","ticket"
+    "ktwiz","wizpark","game","player","media","shop","sponsor","ticket"
   ]
 
   const subCategories: string[][] = [
@@ -32,14 +29,16 @@ const Header = () => {
     ["코칭스텝", "투수", "타자", "응원단", "응원가", "응원가 저작권"],
     ["wiz 뉴스", "wiz 스토리", "시구자 정보", "wiz 포토", "Live 영상모음"],
     [],
+    [],
     ["티켓예매", "단체관람", "입장 및 좌석 정보"],
   ];
   const subCategoriesForNav:string[][]=[
     ["about","bi","policy","sponsor","wallpaper"],
     [ "intro","parking","location","iksan"],
-    ["schedule","boxscore","ranking","watchPoint"],
+    ["schedule","boxscore","rankin//g","watchPoint"],
     ["coach","pitcher","catcher","cheer","song","song-copyright"],
     ["wiznews","wizstory","firstpitch","photos","highlight","live"],
+   [],
    [],
     ["reservation","group","seatmap"]]
 
@@ -76,15 +75,16 @@ const Header = () => {
       ],
     ];
   
-
-  //const [isVisible, setIsVisible] = useState(false); // 컴포넌트가 보이는 상태를 관리
   const [isHovered, setIsHovered] = useState(false);
   const navAnimation = useAnimation();
   const { scrollY } = useScroll();
   const [hoveredCategory,setHoveredCategory]=useState("");//어떤 게 호버가 되는지를 기억해야 함.
-  const isLandingPage=window.location.pathname==="/";
+
+  const location=useLocation();
+  const isLandingPage=location.pathname==="/";
+
   const { setSelectedCategory, setSelectedSubCategory,  setSelectedSidebar } = useLocationStore();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
       if (isLandingPage) {
         navAnimation.start({ backgroundColor: "rgba(0,0,0,0)" });
@@ -100,14 +100,11 @@ const Header = () => {
 
   const handleMouseLeaveCategory=()=>{//왜 호버가 떠나도 안먹
     setHoveredCategory("");
-    // console.log(e)
-    // console.log(hoveredCategory)
   }
 
 
   useMotionValueEvent(scrollY, "change", () => {
     const currentScrollY = scrollY.get();
-    console.log(currentScrollY)
     if(isLandingPage){
       if(currentScrollY<=1000){
         navAnimation.start({ backgroundColor: "rgba(0,0,0,0)" });
@@ -146,8 +143,8 @@ const Header = () => {
     const category = categories[categoryIndex];
     const forNav = categoriesForNav[categoryIndex];
 
-    console.log("forNav: ",forNav)
-    console.log("subIndex: ",subIndex)
+    //console.log("forNav: ",forNav)
+    //console.log("subIndex: ",subIndex)
     
     setSelectedCategory(category);
     setSelectedSubCategory(subCategory);
@@ -191,7 +188,10 @@ const Header = () => {
     {index === 3 &&                   
     <Logo isHovered={isHovered} >
     <img
-        onClick={() => navigate("/")}
+        onClick={() => {
+          console.log('clicked');
+          navigate('/')
+        }}
         // src={isHovered ? "https://www.ktwiz.co.kr/v2/imgs/img-logo-black.svg" : ktwiz}
         src={newLogo}
         alt="logo"

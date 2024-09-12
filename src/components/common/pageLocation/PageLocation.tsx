@@ -2,6 +2,7 @@ import { AiFillHome } from "react-icons/ai";
 import { MdArrowForwardIos } from "react-icons/md";
 import {PageLocationContainer, PageLocationBox , PageLocationInfo} from "./PageLocationStyles"
 import { useLocationStore } from "../../../stores/useLocation.store";
+import { useLocation } from "react-router-dom";
 
 
 
@@ -11,10 +12,16 @@ const PageLocation = () => {
   const subCategory = useLocationStore((state) => state.selectedSubCategory)
   const sidebar = useLocationStore((state) => state.selectedSidebar)
   */
-  const isLandingPage = window.location.pathname === "/";
+ const location=useLocation();
+  const isLandingPage = location.pathname === "/";
+  
   const { selectedCategory, selectedSubCategory, selectedSidebar} = useLocationStore();
   const isShopOrSponsor = ["shop","스폰서"].includes(selectedCategory);
-  console.log("page location")
+  console.log(selectedCategory,selectedSubCategory,selectedSidebar)
+  //console.log("page location")
+
+  //const location=useLocation();
+  console.log(location)
   return (   
       !(isLandingPage || isShopOrSponsor) && (
       <PageLocationContainer>

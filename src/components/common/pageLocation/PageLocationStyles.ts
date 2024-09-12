@@ -9,7 +9,7 @@ export const PageLocationContainer = styled.div`
 export const PageLocationBox = styled.div`
     max-width: 1100px;
     width: 100%;
-    margin-top: 75px;
+    margin-top: 100px;//진주: 마진 조정했습니다!
     height: 33px;
 ` 
 

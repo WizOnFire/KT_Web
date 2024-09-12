@@ -1,35 +1,44 @@
-import styled from "styled-components";
-import backgroundImage from "../../assets/images/landing/landingBackground.png"
-import leftArrow from "../../assets/images/landing/leftArrow.png";
-import rightArrow from "../../assets/images/landing/rightArrow.png";
-
-const StartImage = styled.div`
-  height: 1000px;
-  width: auto;
-  background-image: url(${backgroundImage}); /* 템플릿 리터럴을 사용하여 이미지 URL 설정 */
-  background-size:cover;//배율 조정
-  background-repeat: no-repeat; /* 이미지를 반복하지 않음 */
-  background-position: center;
-  display: flex;
-  gap:900px;
-  justify-content: center;
-  align-items: center;
-
-`;
-const ArrowWapper=styled.img`
-  width:90px;
-  height:80px;
-
-`
+import { rightArrow, leftArrow } from "../../assets/assets";
+import GradientChip from "../../components/common/gradientChip/GradientChip";
+import useFetchData from "../../hooks/useFetchData";
+import Banner01 from "./Banner01";
+import Banner02 from "./Banner02";
+import Gallery from "./Gallery";
+import HighLight from "./HighLight";
+import { StartImage, ArrowWapper, StartWizNews } from "./HomeStyles"
+import TeamMatch from "./TeamMatch";
 
 const Home = () => {
+  const { data, isLoading, error } = useFetchData<THotIssue[]>('/media/hotissue?count=10'); 
+
+  console.log('data',data);
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <>
       {/* 랜딩페이지 */}
       <StartImage>
-        <ArrowWapper style={{width:"90px",height:"80px"}}src={leftArrow} />
-        <ArrowWapper style={{width:"90px",height:"80px"}}src={rightArrow}/>
+        <ArrowWapper src={leftArrow} />
+        <ArrowWapper src={rightArrow}/>
+        <StartWizNews>
+          <GradientChip main="KTWIZ" title="위즈소식" />
+          {data && (
+            <>
+              <p>{data[0].artcTitle}</p>
+              <p>{data[0].artcContents}</p>
+              <a href="https://www.ktwiz.co.kr/media/wizpress/184875"> 
+                자세히보기&nbsp;&gt;
+              </a>
+            </>
+          )}
+        </StartWizNews>
       </StartImage>
+      <TeamMatch />
+      <Banner01/>
+      <HighLight/>
+      <Banner02/>
+      <Gallery/>
     </>
   );
 };

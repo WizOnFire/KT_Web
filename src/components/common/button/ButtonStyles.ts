@@ -3,8 +3,8 @@ import React from "react";
 import colors from "../../../assets/Colors";
 
 export type TButton ={
-    width:string;
-    height:string;
+    width?:string;
+    height?:string;
     borderRadius?:string;
     children?: React.ReactNode;//자식 타입 설정
     onClick?:()=>void;
@@ -12,6 +12,7 @@ export type TButton ={
     fontSize?:string;
     backgroundColor?:string;
     hoverColor?:string;
+    hoverBorder?: string; 
     margin?:string;
     border?:string;
     padding?:string;
@@ -43,7 +44,7 @@ export const Btn = styled.button<TButton>`
     cursor: pointer; 
     &:hover {
         background-color: ${({hoverColor}) => hoverColor || colors.redPrimary };
-        border: none;
+        border: ${({hoverBorder}) => hoverBorder || "none"};
         color: ${colors.white};
     }
 `

@@ -5,7 +5,6 @@ import { RxGithubLogo } from "react-icons/rx";
 import SelectBar from "../common/selectbar/SelectBar";
 import { FaAngleDown } from "react-icons/fa6";
 import Button from "../common/button/Button";
-import colors from "../../assets/Colors";
 import ktwizBtn from "../../assets/images/landing/ktwizBtn.png"
 
 const Footer = () => {

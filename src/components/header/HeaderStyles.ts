@@ -12,24 +12,21 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
     top: 0;
     height: 110px;
     z-index: 101;
-    gap: 43px;
+    gap: 40px;
     transition: color 0.3s ease-in-out;
     a{
         color: ${({ isHovered }) => (isHovered ? `${colors.black}` :`${colors.white}`)};
         transition: color 0.3s ease-in-out;
-        left:20px;//로고 정렬할 때 중요
+        left:-10px;//로고 정렬할 때 중요
         //margin-right: 10px;
     }
     a:hover{
     font-weight: 700;
     }
-    a:nth-last-child(2) {
+    a:nth-last-child(1) {
         color: red;
     } 
 
-    /* a:nth-last-child(5){
-        margin-left: 1px;//로고 양옆 조절
-    }    */
     a:nth-last-child(6){
         //margin-right: 123px;//로고 양옆 조절
         margin-right: 40px;
@@ -37,7 +34,7 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
     &::after {
         content: "";
         position: absolute;
-        bottom: 0;
+        bottom: -1.8px;
         left: 50%;
         transform: translateX(-50%);
         width: 1100px;
@@ -45,15 +42,16 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
         transition: width 0.3s ease;
         clip-path: polygon(
             0 0, 
-            45% 0, 
-            45% 100%, 
+            45.5% 0, 
+            45.5% 100%, 
 
-            55% 100%, 
-            55% 0, 
+            54.3% 100%, 
+            54.3% 0, 
 
             100% 0, 
             100% 100%,
-             0 100%);
+             0 100%
+             );
     }
 
 `;
@@ -64,8 +62,9 @@ export const Logo = styled.div<{isHovered:boolean}>`
    // position: absolute;
     display: flex;
     left: 50%;
-    transform: translateX(-6%);//로고 위치 중간 조정
-    top:17px;
+    transform: translateX(-18%);//로고 위치 중간 조정
+    //top:20px;
+    margin-top: 14px;
     z-index: 103;
     img {
         width: 130px;
@@ -79,7 +78,7 @@ export const Logo = styled.div<{isHovered:boolean}>`
 
 export const Category=styled.a<{isHovered: boolean; hoveredCategory:string;}>` 
     position: relative;
-    //left:67px;
+    //left:100px;
     font-size: 20px;
     text-decoration: none;
     height: 80px;
@@ -90,6 +89,7 @@ export const Category=styled.a<{isHovered: boolean; hoveredCategory:string;}>`
     margin-top: 30px;
     ${({isHovered})=>isHovered && ` border-bottom: 3px solid red;`}
     `;
+
 
 export const BottomNav=styled(motion.div)` 
     padding-top: 30px;
@@ -108,7 +108,6 @@ export const BottomNav=styled(motion.div)`
     padding-left: 12x;
     a:hover{
     font-weight: 700;
-
   }
 `;
 
@@ -116,12 +115,13 @@ export const SubCategoryColumn=styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 24px;
     position:relative;
+    left: -26px;
     &:hover{
         cursor: pointer;
     }
-    left: -55px;
+    
     &:nth-child(1){
         margin-right: 5px;
     }
@@ -129,7 +129,7 @@ export const SubCategoryColumn=styled.div`
         margin-right: 5px;
     } 
     &:nth-child(5){
-        margin-left:215px;
+        margin-left:200px;
     } 
     &:nth-child(7){
         margin-left:10px;

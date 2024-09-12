@@ -9,14 +9,15 @@ import WizPress from "../pages/news/WizPress";
 import About from "../pages/ktwiz/About";
 import History from "../pages/ktwiz/History";
 import Intro from "../pages/wizpark/Intro";
-import Location from "../pages/wizpark/Location";
+//import Location from "../pages/wizpark/Location";
 import Guide from "../pages/wizpark/Guide";
 import Schedule from "../pages/regular/Schedule";
 import WatchPoint from "../pages/regular/WatchPoint";
-import Coach from "../pages/player/Coach";
+import Coach from "../pages/player/coach/Coach";
 import Pitcher from "../pages/player/Pitcher";
 import Catcher from "../pages/player/Catcher";
 import Cheer from "../pages/player/Cheer";
+import Map from "../pages/game/Map";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "",
+       index:true,
         element: <Home />,
       },
       {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
             path: "history",
             element:<History/>,
           },
+
         ]
       },
       {
@@ -53,7 +55,7 @@ const router = createBrowserRouter([
           },
           {
             path: "location",
-            element:<Location/>,
+            element:<Map/>,
           },
         ]
       },
