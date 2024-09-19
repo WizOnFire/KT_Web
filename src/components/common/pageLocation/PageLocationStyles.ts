@@ -31,12 +31,11 @@ export const PageLocationInfo = styled.div`
     z-index: 20;
     padding-bottom: 15px;
     color: ${colors.ashGray};
-
     span{
         padding-right: 10px;
-
-        &:last-child{
+         /* &:last-child{
         color: ${colors.redPrimary};
-        }
+        }  */
     }
+
 `

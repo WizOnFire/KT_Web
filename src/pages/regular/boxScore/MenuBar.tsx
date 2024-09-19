@@ -6,6 +6,7 @@ import { MenuContainer,MenuBottomLine } from "./MenuBarStyles"
 import { GradientCircle } from "../../../components/common/gradientChip/GradientChipStyles";
 import colors from "../../../assets/Colors";
 
+
 const MenuBar = ({apiUrl} : {apiUrl: string}) => {
     const menu = [
         {title: "주요기록", component: <MainStats apiUrl={apiUrl}/>},

@@ -35,7 +35,7 @@ const Header = () => {
   const subCategoriesForNav:string[][]=[
     ["about","bi","policy","sponsor","wallpaper"],
     [ "intro","parking","location","iksan"],
-    ["schedule","boxscore","rankin//g","watchPoint"],
+    ["schedule","boxscore","ranking","watchPoint"],
     ["coach","pitcher","catcher","cheer","song","song-copyright"],
     ["wiznews","wizstory","firstpitch","photos","highlight","live"],
    [],
@@ -143,8 +143,8 @@ const Header = () => {
     const category = categories[categoryIndex];
     const forNav = categoriesForNav[categoryIndex];
 
-    //console.log("forNav: ",forNav)
-    //console.log("subIndex: ",subIndex)
+    console.log("forNav: ",forNav)
+    console.log("subIndex: ",subIndex)
     
     setSelectedCategory(category);
     setSelectedSubCategory(subCategory);
@@ -152,13 +152,16 @@ const Header = () => {
     if(forNav==="game"){
       if(subCategoriesForNav[categoryIndex][subIndex]==="ranking"){
         navigate(`/${forNav}/regular/${subCategoriesForNav[categoryIndex][subIndex]}/team`);
+        console.log("checking")
       }
       else{
         navigate(`/${forNav}/regular/${subCategoriesForNav[categoryIndex][subIndex]}`);
       }
       return;
     }
+
     navigate(`/${forNav}/${subCategoriesForNav[categoryIndex][subIndex]}`); // 경로를 제대로 작성
+    console.log("here2");
   };
   return (
     <>

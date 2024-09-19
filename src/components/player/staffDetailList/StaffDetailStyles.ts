@@ -31,8 +31,8 @@ export const MainInfo = styled.dt`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  top: -350px;
-  right: 10px;
+  top: -300px;//늘어날수록 아래로 감
+  right: 70px;
   gap: 10px;
   font-size: 54px;
 
@@ -43,7 +43,7 @@ export const MainInfo = styled.dt`
 
 export const InfoList = styled.dd`
   position: relative;
-  top: -520px;
+  top: -460px;
   left: 200px;
   color: white;
   gap: 20px;

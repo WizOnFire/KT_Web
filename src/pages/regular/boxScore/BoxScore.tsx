@@ -14,6 +14,10 @@ const BoxScoreContainer = styled.div`
 const BoxScore = () => {
     const [apiUrl, setApiUrl] = useState<string>("");
     const { gameDate, gmkey } = useParams<string>();
+    //const params=useSearchParams();
+    //console.log(params.toString());
+
+    
     
     useEffect(() => {
         if (!gameDate || !gmkey) {

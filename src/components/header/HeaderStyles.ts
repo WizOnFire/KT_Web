@@ -64,7 +64,7 @@ export const Logo = styled.div<{isHovered:boolean}>`
     left: 50%;
     transform: translateX(-18%);//로고 위치 중간 조정
     //top:20px;
-    margin-top: 14px;
+    margin-top: 24px;
     z-index: 103;
     img {
         width: 130px;

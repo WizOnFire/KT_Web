@@ -3,8 +3,6 @@ import { GridContainer } from "../../components/player/staffDetailList/StaffList
 import useFetchData from "../../hooks/useFetchData";
 import { Container } from "../PagesStyles";
 import CheerImage from "../../assets/images/landing/bg02.png"
-import colors from "../../assets/Colors";
-import SkeletonGridContainer from "../../components/common/skeleton/SkeletonGridContainer";
 import ListSkeleton from "../../components/common/skeleton/ListSkeleton";
 
 export type TCheerleader = {
@@ -25,7 +23,7 @@ export type TCheerData = {
 
 // CheerCard 스타일 개선
 const CheerCard = styled.div`
-  width: 250px;
+  width: 260px;
   height: 454px;
   display: flex;
   flex-direction: column;
@@ -37,10 +35,10 @@ const CheerCard = styled.div`
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease-in-out;
-  background-image: url(${CheerImage});
+  /* background-image: url(${CheerImage});
   background-size:150px 100px;
   background-repeat: no-repeat;
-  background-position: bottom -20px center;
+  background-position: bottom -20px center; */
   div{
     text-align: center;
   }
@@ -60,10 +58,11 @@ const CheerCard = styled.div`
   }
 
   h1 {
-    font-size: 33px;
+    font-size: 25px;
     font-weight: 1000;
     color: #333;
     margin: 8px 0;
+    font-family: KBO_Gothic_bold;
   }
 
   p {
@@ -71,6 +70,7 @@ const CheerCard = styled.div`
     color: #000000;;
     margin: 4px 0;
     font-weight: 600;
+    font-family: KBO_Gothic_bold;
   }
 
   .info {
@@ -81,18 +81,25 @@ const CheerCard = styled.div`
     position: relative;
     display: flex;
     gap:50px;
+
   }
 `;
 
 const Title=styled.div`
-  font-size: 16px;
-  width:80px;
-  height:18px;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #ac9797;
+    width: 80px;
+    height: 25px;
+    border-radius: 20px;
+    border: 3px solid #BF8371;
+    background-color: #7B0000;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    caret-color: transparent;
+    font-family: KBO_Gothic_bold;
+    font-size: 12px;
+    padding: 0;
+    cursor: pointer;
 `
 
 const Cheer = () => {
