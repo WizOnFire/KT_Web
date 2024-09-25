@@ -5,8 +5,8 @@ import TeamRecords from "./records/TeamRecords";
 import TeamBatter from "./records/TeamBatter";
 import WinLossTable from "./records/WinLossTable";
 import colors from "../../../../assets/Colors";
-import { useEffect, useState } from "react";
 import { SkeletonBox } from "../../boxScore/recordButton/score/ScoreSkeleton";
+import useLoading from "../../../../hooks/useLoading";
 
 const RankingContainer = styled.main`
   display: flex;
@@ -64,7 +64,7 @@ const SkeletonRankBox = styled(SkeletonBox)`
 `
 
 const TeamRanking = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true); 
+  const isLoading = useLoading();
   const title = {
     common : "2024 시즌 팀",
     items : [
@@ -75,12 +75,6 @@ const TeamRanking = () => {
       "간 승패표",
     ]
   };
-
-  useEffect(()=>{
-    setTimeout(() => {
-        setIsLoading(false);
-    },500);
-},[])
 
   return (
     <RankingContainer>

@@ -12,6 +12,7 @@ import {
     TeamRankingCell
 } from "../team/records/TeamRecordStyles"
 import AudienceSkeleton from "./AudienceSkeleton";
+import useLoading from "../../../../hooks/useLoading";
 
 const AudienceWrapper = styled.h3`
     margin-top: 50px;
@@ -46,7 +47,7 @@ const AudienceRecord = () => {
         },
     ];
 
-    const {getHeaderGroups, getRowModel, isLoading} = useTable({
+    const {getHeaderGroups, getRowModel} = useTable({
         apiUrl: (`/game/rank/crowd?gyear=${year}`),
         columnDefs,
         transformData: (data: TAudienceResponse) => {
@@ -65,12 +66,14 @@ const AudienceRecord = () => {
         }
     });
 
+    const isLoading = useLoading();
+
     const graphData = getRowModel().rows.map(row => ({
         teamName: row.original.teamName,
         crowd: row.original.crowd,
     }));
 
-    if(!isLoading) return <AudienceSkeleton columnDefs={columnDefs}/>;
+    if(isLoading) return <AudienceSkeleton />;
 
     return (
     <>

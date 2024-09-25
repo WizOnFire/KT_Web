@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MainRecords from "./recordButton/mainRecords/MainRecords";
 import HitRecords from "./recordButton/hitRecords/HitRecords";
 import PitchRecords from "./recordButton/pitchRecords/PitchRecords";
@@ -6,6 +6,7 @@ import { MenuContainer, LeftMenu, RightMenu, WeatherLink } from "./MenuBarStyles
 import { GradientCircle } from "../../../components/common/gradientChip/GradientChipStyles";
 import colors from "../../../assets/Colors";
 import MenuBarSkeleton from "./MenuBarSkeleton";
+import useLoading from "../../../hooks/useLoading";
 
 const MenuBar = ({ apiUrl }: { apiUrl: string }) => {
     const menu = [
@@ -15,19 +16,13 @@ const MenuBar = ({ apiUrl }: { apiUrl: string }) => {
     ];
 
     const [selectedMenu, setSelectedMenu] = useState("주요기록");
-    const [isLoading, setIsLoading] = useState<boolean>(true); 
+    const isLoading = useLoading(300);
 
     const handleClick = (title: string) => {
         setSelectedMenu(title);
         window.scrollTo(0, 0);
     };
 
-    useEffect(()=>{
-        setTimeout(() => {
-            setIsLoading(false);
-        },300);
-    },[])
-    
     if (isLoading) return <><MenuBarSkeleton/></>;
 
     return (

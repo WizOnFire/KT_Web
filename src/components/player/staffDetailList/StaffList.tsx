@@ -44,7 +44,7 @@ const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
     stafflist = staffs as TStaff[];
     }
 
-  if(isLoading ||error) return <ListSkeleton columns={4} margin="0px" width="240px" height="275px" borderRadius="0px"/>
+  if(isLoading) return <ListSkeleton columns={4} count={20} margin="0px" width="240px" height="275px" borderRadius="0px"/>
   if (error) return <p>{error}</p>;
 
   const onClick=(pcode:string)=>{

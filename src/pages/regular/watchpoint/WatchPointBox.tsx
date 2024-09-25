@@ -10,6 +10,7 @@ import { GrPrevious, GrNext } from "react-icons/gr";
 import { PitchRecordLabel, PitchRecordTable } from "../boxScore/recordButton/pitchRecords/PitchRecordStyles";
 import LineUp from "./LineUp";
 import { VSWrapper, VS } from "./LineUpStyles";
+import { vs } from "../../../assets/assets";
 
 const WatchPointBox = () => {
   // 가장 최신 게임 가져오기
@@ -294,7 +295,7 @@ const WatchPointBox = () => {
     <LineUpWrapper>
       <LineUp lineup={homeLineupData} logo={gameData?.data.gameScore?.homeLogo || ''} />
       <VSWrapper>
-          <VS>VS</VS>
+          <img src={vs}/>
         </VSWrapper>
       <LineUp lineup={visitLineupData} logo={gameData?.data.gameScore?.visitLogo || ''} />
     </LineUpWrapper>
