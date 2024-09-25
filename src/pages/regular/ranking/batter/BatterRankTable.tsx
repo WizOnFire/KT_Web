@@ -64,8 +64,9 @@ const BatterRankTable = <T,>({
         sorting: sorting.length === 0 ? defaultSorting : sorting,
         onSortingChange
     });
-
+          
     if(isLoading) return <RankTableSkeleton/>
+
     return (
     <>
     <SelectAndSearch>

@@ -79,6 +79,7 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navAnimation = useAnimation();
   const { scrollY } = useScroll();
+  const [currentScrollY, setCurrentScrollY] = useState(0); 
   const [hoveredCategory,setHoveredCategory]=useState("");//어떤 게 호버가 되는지를 기억해야 함.
 
   const location=useLocation();
@@ -122,11 +123,12 @@ const Header = () => {
 
   useMotionValueEvent(scrollY, "change", () => {
     const currentScrollY = scrollY.get();
+    setCurrentScrollY(currentScrollY);  // 상태에 스크롤 값 저장
     if(isLandingPage){
-      if(currentScrollY<=1000){
+      if(currentScrollY<=620){
         navAnimation.start({ backgroundColor: "rgba(0,0,0,0)" });
       }
-      else if(currentScrollY > 1000 && !isHovered) {
+      else if(currentScrollY > 620 && !isHovered) {
           navAnimation.start({ backgroundColor: "rgba(0,0,0,1)" });
       }
     }
@@ -140,7 +142,7 @@ const Header = () => {
 
   const handleMouseLeave = () => {//호버가 끝나면 무조건 네비바는 검은색임
     setIsHovered(false);
-    if(isLandingPage && scrollY.get()<=900){
+    if(isLandingPage && scrollY.get()<=620){
       navAnimation.start({ backgroundColor: "rgba(0,0,0,0)" });
     }
     else{
@@ -199,9 +201,10 @@ const Header = () => {
       <UpNav
         animate={navAnimation}
         initial={{ backgroundColor: isLandingPage ? "rgba(0,0,0,0)" : "rgba(0,0,0,1)" }}
-        onMouseEnter={windowWidth>800? handleMouseEnter:undefined}
+        onMouseEnter={windowWidth>620? handleMouseEnter:undefined}
         onMouseLeave={handleMouseLeave}
         isHovered={isHovered}
+        scrollY={currentScrollY}
         >
           {/* 화면 너비가 800px 이상일 때만 카테고리 렌더링
           {windowWidth<=800 && <Logo 
@@ -266,7 +269,7 @@ const Header = () => {
         initial={{opacity:0,height:0}} 
         animate={{opacity:1,height:300}}//투명도가 1이 되어 완전히 보이는 상태
         exit={{opacity:0,height:0}}
-        transition={{duration:0.4}}
+        transition={{duration:0.6}}
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
         >

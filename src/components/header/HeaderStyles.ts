@@ -3,7 +3,7 @@ import {motion}from 'framer-motion';
 import colors from '../../assets/Colors';
 
 
-export const UpNav = styled(motion.nav)<{isHovered:boolean}>` 
+export const UpNav = styled(motion.nav)<{isHovered:boolean,scrollY:number}>` 
     justify-content: center;
     display: flex;
     position: fixed;
@@ -42,7 +42,7 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
         transform: translateX(-50%);
         width: 1100px;
         //border-bottom: 2px solid white;
-        border-bottom:${({isHovered})=>(isHovered? "none": "2px solid white")};
+        border-bottom: ${({ isHovered, scrollY }) => isHovered || scrollY > 620 ? "none" : "2px solid white"};
         transition: width 0.3s ease;
         clip-path: polygon(
             0 0, 

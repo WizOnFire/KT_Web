@@ -82,14 +82,13 @@ const SideBar = () => {
     }
   }, [currentPath,activeTab,categoryIndex]);
 
+  console.log("Sidebar");
   const getTitle = () => {
     const category = categories[categoryIndex];
     //return category.title;
     if (activeTab) {
-      console.log("1");
       return activeTab;
     }
-    console.log("2")
     return category.title;
   };
 
