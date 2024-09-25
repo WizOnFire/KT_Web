@@ -54,7 +54,6 @@ const Ranking = () => {
 
   const handleClickMenu = (title: string) => {
       setSelectedMenu(title);
-      window.scrollTo(0, 0);
       if (title === "투수순위") {
           setClickSelectedMenu("ktwiz 투수");
       } else if (title === "타자순위") {

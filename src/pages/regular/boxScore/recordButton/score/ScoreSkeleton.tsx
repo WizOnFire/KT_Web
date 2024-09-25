@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { LeftMenu, MenuContainer, RightMenu } from "../../MenuBarStyles";
 
 const loadingAnimation = keyframes`
     0% {

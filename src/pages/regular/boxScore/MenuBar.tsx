@@ -20,7 +20,6 @@ const MenuBar = ({ apiUrl }: { apiUrl: string }) => {
 
     const handleClick = (title: string) => {
         setSelectedMenu(title);
-        window.scrollTo(0, 0);
     };
 
     if (isLoading) return <><MenuBarSkeleton/></>;
