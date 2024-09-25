@@ -22,6 +22,7 @@ interface ApiResponse {
     list: Article[];
   };
 }
+
 // 본문 이미지 경로를 변환하는 함수
 export const formatArticleContents = (contents: string) => {
   const baseUrl = 'https://wizzap.ktwiz.co.kr/';

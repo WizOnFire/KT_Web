@@ -64,7 +64,8 @@ const BatterRankTable = <T,>({
         sorting: sorting.length === 0 ? defaultSorting : sorting,
         onSortingChange
     });
-console.log('apiurl 테이블 먼저니?!?!!?');
+    
+//console.log('apiurl 테이블 먼저니?!?!!?');
     return (
     <>
     <SelectAndSearch>

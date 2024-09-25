@@ -41,6 +41,7 @@ export const CoachCard = styled.div`
   position: relative;
   text-align: center;
   min-height: 200px;
+  cursor: pointer;
 `;
 
 export const CoachImage = styled.img`

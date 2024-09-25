@@ -3,7 +3,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { PageLocationContainer, PageLocationBox, PageLocationInfo } from "./PageLocationStyles";
 
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { useSubCategoryStore } from "../../../stores/useSubCategory.store";
 
 let locationMap = new Map([
   ['player', 'Player'],
@@ -20,7 +20,11 @@ let locationMap = new Map([
   ['boxscore', '박스스코어'],
   ['schedule', '경기 일정'],
   ['ranking', '순위기록'],
-  ['team', '팀순위'],
+  //['team', '팀순위'],
+  ['투수순위','투수순위'],
+  ['타자순위','타자순위'],
+  ['관중현황','관중현황'],
+  ['팀순위','팀순위'],
   ['watchPoint', '관전포인트'],
   ['wizpark', 'Suwon kt wiz park'],
   ['kt wiz park', 'kt wiz park'],
@@ -68,6 +72,7 @@ let navMap = new Map([
 ]);
 
 const PageLocation = () => {
+  const {selectedRankingBar}=useSubCategoryStore();
   const location = useLocation();
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/";
@@ -82,8 +87,14 @@ const PageLocation = () => {
     pathItems2.splice(1, 0, 'kt wiz는?');
   } else if (pathItems2[1] === 'intro') {
     pathItems2.splice(1, 0, 'kt wiz park');
+  }else if(pathItems2[3]=="team"){
+    pathItems2.splice(3,1,selectedRankingBar)
   }
+  console.log(pathItems2)
 
+  //else if(pathItems2[])
+  //console.log("pathItems2",pathItems2);
+  console.log(selectedRankingBar)
   const isShopOrSponsor = ["shop", "스폰서"].includes(location.pathname);
   const truncatedPathItems = (pathItems2.length > 3 && (pathItems2[2] === "schedule" || pathItems2[2] === "boxscore")) ? pathItems2.slice(0, 3) : pathItems2;
 

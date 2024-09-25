@@ -12,6 +12,8 @@ import { SubMenuText } from "../../../components/ranking/menubar/SelectMenuStyle
 import TopBattRank from "./batter/TopBattRank";
 import colors from "../../../assets/Colors";
 import TopPitRank from "./pitcher/TopPitRank";
+import { useSubCategoryStore } from "../../../stores/useSubCategory.store"
+
 
 const RankingContainer = styled.div`
     width: 65%;
@@ -30,6 +32,8 @@ const Ranking = () => {
   const [clickSelectedMenu, setClickSelectedMenu] = useState("ktwiz 투수");
   // const {year} = useRankStore();
   // const navigate = useNavigate();
+  const { selectedRankingBar, setSelectedRankingBar } = useSubCategoryStore();
+
 
   const menu = [
       { title: "팀순위", component: <TeamRanking /> },
@@ -57,9 +61,15 @@ const Ranking = () => {
       window.scrollTo(0, 0);
       if (title === "투수순위") {
           setClickSelectedMenu("ktwiz 투수");
+          //setSelectedRankingBar(title)
       } else if (title === "타자순위") {
           setClickSelectedMenu("ktwiz 타자");
+          //setSelectedRankingBar(title)
       }
+      setSelectedRankingBar(title);
+      console.log(selectedRankingBar)
+      //console.log(title);
+
   };
 
   const handelClickSubMenu = (subTitle: string) => {
@@ -132,3 +142,7 @@ const Ranking = () => {
   );
 }
 export default Ranking 
+
+function useRankCateogoryStore(): { selectedRanking: any; } {
+    throw new Error("Function not implemented.");
+}

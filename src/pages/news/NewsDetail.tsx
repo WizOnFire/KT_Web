@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import useFetchData from '../../hooks/useFetchData';
 import { NewsContainer, Title, MetaInfo, Views, ViewsIcon, Thumbnail } from './NewsStyles';
 import { formatArticleContents } from "./News";  // If this function is in a utility file
