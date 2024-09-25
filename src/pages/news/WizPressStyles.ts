@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import colors from '../../assets/Colors';
 import { FaEye } from 'react-icons/fa';
+import { Shining } from '../../components/common/skeleton/gridskeleton/SkeletonGridContainer';
+
+export const SkeletonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+`;
 
 export const WizPressContainer = styled.div`
   max-width: 1100px;
@@ -31,12 +41,28 @@ export const NewsItem = styled.div`
   }
 `;
 
+export const SkeletonNewsItem = styled.div`
+  display: flex;
+  max-width: 1100px;
+  height: 44px;
+  padding: 20px;
+  border-bottom: 1px solid ${colors.ashGray};
+  background-color: ${colors.white};
+  `;
 
 export const Title = styled.h3`
   margin: 0;
   font-size: 18px;
   font-weight: bold;
 `;
+
+export const SkeletonTitle = styled(Shining)`
+  width: 70%;
+  height: 27px;
+  border-radius: 5px;
+  background-color: ${colors.ashGray};
+  margin-left: 100px;
+  `;
 
 export const MetaInfo = styled.div`
   display: flex;

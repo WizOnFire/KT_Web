@@ -21,6 +21,7 @@ import Infielder from "../pages/player/Infielder";
 import Outfielder from "../pages/player/Outfielder";
 import Ranking from "../pages/regular/ranking/Ranking";
 import PitcherRanking from "../pages/regular/ranking/pitcher/PitcherRank";
+import NewsDetail from "../pages/news/NewsDetail";
 //import Location from "../pages/wizpark/Location";
 
 const router = createBrowserRouter([
@@ -153,6 +154,10 @@ const router = createBrowserRouter([
           {
             path: "wiznews",
             element:<News/>,
+          },
+          {
+            path:"wiznews/:newsId",
+            element:<NewsDetail/>
           },
           {
             path: "wizpress",

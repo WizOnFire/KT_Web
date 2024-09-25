@@ -66,7 +66,7 @@ interface SkeletonGridProps {
   borderRadius?:string;
 }
 
-export const SkeletonGridContainer = ({ count,columns,width,height,margin,borderRadius }: SkeletonGridProps) => {
+export const SkeletonGridContainer = ({ count, columns,width,height,margin,borderRadius }: SkeletonGridProps) => {
   return (
     <Container>
       <SkeletonGrid columns={columns} >

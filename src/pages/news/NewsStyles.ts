@@ -111,14 +111,41 @@ export const SearchBarWrapper = styled.div`
   position: relative;
   top: -37px;  /* 현재 위치에서 20px 위로 이동 */
 `;
+
+export const SkeletonSearchBarWrapper = styled(Shining)`
+  width: 140px;  /* 서치바의 실제 크기에 맞춤 */
+  height: 29px;  /* 서치바의 실제 높이에 맞춤 */
+  margin: 0 auto;  /* 수평 중앙 정렬 */
+  margin-left:1px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: ${colors.ashGray};
+  border-radius: 5px;
+  position: relative;
+  top: -57px;
+`;
+
+export const SkeletonSearchIcon = styled(Shining)`
+  width: 29px;
+  height:29px;
+  margin: 0 auto;
+  margin-left: 145px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: ${colors.ashGray}; 
+  border-radius: 5px; 
+  position: relative;
+  top: -101px;
+`;
+
 export const NewsContainer = styled.div`
   max-width: 1100px; 
   margin: 0 auto; 
   // padding: 20px;
   box-sizing : border-box;
   background-color: ${colors.white};
-`;
-export const SkeletonNewsContainer = styled.div`
 `;
 
 export const Thumbnail = styled.img`
@@ -143,6 +170,13 @@ export const ViewsIcon = styled(FaEye)`
   color: ${props => props.color || 'inherit'};
 `;
 
+export const SkeletonViews = styled(Shining)`
+  display:flex;
+  width: 40px;
+  height: 15px;
+  background-color: ${colors.ashGray};
+  border-radius: 5px;
+`;
 // 전체 스켈레톤 컨테이너
 export const SkeletonWrapper = styled.div`
   display: flex;
@@ -160,7 +194,7 @@ export const SkeletonNewsItem = styled.div`
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid ${colors.ashGray};
-  background-color: ${colors.lightGray};
+  background-color: ${colors.white};
 `;
 
 // 스켈레톤 썸네일
@@ -175,11 +209,11 @@ export const SkeletonThumbnail = styled(Shining)`
 
 // 스켈레톤 제목
 export const SkeletonTitle = styled(Shining)`
-  width: 70%;
-  height: 20px;
+  width: 500px;
+  height: 27px;
   border-radius: 5px;
   background-color: ${colors.ashGray};
-
+  margin-right: 225px;
   // font-size: 1.4rem;
   margin-bottom: -5px;
 `;

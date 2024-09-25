@@ -11,6 +11,7 @@ type TListSkeletonProps = {
   margin: string;
   borderRadius: string;
   isCheer?:boolean;
+  count:number;
 }
 
 const speed = 1;
@@ -24,7 +25,7 @@ const ListSkeleton = (props: TListSkeletonProps) => {
     <Container style={{padding:"10px"}}>
      <div style={{ position: "relative", width: "100%", height: "100%" }}>
       {/* MatchBoxSkeleton은 기본적으로 부모의 크기를 차지 */}
-      <SkeletonGridContainer count={20} {...props} /> 
+      <SkeletonGridContainer {...props} /> 
       {/* 배경을 흐리게 만들 오버레이 */}
       <div style={{
         position: "absolute",
@@ -45,7 +46,7 @@ const ListSkeleton = (props: TListSkeletonProps) => {
           speed={speed}
           isPaused={isPaused}
           isStopped={isStopped}
-          style={{ width: "130px", height: "130px",transform: isCheer?"translateY(-1504px)":"translateY(-700px)"}} // 로딩 애니메이션 크기 조정
+          style={{ width: "130px", height: "130px",transform: isCheer?"translateY(-1050px)":"translateY(-700px)"}} // 로딩 애니메이션 크기 조정
         />
       </div>
     </div>

@@ -1,10 +1,11 @@
 import useFetchData from '../../hooks/useFetchData';
-import { NewsContainer, NewsList, NewsItem, Title, MetaInfo, Views, SearchBarWrapper, Pagination, Thumbnail, ViewsIcon, ArticleIndex } from './NewsStyles';
+import { NewsContainer, NewsList, NewsItem, Title, MetaInfo, Views, SearchBarWrapper, Pagination, Thumbnail, ViewsIcon, ArticleIndex, SkeletonViews, SkeletonSearchBarWrapper, SkeletonSearchIcon } from './NewsStyles';
 import { SkeletonWrapper, SkeletonNewsItem, SkeletonThumbnail, SkeletonTitle} from './NewsStyles';
 import { useState, useEffect } from 'react';
 import Button from '../../components/common/button/Button';
 import SearchBar from '../../components/common/searchbar/SearchBar';
 import colors from '../../assets/Colors';
+import { useNavigate } from 'react-router-dom';
 
 interface Article {
   artcSeq: number;
@@ -22,7 +23,7 @@ interface ApiResponse {
   };
 }
 // 본문 이미지 경로를 변환하는 함수
-const formatArticleContents = (contents: string) => {
+export const formatArticleContents = (contents: string) => {
   const baseUrl = 'https://wizzap.ktwiz.co.kr/';
   return contents.replace(/src="\/files/g, `src="${baseUrl}/files`);
 };
@@ -44,6 +45,7 @@ const News = () => {
   const [currentItems, setCurrentItems] = useState<Article[]>([]);
   const [startPage, setStartPage] = useState(1);
   const maxVisibleButtons = 5;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data && data.data && data.data.list) {
@@ -78,22 +80,27 @@ const News = () => {
   const endPage = Math.min(startPage + maxVisibleButtons - 1, totalPages);
 
   const handleClick = (article: Article) => {
-    setSelectedArticle(article);
+    navigate(`/media/wiznews/${article.artcSeq}`);;
   };
+  
+if (isLoading) {
+  return (
+    <SkeletonWrapper>
+        <SkeletonSearchBarWrapper />
+        <SkeletonSearchIcon />
+      {Array.from({ length: itemsPerPage }).map((_, index) => (
+        <SkeletonNewsItem key={index}>
+          <SkeletonThumbnail />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <SkeletonTitle />
+            <SkeletonViews />
+          </div>
+        </SkeletonNewsItem>
+      ))}
+    </SkeletonWrapper>
+  );
+}
 
-  if (isLoading) {
-    return (
-      <SkeletonWrapper>
-        {Array.from({ length: itemsPerPage }).map((_, index) => (
-          <SkeletonNewsItem key={index}>
-            <SkeletonThumbnail />
-              <SkeletonTitle />
-              {/* <SkeletonMeta /> */}
-          </SkeletonNewsItem>
-        ))}
-      </SkeletonWrapper>
-    );
-  }
 
   if (error) {
     return <div>{error}</div>;

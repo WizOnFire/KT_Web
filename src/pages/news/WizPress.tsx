@@ -165,12 +165,12 @@
 
 // export default WizPress;
 import useFetchData from '../../hooks/useFetchData';
-import { WizPressContainer, NewsList, NewsItem, Title, MetaInfo, Views, SearchBarWrapper, Pagination, ArticleIndex } from './WizPressStyles';
+import { WizPressContainer, NewsList, NewsItem, Title, MetaInfo, Views, SearchBarWrapper, Pagination, ArticleIndex, SkeletonWrapper, SkeletonNewsItem } from './WizPressStyles';
 import { useState, useEffect } from 'react';
 import Button from '../../components/common/button/Button';
 import SearchBar from '../../components/common/searchbar/SearchBar';
 import colors from '../../assets/Colors'; // Import your colors
-import { ViewsIcon } from './NewsStyles';
+import { SkeletonTitle, ViewsIcon } from './NewsStyles';
 
 interface Article {
   artcSeq: number;
@@ -236,7 +236,15 @@ const WizPress = () => {
   // };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <SkeletonWrapper>
+        {Array.from({ length: itemsPerPage }).map((_,index)=>(
+        <SkeletonNewsItem key={index}>
+          <SkeletonTitle/>
+        </SkeletonNewsItem>
+        ))}
+      </SkeletonWrapper>
+    );
   }
 
   return (

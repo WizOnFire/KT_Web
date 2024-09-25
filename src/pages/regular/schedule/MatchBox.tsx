@@ -22,7 +22,7 @@ const MatchBox = () => {
     const day = date?.substring(6, 8) || "";
     return  `${year}.${month}.${day}`;
 }
-if (isLoading) {
+if (!isLoading) {
   const speed = 1;
   const isPaused = false;
   const isStopped = false;
