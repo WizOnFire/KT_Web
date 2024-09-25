@@ -20,7 +20,7 @@ import {
 
 const TeamMatch = () => {
     const navigate = useNavigate();
-    const { data : game } = useFetchData<TGameResponse>("/game/recentGames");
+    const { data : game } = useFetchData<TGameResponse>("game/recentGames");
     const { current, prev, next } = game?.data || {};
     const [ index, setIndex ] = useState(1);
 

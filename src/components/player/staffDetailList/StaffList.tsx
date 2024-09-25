@@ -9,7 +9,7 @@ import useFetchData from "../../../hooks/useFetchData";
 import SearchBar from "../../common/searchbar/SearchBar";
 import { Container } from "../../../pages/PagesStyles";
 import { useNavigate} from "react-router-dom";
-import ListSkeleton from "../../common/skeleton/ListSkeleton";
+import ListSkeleton from "../../common/skeleton/gridskeleton/ListSkeleton";
 import { useState } from "react";
 
 export type TStaff = {
@@ -43,9 +43,8 @@ const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
     } else {
     stafflist = staffs as TStaff[];
     }
-    //console.log("스태프 리스트: ",stafflist);
 
-  if(isLoading) return <ListSkeleton columns={4} margin="0px" width="240px" height="275px" borderRadius="0px"/>
+  if(isLoading ||error) return <ListSkeleton columns={4} margin="0px" width="240px" height="275px" borderRadius="0px"/>
   if (error) return <p>{error}</p>;
 
   const onClick=(pcode:string)=>{
@@ -57,7 +56,6 @@ const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
         staff.playerName.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : [];
-
   return (
     <>
     <Container >

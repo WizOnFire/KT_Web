@@ -12,6 +12,19 @@ const positions: { [key: string]: { top: string; left: string } } = {
     "9": { top: '30%', left: '80%' }, // 상대선수7
     "D": { top: '78%', left: '15%' }, // 상대선수10
 };
+  const positionMap: { [key: string]: string } = {
+    "1": "P",
+    "2": "C",
+    "3": "1B",
+    "4": "2B",
+    "5": "3B",
+    "6": "SS",
+    "7": "LF",
+    "8": "CF",
+    "9": "RF",
+    "D": "DH",
+  };
+
 ////////////////////////////수정?
 const LineUp = ({ lineup, logo }: { lineup: { pos: string; playerName: string }[]; logo: string }) => { // pos 타입을 string으로 변경
     return (
@@ -28,7 +41,7 @@ const LineUp = ({ lineup, logo }: { lineup: { pos: string; playerName: string }[
               left={positions[player.pos]?.left || '50%'}
             >
               <PlayerInfo>
-              {player.pos}. {player.playerName}
+              {positionMap[player.pos] || player.pos}. {player.playerName}
               </PlayerInfo>
             </PlayerPosition>
           ))}

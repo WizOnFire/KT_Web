@@ -3,6 +3,8 @@ import styled from "styled-components";
 import useFetchData from "../../../../hooks/useFetchData";
 import colors from "../../../../assets/Colors";
 import { bronze, gold, silver } from "../../../../assets/assets";
+import NotFound from "../../../../components/NotFound";
+import PitcherTop3Skeleton from "../pitcher/PitcherTop3Skeleton";
 
 const AvgPitContainer = styled.div`
     display: flex;
@@ -144,8 +146,10 @@ const SharedTop3 = ({ condition, children }: TTopConditionRankType) => {
         }
     }, [condition]);
 
-    const { data } = useFetchData<FetchDataResponse>(apiUrl);
+    const { data, isLoading } = useFetchData<FetchDataResponse>(apiUrl);
     const transformedData = data?.data?.list || [];
+
+        if (isLoading) return <PitcherTop3Skeleton/>;
 
     return (
         <AvgPitContainer>

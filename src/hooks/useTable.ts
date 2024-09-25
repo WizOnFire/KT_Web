@@ -19,16 +19,22 @@ export const useTable = <TData,>({
 }: TableParams<TData>) => {
 
     const [data, setData] = useState<TData[]>([]); 
+    const [isLoading, setIsLoading] = useState<boolean>(true); 
+    const [error, setError] = useState<string | null>(null); 
     const BASE_URL = import.meta.env.VITE_BASE_URL || '';
 
     const fetchData = async () => {
+        setIsLoading(true); 
+        setError(null);
         try {
             const response = await axios.get(`${BASE_URL}${apiUrl}`); 
             const resultData = transformData ? transformData(response.data) : response.data;
-            console.log('Fetched data:', response.data); 
             setData(resultData);
         } catch (error) {
+            setError("데이터를 가져오는 데 실패했습니다.");
             console.error("데이터를 가져오는데 실패했습니다.", error);
+        } finally {
+            setIsLoading(false); 
         }
     };
     useEffect(() => {
@@ -48,5 +54,9 @@ export const useTable = <TData,>({
         onSortingChange, 
     });
 
-    return table;
+    return { 
+        getHeaderGroups: table.getHeaderGroups,
+        getRowModel: table.getRowModel,
+        isLoading,
+        error };
 };

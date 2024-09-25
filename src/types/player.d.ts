@@ -1,4 +1,4 @@
-import { TRecent5RecordProps, TTotalRecordProps, TRecent5RecordProps_C, TTotalRecords } from './player.d';
+import { TRecent5RecordProps, TTotalRecordProps, TRecent5RecordProps_C, TTotalRecords, TRecent5Records } from './player.d';
 export type TRegularLeagueProps={
     era: string;           // 평균 자책점 (ex. "4.62")
     gamenum: number;       // 경기수 (ex. 26)
@@ -70,6 +70,34 @@ export type TRegularLeagueProps_C={//타자들의 타입
   xbhrun: string;          // Extra-base Hits / Home Runs
 }
 
+export type TFutureLeagueProps={
+    ab: number;        // at-bats
+    bb: number;        // base on balls (walks)
+    bra: string;       // batting average on balls in play (BABIP)
+    cs: number;        // caught stealing
+    gamenum: number;   // number of games
+    gd: number;        // grounded into double plays
+    gyear: string;     // game year
+    h2: number;        // doubles
+    h3: number;        // triples
+    hit: number;       // hits
+    hp: number;        // hit by pitch
+    hr: number;        // home runs
+    hra: string;       // home run average
+    kk: number;        // strikeouts
+    pcode: string;     // player code
+    rbi: number;       // runs batted in
+    run: number;       // runs
+    sb: number;        // stolen bases
+    sf: number;        // sacrifice flies
+    sh: number;        // sacrifice hits
+    slg: string;       // slugging percentage
+    war: string;       // Wins Above Replacement
+    winShares: string; // win shares
+    woba: string;      // weighted on-base average
+    wraa: string;      // weighted runs above average
+    xbhRun: string;    // extra-base hits (e.g. "8/40")
+}
 
 export type TRecent5RecordProps={
     bb: number;               // Base on balls (walks)
@@ -113,6 +141,52 @@ export type TRecent5RecordProps_C={
     sb: number;              // Stolen Bases (도루)
 }
 export type TRecent5Records_C=TRecent5RecordProps_C[];
+
+export type TRecent5FuturesRecordsProps_C={
+    ab: number;
+    bb: number;
+    cs: number;
+    displayDate: string;
+    gd: number;
+    h2: number;
+    h3: number;
+    hit: number;
+    hp: number;
+    hr: number;
+    hra: string;
+    kk: number;
+    matchTeamCode: string;
+    matchTeamName: string;
+    rbi: number;
+    run: number;
+    sb: number;
+}
+export type TRecent5FuturesRecord_C=TRecent5FuturesRecordsProps[];
+
+export type TRecent5FuturesRecordsProps={
+    bb: number;               // Base on balls (walks)
+    displayDate: string;      // Date of the game, formatted as a string
+    er: number;               // Earned runs
+    hit: number;              // Hits
+    hp: number;               // Hit by pitch
+    hr: number;               // Home runs
+    inn2: number;             // Innings pitched (in two-thirds format)
+    innDisplay: string;       // Innings pitched displayed as a string
+    kk: number;               // Strikeouts
+    matchTeamCode: string;    // Opponent team code
+    matchTeamName: string;    // Opponent team name
+    pa: number;               // Plate appearances
+    r: number;                // Runs scored
+    sv: number;               // Saves
+    wl: string;               // Win-loss record
+    wls: string;              // Additional win/loss data
+}
+export type TRecent5FuturesRecord=TRecent5FuturesRecordsProps[];
+
+
+
+
+
 
 
 export type TTotalRecordProps={

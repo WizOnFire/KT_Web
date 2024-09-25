@@ -4,6 +4,8 @@ import { TAllAvgResponse } from "../../../../types/ranking";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import styled from "styled-components";
 import colors from "../../../../assets/Colors";
+import NotFound from "../../../../components/NotFound";
+import PitcherTop5Skeleton from "../pitcher/PitcherTop5Skeleton";
 const Top5Container = styled.div`
   flex: 1;
   display: flex;
@@ -67,8 +69,11 @@ const SharedAvgTop5 = ({condition, children} :TTopConditionRankType) => {
   }, [condition]);
 
   
-  const { data } = useFetchData<TAllAvgResponse>(apiUrl)
+  const { data, isLoading } = useFetchData<TAllAvgResponse>(apiUrl)
   const transformedData = data?.data?.list || null;
+
+  if (isLoading) return <><PitcherTop5Skeleton/></>;
+
 
   return (
     <>
@@ -80,7 +85,9 @@ const SharedAvgTop5 = ({condition, children} :TTopConditionRankType) => {
                 <PlayerInfo>{index + 1}) <b>{player.playerName}</b> ({player.teamName})</PlayerInfo>
                 <EraWrapper>
                   <IoIosCheckmarkCircleOutline style={{fontSize:"18px"}}/> 
-                  <EraText>{player.era}</EraText> 
+                  <EraText>
+                    {condition === "pitcher" ? player.era : player.hra}
+                  </EraText> 
                 </EraWrapper>
               </Top5TextLi>
               <Top5BottomLine/>

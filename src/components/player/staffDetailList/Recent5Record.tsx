@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 
 // 이닝을 실수형으로 변환하는 함수 ("4 2/3" 형식도 처리)
-const parseInningToNumber = (innDisplay: string): number => {
+export const parseInningToNumber = (innDisplay: string): number => {
   const match = innDisplay.match(/(\d+)(?: (\d)\/(\d))?/);
   if (!match) return 0;
 

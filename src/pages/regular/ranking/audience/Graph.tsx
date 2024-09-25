@@ -6,6 +6,7 @@ import {
   CartesianGrid,
   Tooltip,
   Cell,
+  ResponsiveContainer,
 } from "recharts";
 import styled from "styled-components";
 import colors from "../../../../assets/Colors";
@@ -60,43 +61,45 @@ const Graph = ({graphData}: TGraphDataType) => {
 
     return (
     <GrahpWrapper>
-        <BarChart
-            width={1100}
-            height={300}
-            data={sortedData}
-            barSize={18}
-            margin={{
-                top: 0,
-                right: 110,
-                left: 10,
-                bottom: 0
-            }}
-        >
-        <CartesianGrid vertical={false} opacity={10} stroke={colors.lightGray} />
-        <XAxis
-            dataKey="teamName"
-            scale="point"
-            padding={{ left: 80, right: 80 }}
-            tick={<CustomizedAxisTick />}
-        />
-        <YAxis
-            stroke={colors.ashGray} 
-            tickMargin={10}
-            tick={{ fontSize: 12 }}
-            ticks={[0, 200000, 400000, 600000, 800000, 1000000, 1200000, 1400000]}  
-            tickFormatter={(value) => value.toLocaleString()}
-        />
-        <Tooltip />
-        <CartesianGrid strokeDasharray="3 3" />
-        <Bar dataKey="crowd">
-            {sortedData.map((entry, index) => (
-                <Cell
-                    key={`cell-${index}`}
-                    fill={entry.teamName === "KT" ? colors.redQuaternary : colors.ashGray}
-                />
-            ))}
-        </Bar>
-        </BarChart>
+        <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+                width={1100}
+                height={300}
+                data={sortedData}
+                barSize={18}
+                margin={{
+                    top: 0,
+                    right: 0,
+                    left: 10,
+                    bottom: 0
+                }}
+            >
+            <CartesianGrid vertical={false} opacity={10} stroke={colors.lightGray} />
+            <XAxis
+                dataKey="teamName"
+                scale="point"
+                padding={{ left: 80, right: 80 }}
+                tick={<CustomizedAxisTick />}
+            />
+            <YAxis
+                stroke={colors.ashGray} 
+                tickMargin={10}
+                tick={{ fontSize: 12 }}
+                ticks={[0, 200000, 400000, 600000, 800000, 1000000, 1200000, 1400000]}  
+                tickFormatter={(value) => value.toLocaleString()}
+            />
+            <Tooltip />
+            <CartesianGrid strokeDasharray="3 3" />
+            <Bar dataKey="crowd">
+                {sortedData.map((entry, index) => (
+                    <Cell
+                        key={`cell-${index}`}
+                        fill={entry.teamName === "KT" ? colors.redQuaternary : colors.ashGray}
+                    />
+                ))}
+            </Bar>
+            </BarChart>
+        </ResponsiveContainer>
     </GrahpWrapper>
     );
 }

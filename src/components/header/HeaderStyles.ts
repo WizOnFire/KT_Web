@@ -4,9 +4,6 @@ import colors from '../../assets/Colors';
 
 
 export const UpNav = styled(motion.nav)<{isHovered:boolean}>` 
-      /* display: grid;
-  grid-template-columns: no-repeat(8, 1fr);  */
-    
     justify-content: center;
     display: flex;
     position: fixed;
@@ -17,8 +14,8 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
     z-index: 101;
     gap: 40px;
     transition: color 0.3s ease-in-out;
-    background-color:${({ isHovered  }) => (isHovered ? `${colors.white}` :`${colors.black}`)} ;
-    will-change:none;
+    background-color:${({ isHovered  }) => (isHovered ? `${colors.white}` :`${colors.black}`)} ;//이 로직에서 문제가 생기는 건 확실함
+    //will-change:none;
     
     a{
         color: ${({ isHovered  }) => (isHovered ? `${colors.black}` :`${colors.white}`)};//이ㅅ새끼 문제임아아
@@ -44,7 +41,8 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
         left: 50%;
         transform: translateX(-50%);
         width: 1100px;
-        border-bottom: 2px solid white;
+        //border-bottom: 2px solid white;
+        border-bottom:${({isHovered})=>(isHovered? "none": "2px solid white")};
         transition: width 0.3s ease;
         clip-path: polygon(
             0 0, 

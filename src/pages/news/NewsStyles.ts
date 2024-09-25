@@ -1,28 +1,33 @@
 import styled from 'styled-components';
 import colors from '../../assets/Colors';
+import { FaEye } from 'react-icons/fa';
+import { Shining } from '../../components/common/skeleton/gridskeleton/SkeletonGridContainer';
 
 export const NewsList = styled.div`
-  width: 65%; 
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+  // width: 65%; 
+  // display: flex;
+  // flex-direction: column;
+  // margin-top: 20px;
+  max-width: 1100px;
+  background-color: ${colors.white};
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const NewsItem = styled.div`
-  // display: flex;
-  flex-direction: row;  // 썸네일과 제목을 가로로 배치
-  align-items: center;  // 중앙 정렬
+  // display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 15px 0;
+  border-bottom: 1px solid #ddd;
   cursor: pointer;
-  width: 150%;
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   &:hover {
-    transform: translateY(-5px);
-    transition: all 0.3s ease-in-out;
+    background-color: #f0f0f0;
   }
 `;
 
@@ -32,21 +37,8 @@ export const Title = styled.h3`
   margin-bottom: 5px;
 `;
 
-export const Description = styled.p`
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 10px;
-`;
-
-export const Meta = styled.div`
-  display: flex;
-  justify-content: space-between;
-  color: #999;
-  font-size: 14px;
-`;
-
 export const MetaInfo = styled.div`
-  display: flex;
+  // display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
@@ -109,20 +101,85 @@ export const Pagination = styled.div`
 `;
 
 export const SearchBarWrapper = styled.div`
-  margin-bottom: 10px; // 빨간 줄과 간격을 주기 위함
+  // margin-bottom: 10px; // 빨간 줄과 간격을 주기 위함
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  top: -37px;  /* 현재 위치에서 20px 위로 이동 */
 `;
 export const NewsContainer = styled.div`
   max-width: 1100px; 
   margin: 0 auto; 
-  padding: 20px;
+  // padding: 20px;
   box-sizing : border-box;
-  background-color: #f5f5f5;
+  background-color: ${colors.white};
+`;
+export const SkeletonNewsContainer = styled.div`
 `;
 
 export const Thumbnail = styled.img`
-  width: 80px;        // 썸네일 크기 조정
-  height: 80px;
+  width: 250px;        // 썸네일 크기 조정
+  height: 125px;
   object-fit: cover;  // 비율 유지하며 썸네일을 꽉 채움
   border-radius: 5px;
   margin-right: 15px; // 썸네일과 제목 사이 간격
+`;
+
+export const ArticleIndex = styled.div`
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: ${colors.darkGray};
+  margin-right: 10px;
+`;
+
+export const ViewsIcon = styled(FaEye)`
+  margin-right: 5px;
+  font-size: 16px;
+  color: ${props => props.color || 'inherit'};
+`;
+
+// 전체 스켈레톤 컨테이너
+export const SkeletonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+`;
+
+// 스켈레톤 뉴스 아이템
+export const SkeletonNewsItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid ${colors.ashGray};
+  background-color: ${colors.lightGray};
+`;
+
+// 스켈레톤 썸네일
+export const SkeletonThumbnail = styled(Shining)`
+  width: 250px;
+  height: 125px;
+  border-radius: 5px;
+  background-color: ${colors.ashGray};
+  margin-left: 60px;
+  margin-right: 25px;
+`;
+
+// 스켈레톤 제목
+export const SkeletonTitle = styled(Shining)`
+  width: 70%;
+  height: 20px;
+  border-radius: 5px;
+  background-color: ${colors.ashGray};
+
+  // font-size: 1.4rem;
+  margin-bottom: -5px;
 `;

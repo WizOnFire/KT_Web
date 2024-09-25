@@ -2,6 +2,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { TBoxScoreResponse, TEtcgame } from '../../../../../types/game';
 import { useTable } from '../../../../../hooks/useTable';
 import { MainStatsTable, MainStatsCell, MainStatsTr } from "./MainRecordStyles"
+import MainRecordSkeleton from './MainRecordSkeleton';
 
 const columnDefs: ColumnDef<TEtcgame>[] = [
     { header: '결승타', accessorKey: 'how' },
@@ -10,7 +11,7 @@ const columnDefs: ColumnDef<TEtcgame>[] = [
 
 const MainRecords = ({apiUrl} : {apiUrl: string}) => {
 
-    const { getRowModel } = useTable<TEtcgame>({
+    const { getRowModel, isLoading, error } = useTable<TEtcgame>({
         apiUrl: apiUrl,
         columnDefs,
         transformData: (data: TBoxScoreResponse) => {
@@ -22,6 +23,8 @@ const MainRecords = ({apiUrl} : {apiUrl: string}) => {
             }
         },
 });
+    if (isLoading) return <MainRecordSkeleton columnDefs={columnDefs} />;
+    if(error) return <>Error...</>;
 
     return (
         <MainStatsTable>

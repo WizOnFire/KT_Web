@@ -12,6 +12,7 @@ import KtEvent, { Outcome } from './KtEvent';
 import { useNavigate } from 'react-router-dom';
 import AllEvent from './AllEvent';
 import { GradientCircle } from '../../../components/common/gradientChip/GradientChipStyles';
+import GameCalendarSkeleton from '../../../components/common/skeleton/scheduleskeleton/GameCalendarSkeleton';
 
 moment.locale('ko');
 
@@ -80,11 +81,11 @@ const CalendarComponent = () => {
 
   //const apiUrl = `game/monthschedule?yearMonth=${yearMonth}`;
   const apiUrl = isKt
-    ? `game/monthschedule?yearMonth=${yearMonth}`
-    : `game/allgameschedule?yearMonth=${yearMonth}`;
+    ? `/game/monthschedule?yearMonth=${yearMonth}`
+    : `/game/allgameschedule?yearMonth=${yearMonth}`;
 
 
-  const { data:scheduleList, error } = useFetchData<TscheduleList>(apiUrl);
+  const { data:scheduleList, isLoading,error } = useFetchData<TscheduleList>(apiUrl);
 
   useEffect(() => {
     if (scheduleList && scheduleList.data.list) {
@@ -134,6 +135,10 @@ const CalendarComponent = () => {
     }
     return {};
   };
+
+  if( isLoading){
+    return <GameCalendarSkeleton/>
+  }
   
   
   return (

@@ -1,13 +1,16 @@
 import { useSearchParams } from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
 import { Container } from "../../../pages/PagesStyles";
-import { Wrapper, Contents, Img, MainInfo, InfoList } from "./StaffDetailStyles"; // Import styles
-import styled, { css } from "styled-components";
+import { Wrapper, Contents, Img, MainInfo, InfoList,CategoryItem,RecordNav,ButtonContainer } from "./StaffDetailStyles"; // Import styles
+
 import { useMemo, useState, useEffect, useRef } from "react";
 import RegularSeasonRecord from "./RegularSeasonRecord";
 import Recent5Record from "./Recent5Record";
 import TotalRecord from "./TotalRecord";
 import Button from "../../common/button/Button";
+import FuturesSeasonRecord from "./FuturesSeasonRecord";
+import Recent5FuturesRecord from "./Recent5FuturesRecord";
+import styled from "styled-components";
 
 export type TDetailStaff = {
   playerName: string;
@@ -39,53 +42,16 @@ export type TGamePlayerProps = {
   yearrecordlist: any;
 };
 
-// RecordNav 스타일 수정
-const RecordNav = styled.nav<{ imgWidth?: number }>`
-  height: 40px;
-  align-items: center;
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  margin-top: -300px;
-  background-color: #1d1d1d; /* KT Wiz의 블랙 테마 */
-  padding: 20px 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-  width: ${({ imgWidth }) => (imgWidth ? `${imgWidth}px` : "auto")};
 
-  @media (max-width: 1200px) {
-    max-width: 900px;
-  }
-`;
-
-const CategoryItem = styled.h1<{ isSelected: boolean }>`
-  font-size: 20px;
-  color: ${({ isSelected }) => (isSelected ? "#c00000" : "#ffffff")};
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 10px 20px;
-  transition: all 0.3s ease;
+const SummaryInfo=styled.dd`
   position: relative;
+  top: -377px;
+  left: 200px;
+  color: white;
+  gap: 20px;
+  font-weight: 50;
 
-  &:before {
-    content: "";
-    position: absolute;
-    width: ${({ isSelected }) => (isSelected ? "100%" : "0")};
-    height: 3px;
-    background-color: #c00000;
-    bottom: 0;
-    left: 0;
-    transition: all 0.3s ease;
-  }
-  &:hover {
-    color: #c00000;
-  }
-  &:hover:before {
-    width: 100%;
-  }
-`;
-
+`
 const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
   //console.log(detailPath)
   const [params] = useSearchParams();
@@ -100,8 +66,6 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
   const [imgWidth, setImgWidth] = useState<number>(1100);
   //console.log("imgWidth:", imgWidth);
   const isCatcher = ["catcherdetail", "infielderdetail", "outfielderdetail"].includes(detailPath);
-
- //console.log(isCatcher);
 
   let staffData: TDetailStaff | any;
   let parsedData: string[] = [];
@@ -122,6 +86,12 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
   const regularLeagueData = useMemo(() => (staff?.data as TGamePlayerProps)?.seasonsummary, [staff]);
   const recent5gameRecords = useMemo(() => (staff?.data as TGamePlayerProps)?.recentgamerecordlist, [staff]);
   const totalRecords = useMemo(() => (staff?.data as TGamePlayerProps)?.yearrecordlist, [staff]);
+  console.log(totalRecords);
+  const futureRecord=useMemo(()=>(staff?.data as TGamePlayerProps)?.seasonsummaryfutures,[staff]);//시즌 퓨처스 기록
+  //console.log("futureRecord: ",futureRecord);
+  const recent5gameFuturesRecords=useMemo(()=>(staff?.data as TGamePlayerProps)?.recentgamerecordlistfutures,[staff]);
+  console.log("퓨처스 최근 5경기",recent5gameFuturesRecords)
+  
 
   const formatDate = (dateString: string) => {
     return dateString.replace(/(\d{4})(\d{2})(\d{2})/, "$1.$2.$3");
@@ -146,26 +116,31 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
 
   const formattedBirthDate = staffData?.birth ? formatDate(staffData.birth) : "";
 
-  const [isRegular,setIsRegular]=useState("true");
+  const [isRegular,setIsRegular]=useState(true);
+  const onClickedFuture=()=>{
+    setIsRegular(prev=>!prev);
+  }
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>에러 발생: {error}</p>;
   if (!staff) return <p>정보를 찾을 수 없습니다.</p>;
+
 
   return (
     <>
       <Container>
         <Wrapper>
           <Contents>
-            <Img ref={imgRef} src={staffData?.playerPrvwImg2} alt={staffData?.backnum} onLoad={handleImageLoad} />
+            <Img ref={imgRef} src={staffData?.playerPrvwImg2} alt={staffData?.backnum} onLoad={handleImageLoad}>
+            </Img>
             <MainInfo>
               <span style={{ color: "#c00000" }}>No. {staffData?.backnum}</span>
               {staffData?.playerName}
-              <span style={{ fontSize: "18px" }}> {staffData?.engName}</span>
-            </MainInfo>
+              <span style={{ fontSize: "18px" ,right:"50px"}}>{staffData?.engName}</span>
+            </MainInfo>2
             <InfoList>
               <ul>
-                <li>포지션&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {staffData?.position}</li>
+                <li>포지션&nbsp;&nbsp;&nbsp;&ensp;&ensp;&nbsp;{staffData?.position}</li>
                 <li>생년월일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{formattedBirthDate}</li>
                 <li>
                   체격&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{staffData?.height}cm, {staffData?.weight}kg
@@ -173,10 +148,15 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
                 <li>출신교&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {parseDataToString}</li>
               </ul>
             </InfoList>
+            {
+            (detailPath !== "coachdetail" && isCatcher )? 
+            <SummaryInfo> {totalRecords[0].gyear} 정규리그 성적: 타율 {regularLeagueData.hra} {regularLeagueData.hit}안타 {regularLeagueData.rbi}타점 {regularLeagueData.hr}홈런</SummaryInfo>
+            : detailPath!=="coachdetail" ? <SummaryInfo>{totalRecords[0].gyear} 정규리그 성적: 평균자책점 {regularLeagueData.era} {regularLeagueData.w}승 {regularLeagueData.l}패 {regularLeagueData.sv}세이브</SummaryInfo>:null
+            }
           </Contents>
         </Wrapper>
         {detailPath !== "coachdetail" && (
-          <>
+         <>
             <RecordNav imgWidth={imgWidth}>
               {categoryList.map((category, index) => (
                 <CategoryItem
@@ -188,11 +168,18 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
                 </CategoryItem>
               ))}
             </RecordNav>
+              {/* <Button style={{backgroundColor:"gray",color:"black",display:"flex"}} onClick={()=>onClickedFuture()} height="40px"> {isRegular?"퓨처스리그 기록 보기":"정규리그 보기"}</Button> */}
+            {(whichDetail === categoryList[0] && isRegular)&& <RegularSeasonRecord regularLeagueData={regularLeagueData} isCatcher={isCatcher} />}
+            {(whichDetail === categoryList[0] && !isRegular)&& <FuturesSeasonRecord futureRecord={futureRecord} isCatcher={isCatcher}/>}
+            {(whichDetail === categoryList[1] && isRegular) && <Recent5Record recent5gameRecords={recent5gameRecords} isCatcher={isCatcher} />}
+            {(whichDetail === categoryList[1] && !isRegular)&& <Recent5FuturesRecord recent5gameFuturesRecords={recent5gameFuturesRecords} isCatcher={isCatcher}/>}
 
-            <Button>퓨처스리그 기록 보기</Button>
-            {whichDetail === categoryList[0] && <RegularSeasonRecord regularLeagueData={regularLeagueData} isCatcher={isCatcher} />}
-            {whichDetail === categoryList[1] && <Recent5Record recent5gameRecords={recent5gameRecords} isCatcher={isCatcher} />}
             {whichDetail === categoryList[2] && <TotalRecord totalRecords={totalRecords} isCatcher={isCatcher} />}
+            {/* </NavWrapper> */}
+               {whichDetail!==categoryList[2] &&
+                <ButtonContainer imgWidth={imgWidth}>
+                  <Button style={{backgroundColor:"rgb(239, 239, 239)",color:"black"}} onClick={()=>onClickedFuture()} height="40px" border="none" borderRadius="10px">{isRegular?"퓨처스리그 기록 보기":"정규리그 보기"}</Button>
+                </ButtonContainer>}
           </>
         )}
       </Container>

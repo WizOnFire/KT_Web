@@ -3,7 +3,7 @@ import { GridContainer } from "../../components/player/staffDetailList/StaffList
 import useFetchData from "../../hooks/useFetchData";
 import { Container } from "../PagesStyles";
 import colors from "../../assets/Colors";
-import ListSkeleton from "../../components/common/skeleton/ListSkeleton";
+import ListSkeleton from "../../components/common/skeleton/gridskeleton/ListSkeleton";
 import redBack from "../../assets/images/player/redB.jpg"
 
 export type TCheerleader = {
@@ -73,7 +73,7 @@ const CheerCard = styled.div`
     font-size: 18px;
     color: #000000;;
     margin: 4px 0;
-    font-weight: 600;
+    //font-weight: 600;
     font-family: KBO_Gothic_bold;
     border-bottom: none;
   }
@@ -122,7 +122,7 @@ const Cheer = () => {
   const { data, isLoading, error } = useFetchData<TCheerData|null>('player/cheerleader');
   const fetchDataList = data?.data.list;
   console.log(fetchDataList)
-  if (isLoading) return <ListSkeleton columns={3} margin="10px" width="240px" height="400px" borderRadius="7%"/>;
+  if (isLoading) return <ListSkeleton columns={3} margin="10px" width="240px" height="400px" borderRadius="7%" isCheer={true}/>;
   if (error) return <p>Error loading data...</p>;
 
   return (
@@ -134,7 +134,7 @@ const Cheer = () => {
             <img src={cheerleader.imgPath} alt={cheerleader.leaderEngName} />
             <p className="position">{cheerleader.leaderPosition}</p>
             {/* <Title>Motto</Title> */}
-            <p style={{fontSize:"16px"}}>{cheerleader.leaderMotto}</p>
+            <p style={{fontSize:"16px", fontWeight:"100"}}>{cheerleader.leaderMotto}</p>
             <div className="info">
               <div>
               <Title>Height</Title>

@@ -9,7 +9,7 @@ import { StartImage, StartWizNews } from "./HomeStyles"
 import TeamMatch from "./teamMatch/TeamMatch";
 
 const Home = () => {
-  const { data, isLoading, error } = useFetchData<THotIssue[]>('/media/hotissue?count=10'); 
+  const { data, isLoading, error } = useFetchData<THotIssue[]>('media/hotissue?count=10'); 
 
   console.log('data',data);
   if (isLoading) return <p>Loading...</p>;

@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import colors from '../../assets/Colors';
+import { FaEye } from 'react-icons/fa';
 
 export const WizPressContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
+  // padding: 20px;
+  box-sizing : border-box;
+  background-color: ${colors.white};
 `;
 
 export const NewsList = styled.div`
-  background-color: #fff;
+  max-width: 1100px;
+  background-color: ${colors.white};
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
@@ -17,7 +20,7 @@ export const NewsList = styled.div`
 export const NewsItem = styled.div`
   padding: 20px;
   border-bottom: 1px solid #ddd;
-  cursor: pointer;  // 클릭할 수 있게 손가락 모양이 나오게 합니다.
+  cursor: pointer;
 
   &:last-child {
     border-bottom: none;
@@ -49,7 +52,14 @@ export const Views = styled.span`
 export const Date = styled.span``;
 
 export const SearchBarWrapper = styled.div`
-  margin-bottom: 10px; // 빨간 줄과 간격을 주기 위함
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  top: -37px;  /* 현재 위치에서 20px 위로 이동 */
 `;
 
 export const Pagination = styled.div`
@@ -100,4 +110,18 @@ export const Pagination = styled.div`
       cursor: not-allowed;
     }
   }
+`;
+
+export const ViewsIcon = styled(FaEye)`
+  margin-right: 5px;
+  font-size: 16px;
+  color: ${props => props.color || 'inherit'};
+`;
+
+export const ArticleIndex = styled.div`
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: ${colors.darkGray};
+  margin-right: 10px;
 `;

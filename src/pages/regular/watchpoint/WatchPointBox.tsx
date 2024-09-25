@@ -13,7 +13,7 @@ import { VSWrapper, VS } from "./LineUpStyles";
 
 const WatchPointBox = () => {
   // 가장 최신 게임 가져오기
-  const { data: game } = useFetchData<TGameResponse>("/game/recentGames");
+  const { data: game } = useFetchData<TGameResponse>("//game/recentGames");
   const current: TGameData | undefined = game?.data?.current;
 
   const [apiUrl, setApiUrl] = useState<string>("");
@@ -181,39 +181,9 @@ const WatchPointBox = () => {
   })) ?? [];
 
 
-
-
-  // //////api 
-  // const homeLineupData: { playerName: string; pos: string }[] = [
-  //   { playerName: "박지은", pos: "1" },
-  //   { playerName: "김진주", pos: "2" },
-  //   { playerName: "상대선수3", pos: "3" },
-  //   { playerName: "상대선수4", pos: "4" },
-  //   { playerName: "상대선수5", pos: "5" },
-  //   { playerName: "상대선수6", pos: "6" },
-  //   { playerName: "상대선수7", pos: "7" },
-  //   { playerName: "상대선수8", pos: "8" },
-  //   { playerName: "상대선수9", pos: "9" },
-  //   { playerName: "상대선수10", pos: "D" },
-  // ];
-
-  // const visitLineupData: { playerName: string; pos: string }[] = [
-  //   { playerName: "상대선수1", pos: "1" },
-  //   { playerName: "상대선수2", pos: "2" },
-  //   { playerName: "상대선수3", pos: "3" },
-  //   { playerName: "상대선수4", pos: "4" },
-  //   { playerName: "상대선수5", pos: "5" },
-  //   { playerName: "상대선수6", pos: "6" },
-  //   { playerName: "상대선수7", pos: "7" },
-  //   { playerName: "상대선수8", pos: "8" },
-  //   { playerName: "상대선수9", pos: "9" },
-  //   { playerName: "상대선수10", pos: "D" },
-  // ];
-
-
   useEffect(() => {
     if (current) {
-      setApiUrl(`game/watchpoint?gameDate=${current.gameDate}&gmkey=${current.gmkey}`);
+      setApiUrl(`/game/watchpoint?gameDate=${current.gameDate}&gmkey=${current.gmkey}`);
     }
   }, [current]);
 
@@ -222,7 +192,7 @@ const WatchPointBox = () => {
     if (gameData?.data?.schedule?.next) {
       const nextGameDate = gameData.data.schedule.next.gameDate;
       const nextGmkey = gameData.data.schedule.next.gmkey;
-      setApiUrl(`game/watchpoint?gameDate=${nextGameDate}&gmkey=${nextGmkey}`);
+      setApiUrl(`/game/watchpoint?gameDate=${nextGameDate}&gmkey=${nextGmkey}`);
     }
   };
 
@@ -231,7 +201,7 @@ const WatchPointBox = () => {
     if (gameData?.data?.schedule?.prev) {
       const prevGameDate = gameData.data.schedule.prev.gameDate;
       const prevGmkey = gameData.data.schedule.prev.gmkey;
-      setApiUrl(`game/watchpoint?gameDate=${prevGameDate}&gmkey=${prevGmkey}`);
+      setApiUrl(`/game/watchpoint?gameDate=${prevGameDate}&gmkey=${prevGmkey}`);
     }
   };
 

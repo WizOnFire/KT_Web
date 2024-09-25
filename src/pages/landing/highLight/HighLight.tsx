@@ -21,7 +21,7 @@ import colors from "../../../assets/Colors";
 import { THighLightResponse } from "../../../types/landing";
 
 const HighLight = () => {
-    const { data } = useFetchData<THighLightResponse>("/media/highlightlist?count=10");
+    const { data } = useFetchData<THighLightResponse>("media/highlightlist?count=10");
 
     return (
         <HighLightContainer>

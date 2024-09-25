@@ -1,36 +1,34 @@
-import { ColumnDef, flexRender } from "@tanstack/react-table";
+import Graph from "./Graph";
+import styled from "styled-components";
 import { useTable } from "../../../../hooks/useTable";
-import { TAudienceResponse, TAudienceType } from "../../../../types/ranking";
 import { useRankStore } from "../../../../stores/useRank.store";
+import { ColumnDef, flexRender } from "@tanstack/react-table";
+import { TAudienceResponse, TAudienceType } from "../../../../types/ranking";
+import SeasonSelect from "../../../../components/ranking/seasonSelect/SeasonSelect";
 import {
     TeamRankingTable,
     TeamRankingRow,
     TeamRankAudienceCell,
     TeamRankingCell
 } from "../team/records/TeamRecordStyles"
-import Graph from "./Graph";
-import styled from "styled-components";
-import SeasonSelect from "../../../../components/ranking/seasonSelect/SeasonSelect";
+import AudienceSkeleton from "./AudienceSkeleton";
 
-const AudienceWrapperContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-`
 const AudienceWrapper = styled.h3`
     margin-top: 50px;
     margin-bottom: 20px;
+`
+
+const AudienceWrapperTitle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
 `
 const AudienceSelect = styled.div`
     margin-top: 50px;
 `
 
 const AudienceRecord = () => {
-    const { year,setYear } = useRankStore();
-    
-    const handleYearChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
-        setYear(e.target.value);
-    }
+    const { year } = useRankStore();
 
     const columnDefs: ColumnDef<TAudienceType>[] = [
         { header: "순위", accessorKey: "num" }, 
@@ -48,19 +46,7 @@ const AudienceRecord = () => {
         },
     ];
 
-    /*
-    useEffect(() => {
-        if (!gyear) {
-            // 파라미터가 없을 때
-            setApiUrl('/game/regular/ranking/team');
-        } else {
-            // 파라미터가 있을 때
-            setApiUrl(`/game/rank/crowd?gyear=${gyear}`);
-        }
-    }, [gyear]);
-    */
-
-    const {getHeaderGroups, getRowModel} = useTable({
+    const {getHeaderGroups, getRowModel, isLoading} = useTable({
         apiUrl: (`/game/rank/crowd?gyear=${year}`),
         columnDefs,
         transformData: (data: TAudienceResponse) => {
@@ -82,17 +68,20 @@ const AudienceRecord = () => {
     const graphData = getRowModel().rows.map(row => ({
         teamName: row.original.teamName,
         crowd: row.original.crowd,
-    }))
+    }));
+
+    if(!isLoading) return <AudienceSkeleton columnDefs={columnDefs}/>;
+
     return (
     <>
         <AudienceWrapper>{year} 시즌 누적관중</AudienceWrapper>
         <Graph graphData={graphData}/>
-        <AudienceWrapperContainer>
+        <AudienceWrapperTitle>
             <AudienceWrapper>{year} 시즌 관중기록</AudienceWrapper>
             <AudienceSelect>
                 <SeasonSelect />
             </AudienceSelect>
-        </AudienceWrapperContainer>
+        </AudienceWrapperTitle>
         <TeamRankingTable>
             <thead>
             {getHeaderGroups().map(headerGroup => (

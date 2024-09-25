@@ -100,7 +100,7 @@ const RegularSeasonRecord = ({ regularLeagueData, isCatcher }: { regularLeagueDa
   const handleData = (data: any): any => {
     return data ? { ...data } : {};
   };
-
+  
   const firstRowTable = useTableWithoutApi<TRegularLeagueProps | TRegularLeagueProps_C>({
     data: regularLeagueData ? [regularLeagueData] : [],
     columnDefs: firstRowColumns,

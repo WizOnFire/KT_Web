@@ -29,30 +29,30 @@ const TotalRecord = ({totalRecords,isCatcher}:{totalRecords:TTotalRecords|TTotal
         { header: '출루율', accessorKey: 'bra' },         // On-base Percentage (출루율)
         ]:
         [
-        {header:'연도',accessorKey:'gyear'},
-        {header:'팀',accessorKey:'teamName'},
-        {header:'평균자책점',accessorKey:'era'},
-        {header:'경기',accessorKey:'gamenum'},
+        {header: '연도',accessorKey:'gyear'},
+        {header: '팀',accessorKey:'teamName'},
+        {header: '평균자책점',accessorKey:'era'},
+        {header: '경기',accessorKey:'gamenum'},
         {header: '완투', accessorKey: 'wCg' },  
         {header: '완봉', accessorKey: 'sho' }, 
         {header: '승', accessorKey: 'w' },                        
         {header: '패', accessorKey: 'l' },
-        {header:'세',accessorKey:'sv'},
-        {header:'홀',accessorKey:'hold'},
+        {header: '세',accessorKey:'sv'},
+        {header: '홀',accessorKey:'hold'},
         {header: '승률', accessorKey: 'wra' },    
-        {header:'타자',accessorKey:'hit'},
-        {header:'이닝',accessorKey:'innDisplay'},
-        {header:'피안타',accessorKey:'hit'},
-        {header:'피홈런',accessorKey:"hr"},
-        {header:'볼넷',accessorKey:'bb'},
-        {header:'사구',accessorKey:'hp'},
-        {header:'탈삼진',accessorKey:'kk'},
-        {header:'실점',accessorKey:'r'},
-        {header:'자책점',accessorKey:'er'}
+        {header: '타자',accessorKey:'hit'},
+        {header: '이닝',accessorKey:'innDisplay'},
+        {header: '피안타',accessorKey:'hit'},
+        {header: '피홈런',accessorKey:"hr"},
+        {header: '볼넷',accessorKey:'bb'},
+        {header: '사구',accessorKey:'hp'},
+        {header: '탈삼진',accessorKey:'kk'},
+        {header: '실점',accessorKey:'r'},
+        {header: '자책점',accessorKey:'er'}
     ]
     },[isCatcher])
 
-    const rowTable=useTableWithoutApi<TTotalRecordProps|TTotalRecordProps_C>({
+    const rowTable=useTableWithoutApi<TTotalRecordProps|TTotalRecordProps_C|any>({
         data:totalRecords,
         columnDefs:columns,
     })
