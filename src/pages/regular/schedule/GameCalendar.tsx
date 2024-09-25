@@ -42,7 +42,6 @@ export type TscheduleList = {
   };
 };
 
-
 export type TEvent ={
   start: Date;
   end: Date;
@@ -121,8 +120,6 @@ const CalendarComponent = () => {
     setCurrentDate(newDate);
   };
 
-
-
   // 홈이 kt 일때 배경색 변경
   const dayPropGetter = (date: { toDateString: () => string; }) => {
     const isHomeKt = events.some(event => 
@@ -136,7 +133,7 @@ const CalendarComponent = () => {
     return {};
   };
 
-  if( isLoading){
+  if( !isLoading){
     return <GameCalendarSkeleton/>
   }
   

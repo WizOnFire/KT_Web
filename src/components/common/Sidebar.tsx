@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLocationStore } from '../../stores/useLocation.store';
 import { ButtonContainer, ContentContainer, SectionContainer, SidebarButton, SidebarContainer,SubCategoryContainer,SidebarButtonWrapper } from './SidebarStyles';
-
+import { useMemo } from 'react';
+import { Category } from '../header/HeaderStyles';
+import React from 'react';
 const categories = [
   { title: "kt wiz는?" },
   { title: "수원 kt wiz park" },
@@ -56,7 +58,6 @@ const SideBar = () => {
   const isLandingPage = location.pathname === "/";
   const { selectedCategory } = useLocationStore();
   const isShopOrSponsor = ["shop", "스폰서"].includes(selectedCategory);
-
   const [activeTab, setActiveTab] = useState<string>(''); // 현재 활성화된 탭
   const [categoryIndex, setCategoryIndex] = useState<number>(0); // 현재 카테고리 인덱스
   const [showSubCategories, setShowSubCategories] = useState<boolean>(false); // 타자 서브 카테고리 표시 여부
@@ -74,31 +75,36 @@ const SideBar = () => {
     );
     if (activeCategoryIndex !== -1) {
       const activeTabData = sidebars[activeCategoryIndex].find((item) =>
-        //currentPath.includes(item.route)
         currentPath===item.route
       );
       setCategoryIndex(activeCategoryIndex);
       setActiveTab(activeTabData?.title || '');
     }
-  }, [location.pathname]);
+  }, [,activeTab,categoryIndex]);
 
+  // const getTitle = () => {
+  //   const category = categories[categoryIndex];
+  //   return category.title;
+  //   // if (activeTab) {
+  //   //   console.log("1");
+  //   //   return activeTab;
+  //   // }
+  //   // console.log("2")
+  //   // return category.title;
+  // };
 
-  const getTitle = () => {
-    const category = categories[categoryIndex];
-    if (activeTab) {
-      return activeTab;
-    }
-    return category.title;
-  };
+const getTitle = useMemo(() => {
+  const category = categories[categoryIndex];
+  return category.title;
+}, [categoryIndex]);
 
-console.log(activeTab);
-//console.log(location.pathname.includes(activeTab));
+console.log("rendering");
 
   if (location.pathname.includes('infielder') || location.pathname.includes('outfielder')) {
     return <>
       <SidebarContainer>
         <SectionContainer>
-          <h1>{getTitle()}</h1>
+          <h1>{getTitle}</h1>
           <ButtonContainer>
             {sidebars[4]?.map((subCategory, index) => (
               <SidebarButtonWrapper key={index}>
@@ -146,7 +152,7 @@ console.log(activeTab);
     !(isLandingPage || isShopOrSponsor) && (
       <SidebarContainer>
         <SectionContainer>
-          <h1>{getTitle()}</h1>
+          <h1>{getTitle}</h1>
           <ButtonContainer>
             {sidebars[categoryIndex]?.map((subCategory, index) => (
               <SidebarButtonWrapper key={index}>
@@ -190,4 +196,4 @@ console.log(activeTab);
   );
 };
 
-export default SideBar;
+export default React.memo(SideBar);

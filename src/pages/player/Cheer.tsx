@@ -122,7 +122,7 @@ const Cheer = () => {
   const { data, isLoading, error } = useFetchData<TCheerData|null>('player/cheerleader');
   const fetchDataList = data?.data.list;
   console.log(fetchDataList)
-  if (isLoading) return <ListSkeleton columns={3} margin="10px" width="240px" height="400px" borderRadius="7%" isCheer={true}/>;
+  if (!isLoading) return <ListSkeleton columns={3} count={15} margin="10px" width="240px" height="400px" borderRadius="7%" isCheer={true}/>;
   if (error) return <p>Error loading data...</p>;
 
   return (

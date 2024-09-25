@@ -11,6 +11,7 @@ import Button from "../../common/button/Button";
 import FuturesSeasonRecord from "./FuturesSeasonRecord";
 import Recent5FuturesRecord from "./Recent5FuturesRecord";
 import styled from "styled-components";
+import ListSkeleton from "../../common/skeleton/gridskeleton/ListSkeleton";
 
 export type TDetailStaff = {
   playerName: string;
@@ -121,7 +122,7 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
     setIsRegular(prev=>!prev);
   }
 
-  if (isLoading) return <p>Loading...</p>;
+  if (!isLoading) return <ListSkeleton columns={1} count={1} margin="7px" width="1100px" height="500px" borderRadius="0" isCheer={true}/>;
   if (error) return <p>에러 발생: {error}</p>;
   if (!staff) return <p>정보를 찾을 수 없습니다.</p>;
 
