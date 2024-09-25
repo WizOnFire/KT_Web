@@ -10,12 +10,12 @@ export const PitRankingTable = styled.table`
     color: ${colors.mediumGray};
 `;
 
-export const PitRankingHeaderCell   = styled.td`
+export const PitRankingHeaderCell   = styled.td<{issorted?: boolean}>`
     padding-block: 10px;
     text-align: center;
     border-top: 1.5px solid ${colors.redQuaternary};
-    background-color: ${colors.mediumIvory};
-    color: ${colors.black};
+    background-color: ${({issorted}) => issorted ? `rgba(255, 0, 0, 0.1)` : colors.mediumIvory };
+    color: ${({issorted}) => issorted ? colors.redQuaternary : colors.black };
     font-weight: 500;
     &:nth-child(1) {
         width: 5%;
@@ -55,3 +55,13 @@ export const PitRankingCell = styled.td<{isKT?:boolean, isKTColumn?:boolean}>`
         border-right: none;
     }
 `;
+
+export const SelectAndSearch = styled.div`
+    display: flex;
+    gap: 5px;
+    span{
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+    }
+`

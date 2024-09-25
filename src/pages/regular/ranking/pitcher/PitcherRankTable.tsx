@@ -1,12 +1,15 @@
-import { ColumnDef, SortingState, Updater, flexRender } from "@tanstack/react-table";
 import { useTable } from "../../../../hooks/useTable";
-import SearchAndSelect from "../../../../components/ranking/searchAndSelect/SearchAndSelect";
+import { ColumnDef, SortingState, Updater, flexRender } from "@tanstack/react-table";
+import SeasonSelect from "../../../../components/ranking/seasonSelect/SeasonSelect";
+import SearchBar from "../../../../components/common/searchbar/SearchBar";
 import {
     PitRankingTable,
     PitRankingHeaderCell,
     PitRankingRow,
-    PitRankingCell
+    PitRankingCell,
+    SelectAndSearch
 } from "./css/PitcherRankStyles";
+import { useMemo } from "react";
 
 type RankingTableProps<T> = {
     apiUrl: string;
@@ -14,6 +17,7 @@ type RankingTableProps<T> = {
     transformData?: (data: any) => T[];
     sorting: SortingState;
     onSortingChange: (updaterOrValue: Updater<SortingState>) => void;
+    setSearchTerm: React.Dispatch<React.SetStateAction<string>>
 };
 
 const PitcherRankTable = <T,>({
@@ -21,10 +25,11 @@ const PitcherRankTable = <T,>({
     columnDefs: customColumnDefs,
     transformData,
     sorting,
-    onSortingChange
+    onSortingChange,
+    setSearchTerm
 }: RankingTableProps<T>) => {
-
-    const defaultColumnDefs: ColumnDef<T>[] = [
+    const defaultSorting: SortingState = useMemo(() => [{ id: "era", desc: false }], []);
+    const defaultColumnDefs: ColumnDef<T>[] = useMemo(() => [
         { header: "팀명", accessorKey: "teamName", enableSorting: false },
         { header: "선수명", accessorKey: "playerName", enableSorting: false },
         { header: "평균자책점", accessorKey: "era", enableSorting: true },
@@ -42,20 +47,33 @@ const PitcherRankTable = <T,>({
         { header: "탈삼진", accessorKey: "kk", enableSorting: true },
         { header: "실점", accessorKey: "r", enableSorting: true },
         { header: "자책점", accessorKey: "er", enableSorting: true },
-    ];
+    ], []);
+
+    const columnDefs = useMemo(() => {
+        return customColumnDefs ? [...customColumnDefs, ...defaultColumnDefs] : defaultColumnDefs;
+    }, [customColumnDefs, defaultColumnDefs]);
     
-    const columnDefs = customColumnDefs ? [...customColumnDefs, ...defaultColumnDefs] : defaultColumnDefs; 
     const table = useTable<T>({
         apiUrl,
         columnDefs,
         transformData,
-        sorting,
+        sorting: sorting.length === 0 ? defaultSorting : sorting, 
         onSortingChange
     });
 
     return (
     <>
-        <SearchAndSelect/>
+    <SelectAndSearch>
+            <SeasonSelect />
+            <SearchBar 
+            placeholder="선수의 전체 이름을 입력해주세요 (예: 엄상백 소형준)" 
+            containerWidth="350px" 
+            height="25px" 
+            buttonWidth="45px"
+            onSearch={(term)=>setSearchTerm(term)} 
+            />
+        <span>*각 항목을 클릭하시면 순위를 보실 수 있습니다.</span>
+    </SelectAndSearch>
         <PitRankingTable>
             <thead>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -66,6 +84,7 @@ const PitcherRankTable = <T,>({
                         colSpan={header.colSpan}
                         onClick={header.column.getToggleSortingHandler()}
                         style={{ cursor: "pointer" }}
+                        issorted = {!!header.column.getIsSorted()}
                     >
                         {flexRender(header.column.columnDef.header, header.getContext())}
                         {header.column.getCanSort() && "▼"}

@@ -6,7 +6,7 @@ import {
   TeamRankingRow,
   TeamRankingCell
 } from "./TeamRecordStyles"
-import { TTeamMatchupResponse, TTeamMatchupTableType, TTeamMatchupType } from "../../../../../types/ranking";
+import { TTeamMatchupResponse, TTeamMatchupTableType } from "../../../../../types/ranking";
 
 const WinLossTable = () => {
   const teamNames = ["KT","삼성","두산","LG","키움","롯데","SSG","NC","KIA","한화"];
@@ -77,8 +77,8 @@ const WinLossTable = () => {
               {row.getVisibleCells().map(cell => (
                 <TeamRankingCell
                   key={cell.id}
-                  isKT={row.original.teamName === 'KT'}
-                  isKTColumn={cell.column.id === 'KT'}
+                  $isKT={row.original.teamName === 'KT'}
+                  $isKTColumn={cell.column.id === 'KT'}
                 >
                   {String(cell.getValue() ?? "■")}
                 </TeamRankingCell>

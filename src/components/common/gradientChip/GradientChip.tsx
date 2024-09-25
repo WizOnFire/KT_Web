@@ -11,9 +11,7 @@ type TGradientChipType = {
     textGradient?: string;
     backgroundColor?: string;
     color?: string;
-}
-
-
+};
 const GradientChip = ({
     main,
     title,

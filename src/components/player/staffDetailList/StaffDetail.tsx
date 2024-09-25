@@ -7,6 +7,7 @@ import { useMemo, useState, useEffect, useRef } from "react";
 import RegularSeasonRecord from "./RegularSeasonRecord";
 import Recent5Record from "./Recent5Record";
 import TotalRecord from "./TotalRecord";
+import Button from "../../common/button/Button";
 
 export type TDetailStaff = {
   playerName: string;
@@ -86,17 +87,21 @@ const CategoryItem = styled.h1<{ isSelected: boolean }>`
 `;
 
 const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
+  //console.log(detailPath)
   const [params] = useSearchParams();
   const pcode = params.get("pcode");
   const { data: staff, isLoading, error } = useFetchData<{ data: TGamePlayerProps } | { data: TCoachData }>(
     `player/${detailPath}?pcode=${pcode}`
   );
-  console.log(staff);
+  //console.log(staff);
 
   const categoryList = ["정규리그 기록", "최근 5경기", "통산기록"];
   const imgRef = useRef<HTMLImageElement>(null);
   const [imgWidth, setImgWidth] = useState<number>(1100);
-  console.log("imgWidth:", imgWidth);
+  //console.log("imgWidth:", imgWidth);
+  const isCatcher = ["catcherdetail", "infielderdetail", "outfielderdetail"].includes(detailPath);
+
+ //console.log(isCatcher);
 
   let staffData: TDetailStaff | any;
   let parsedData: string[] = [];
@@ -141,6 +146,8 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
 
   const formattedBirthDate = staffData?.birth ? formatDate(staffData.birth) : "";
 
+  const [isRegular,setIsRegular]=useState("true");
+
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>에러 발생: {error}</p>;
   if (!staff) return <p>정보를 찾을 수 없습니다.</p>;
@@ -158,12 +165,12 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
             </MainInfo>
             <InfoList>
               <ul>
-                <li>포지션 {staffData?.position}</li>
-                <li>생년월일 {formattedBirthDate}</li>
+                <li>포지션&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {staffData?.position}</li>
+                <li>생년월일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{formattedBirthDate}</li>
                 <li>
-                  체격 {staffData?.height}cm, {staffData?.weight}kg
+                  체격&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{staffData?.height}cm, {staffData?.weight}kg
                 </li>
-                <li>출신교 {parseDataToString}</li>
+                <li>출신교&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {parseDataToString}</li>
               </ul>
             </InfoList>
           </Contents>
@@ -181,9 +188,11 @@ const StaffDetail = ({ detailPath }: TStaffDetailProps) => {
                 </CategoryItem>
               ))}
             </RecordNav>
-            {whichDetail === categoryList[0] && <RegularSeasonRecord regularLeagueData={regularLeagueData} />}
-            {whichDetail === categoryList[1] && <Recent5Record recent5gameRecords={recent5gameRecords} />}
-            {whichDetail === categoryList[2] && <TotalRecord totalRecords={totalRecords} />}
+
+            <Button>퓨처스리그 기록 보기</Button>
+            {whichDetail === categoryList[0] && <RegularSeasonRecord regularLeagueData={regularLeagueData} isCatcher={isCatcher} />}
+            {whichDetail === categoryList[1] && <Recent5Record recent5gameRecords={recent5gameRecords} isCatcher={isCatcher} />}
+            {whichDetail === categoryList[2] && <TotalRecord totalRecords={totalRecords} isCatcher={isCatcher} />}
           </>
         )}
       </Container>

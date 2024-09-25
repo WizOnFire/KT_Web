@@ -1,6 +1,11 @@
-import { ColumnDef, flexRender } from "@tanstack/react-table";
+import { useCallback, useState } from "react";
 import { useTable } from "../../../../../hooks/useTable";
+import { ColumnDef, flexRender } from "@tanstack/react-table";
+import ScoreBox from "../../../../landing/teamMatch/ScoreBox";
 import { TBoxScoreResponse, TScheduleInfo, TScoreboard } from "../../../../../types/game";
+import { GrPrevious, GrNext } from "react-icons/gr";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaRegCalendar } from "react-icons/fa6";
 import {
     ScoreBoxWrapper,
     ScoreArrowAndInfoBox,
@@ -12,19 +17,17 @@ import {
     ScoreArrowBox,
     ScoreInfo,
 } from "./ScoreStyles"
-import ScoreBox from "../../../../landing/teamMatch/ScoreBox";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-import { useEffect, useState } from "react";
 
 type TScoreType = {
     apiUrl: string;
-    width?: string;
+    onPrevClick: (prevGameDate: string, preGmkey: string) => void;
+    onNextClick: (nextGameDate: string, nextGmkey: string) => void;
 }
 
-const Score = ({apiUrl, width} : TScoreType) => {
-    const [index,setIndex] = useState(1);
-    const [game,setGame] = useState<TScheduleInfo[]>([]); // prev, current, next를 한 배열로 저장
-    const [currentGame,setCurrentGame] = useState<TScheduleInfo | null>(null); // 화면에 보여줄 게임
+const Score = ({apiUrl,onPrevClick,onNextClick} : TScoreType) => {
+    const [currentGame,setCurrentGame] = useState<TScheduleInfo | null>(null);
+    const [prevGame,setPrevGame] = useState<TScheduleInfo | null>(null);
+    const [nextGame,setNextGame] = useState<TScheduleInfo | null>(null);
 
     const columnDefs: ColumnDef<TScoreboard>[] = [
         { header: '팀', accessorKey: 'bhomeName' },
@@ -51,58 +54,42 @@ const Score = ({apiUrl, width} : TScoreType) => {
         columnDefs,
         transformData: (data: TBoxScoreResponse) => {
             const { prev, current, next } = data?.data?.schedule;
-            const filterGame = [prev, current, next].filter(Boolean); 
-            console.log('1개의 게임배열 (이전/현재/다음):', filterGame);
-            setGame(filterGame);  
+            setPrevGame(prev || null);
+            setCurrentGame(current || null);
+            setNextGame(next || null);
             return data?.data?.scoreboard;
         }
     });
-    
-    useEffect(() => {
-        if (game.length > 0 && index >= 0 && index < game.length) {
-            console.log('현재 인덱스:', index);
-            console.log('게임 배열:', game);
-            console.log('현재 게임:', game[index]);
-            setCurrentGame(game[index]); 
-        }
-    }, [game, index]); 
-    const onChangePrevGame = () => {
-        if (index > 0) {
-            setIndex(index - 1); 
-        } else {
-            console.log('이전 게임이 없습니다.');
-        }
-    }
 
-    const onChangeNextGame = () => {
-        if (index < game.length - 1) {
-            setIndex(index + 1); 
-        } else {
-            console.log('다음 게임이 없습니다.');
-        }
-    }
+    const memoizedPrevClick = useCallback(() => {
+        if (prevGame) onPrevClick(prevGame.gameDate, prevGame.gmkey);
+    }, [prevGame, onPrevClick]);
+
+    const memoizedNextClick = useCallback(() => {
+    if (nextGame) onNextClick(nextGame.gameDate, nextGame.gmkey);
+    }, [nextGame, onNextClick]);
 
     return (
         <>
         <ScoreWrapper>
             <ScoreArrowAndInfoBox>
                 <ScoreArrowBox>
-                    <FaAngleLeft
-                        onClick={onChangePrevGame}
-                        style={{ scale: "200%" }}
-                    />
+                    <GrPrevious size={25} onClick={memoizedPrevClick} />
                     <ScoreInfo>
                         <span>{`${currentGame?.gyear}년 ${currentGame?.gmonth}월 ${currentGame?.gday}일`}</span>
                         <div>
-                            <span>{`${currentGame?.gtime}${currentGame?.stadium}`}</span>
+                            <span>
+                                <FaRegCalendar/>
+                                {`${currentGame?.gtime} ${currentGame?.stadium}`}
+                            </span>
                             <span>|</span>
-                            <span>{`관중: ${currentGame?.crowdCn.toLocaleString()}명`}</span>
+                            <span>
+                                <FaMapMarkerAlt/>
+                                {`관중 : ${currentGame?.crowdCn.toLocaleString()} 명`}
+                            </span>
                         </div>
                     </ScoreInfo>
-                    <FaAngleRight
-                        onClick={onChangeNextGame}
-                        style={{ scale: "200%" }}
-                    />
+                    <GrNext size={25} onClick={memoizedNextClick} />
                 </ScoreArrowBox>
             </ScoreArrowAndInfoBox>
             <ScoreBoxWrapper>
@@ -112,6 +99,7 @@ const Score = ({apiUrl, width} : TScoreType) => {
                     width="200px"
                     height="200px"
                     backgroundColor="white"
+                    border="none"
                     imageSrc={currentGame?.homeLogo}
                     teamName={currentGame?.homeKey}
                     score={currentGame?.hscore}
@@ -125,6 +113,7 @@ const Score = ({apiUrl, width} : TScoreType) => {
                     hiddenLeft="95%"
                     scoreLeft="83%"
                     transform="50%"
+                    border="none"
                     imageSrc={currentGame?.visitLogo}
                     teamName={currentGame?.visitKey}
                     score={currentGame?.vscore}

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { LogoBox, TableBox, TeamInfoBox, TeamInfoWrapper, WatchPointWrapper, Wrapper, WatchPointHeader, PitchTable, LineUpWrapper } from "./WatchPointBoxStyles";
 import useFetchData from "../../../hooks/useFetchData";
 import { TGameData, TGameResponse } from "../../../types/landing";
-import { TWatchPointResponse, TLineUp } from "../../../types/game";
+import { TWatchPointResponse } from "../../../types/game";
 import { ColumnDef, flexRender } from "@tanstack/react-table";
 import { useTable } from "../../../hooks/useTable";
 import { ScoreArrowBox, ScoreCell, ScoreHeaderCell, ScoreRow } from "../boxScore/recordButton/score/ScoreStyles";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { GrPrevious, GrNext } from "react-icons/gr";
 import { PitchRecordLabel, PitchRecordTable } from "../boxScore/recordButton/pitchRecords/PitchRecordStyles";
 import LineUp from "./LineUp";
 import { VSWrapper, VS } from "./LineUpStyles";
@@ -168,47 +168,47 @@ const WatchPointBox = () => {
     transformData: transformPitcherData,
   });
 
-  // const homeLineupData = gameData?.data.homeLineup?.map(player => ({
-  //   playerName: player.playerName!,
-  //   pos: player.pos || '', // pos가 undefined일 경우 빈 문자열로 대체
-  // })) ?? [];
+  const homeLineupData = gameData?.data.homeLineup?.map(player => ({
+    playerName: player.playerName!,
+    pos: player.pos || '', // pos가 undefined일 경우 빈 문자열로 대체
+  })) ?? [];
 
 
 
-  // const visitLineupData = gameData?.data.visitLineup?.map(player => ({
-  //   playerName: player.playerName!,
-  //   pos: player.pos || '', // pos가 undefined일 경우 빈 문자열로 대체
-  // })) ?? [];
+  const visitLineupData = gameData?.data.visitLineup?.map(player => ({
+    playerName: player.playerName!,
+    pos: player.pos || '', // pos가 undefined일 경우 빈 문자열로 대체
+  })) ?? [];
 
 
 
 
-  //////api 
-  const homeLineupData: { playerName: string; pos: string }[] = [
-    { playerName: "박지은", pos: "1" },
-    { playerName: "김진주", pos: "2" },
-    { playerName: "상대선수3", pos: "3" },
-    { playerName: "상대선수4", pos: "4" },
-    { playerName: "상대선수5", pos: "5" },
-    { playerName: "상대선수6", pos: "6" },
-    { playerName: "상대선수7", pos: "7" },
-    { playerName: "상대선수8", pos: "8" },
-    { playerName: "상대선수9", pos: "9" },
-    { playerName: "상대선수10", pos: "D" },
-  ];
+  // //////api 
+  // const homeLineupData: { playerName: string; pos: string }[] = [
+  //   { playerName: "박지은", pos: "1" },
+  //   { playerName: "김진주", pos: "2" },
+  //   { playerName: "상대선수3", pos: "3" },
+  //   { playerName: "상대선수4", pos: "4" },
+  //   { playerName: "상대선수5", pos: "5" },
+  //   { playerName: "상대선수6", pos: "6" },
+  //   { playerName: "상대선수7", pos: "7" },
+  //   { playerName: "상대선수8", pos: "8" },
+  //   { playerName: "상대선수9", pos: "9" },
+  //   { playerName: "상대선수10", pos: "D" },
+  // ];
 
-  const visitLineupData: { playerName: string; pos: string }[] = [
-    { playerName: "상대선수1", pos: "1" },
-    { playerName: "상대선수2", pos: "2" },
-    { playerName: "상대선수3", pos: "3" },
-    { playerName: "상대선수4", pos: "4" },
-    { playerName: "상대선수5", pos: "5" },
-    { playerName: "상대선수6", pos: "6" },
-    { playerName: "상대선수7", pos: "7" },
-    { playerName: "상대선수8", pos: "8" },
-    { playerName: "상대선수9", pos: "9" },
-    { playerName: "상대선수10", pos: "D" },
-  ];
+  // const visitLineupData: { playerName: string; pos: string }[] = [
+  //   { playerName: "상대선수1", pos: "1" },
+  //   { playerName: "상대선수2", pos: "2" },
+  //   { playerName: "상대선수3", pos: "3" },
+  //   { playerName: "상대선수4", pos: "4" },
+  //   { playerName: "상대선수5", pos: "5" },
+  //   { playerName: "상대선수6", pos: "6" },
+  //   { playerName: "상대선수7", pos: "7" },
+  //   { playerName: "상대선수8", pos: "8" },
+  //   { playerName: "상대선수9", pos: "9" },
+  //   { playerName: "상대선수10", pos: "D" },
+  // ];
 
 
   useEffect(() => {
@@ -241,9 +241,9 @@ const WatchPointBox = () => {
       <WatchPointWrapper>
         <WatchPointHeader>
           <ScoreArrowBox>
-            <FaAngleLeft onClick={handlePrevGame} style={{ scale: "150%" }} />
+            <GrPrevious onClick={handlePrevGame} style={{ scale: "150%" }} />
             <div>{gameData?.data?.gameScore?.displayDate}</div>
-            <FaAngleRight onClick={handleNextGame} style={{ scale: "150%" }} />
+            <GrNext onClick={handleNextGame} style={{ scale: "150%" }} />
           </ScoreArrowBox>
         </WatchPointHeader>
         <TeamInfoWrapper>

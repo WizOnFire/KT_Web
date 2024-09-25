@@ -1,5 +1,5 @@
 import { ColumnDef, SortingState } from "@tanstack/react-table";
-import RankingApiTabel from "./PitcherRankTable";
+import RankingApiTable from "./PitcherRankTable";
 import { useRankStore } from "../../../../stores/useRank.store";
 import { useState } from "react";
 import { TPitcherRankType, TPitcherResponse } from "../../../../types/ranking";
@@ -7,8 +7,9 @@ import { TPitcherRankType, TPitcherResponse } from "../../../../types/ranking";
 const AllPitcherRank = () => {
   const { year } = useRankStore();
   const [sorting, setSorting] = useState<SortingState>([]);
-  const  apiUrl = `/game/rank/total/pitcher?gyear=${year}&pname=&sortKey=`;
-  
+  const [searchTerm, setSearchTerm] = useState<string>("");  // 실시간 검색어 상태
+  const apiUrl = `/game/rank/kt/pitcher?gyear=${year}&pname=${searchTerm}&sortKey=`;
+
   const transformData = (data: TPitcherResponse) => {
     return (
       data?.data?.list.map((pitcher,index) => ({
@@ -24,12 +25,13 @@ const AllPitcherRank = () => {
 
   return (
     <>
-      <RankingApiTabel
+      <RankingApiTable
         apiUrl={apiUrl}
         sorting={sorting}
         onSortingChange={setSorting}
         columnDefs={addColumnDefs}
         transformData={transformData}
+        setSearchTerm={setSearchTerm}
       />
     </>
   );

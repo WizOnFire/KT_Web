@@ -4,6 +4,9 @@ import colors from '../../assets/Colors';
 
 
 export const UpNav = styled(motion.nav)<{isHovered:boolean}>` 
+      /* display: grid;
+  grid-template-columns: no-repeat(8, 1fr);  */
+    
     justify-content: center;
     display: flex;
     position: fixed;
@@ -14,8 +17,11 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
     z-index: 101;
     gap: 40px;
     transition: color 0.3s ease-in-out;
+    background-color:${({ isHovered  }) => (isHovered ? `${colors.white}` :`${colors.black}`)} ;
+    will-change:none;
+    
     a{
-        color: ${({ isHovered }) => (isHovered ? `${colors.black}` :`${colors.white}`)};
+        color: ${({ isHovered  }) => (isHovered ? `${colors.black}` :`${colors.white}`)};//이ㅅ새끼 문제임아아
         transition: color 0.3s ease-in-out;
         left:-10px;//로고 정렬할 때 중요
         //margin-right: 10px;
@@ -51,9 +57,13 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean}>`
             100% 0, 
             100% 100%,
              0 100%
-             );
+            );
     }
-
+    @media screen and (max-width: 808px) {
+        gap:1.5%;
+        //margin-top:10px;;
+        //height:100px
+    }
 `;
 
 export const Logo = styled.div<{isHovered:boolean}>`
@@ -66,29 +76,46 @@ export const Logo = styled.div<{isHovered:boolean}>`
     //top:20px;
     margin-top: 24px;
     z-index: 103;
+    //pointer-events: none;//호버 이벤트 막으려고
     img {
         width: 130px;
         transition: width 0.3s ease-in-out;
+        @media screen and (max-width:750px) {
+            width:85px;
+            transform: translateX(-12%);//로고 위치 중간 조정
+    }
     }
     &:hover{
         cursor: pointer;
     }
+    @media screen and (max-width:940px) {
+        justify-content: center;
+        transform: translateX(-17%);//로고 위치 중간 조정
+        
+    }
+    
 `;
 
-export const Category=styled.a<{isHovered: boolean; hoveredCategory:string;}>` 
-    position: relative;
-    //left:100px;
-    font-size: 20px;
-    text-decoration: none;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 30px;
-    ${({isHovered})=>isHovered && ` border-bottom: 3px solid red;`}
-    `;
 
+export const Category = styled.a.attrs<{ isHovered: boolean; isActive: boolean }>((props) => ({
+  isActive: props.isActive ? true : false, // 필요 시 내부적으로 처리
+}))<{ isHovered: boolean; isActive: boolean }>`
+  position: relative;
+  font-size: 20px;
+  text-decoration: none;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  
+  ${({ isActive }) => isActive && `border-bottom: 3px solid red;`}
+
+  @media screen and (max-width: 940px) {
+    font-size: 14px;
+  }
+`;
 
 export const BottomNav=styled(motion.div)` 
     padding-top: 30px;

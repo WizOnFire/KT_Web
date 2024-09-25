@@ -77,7 +77,7 @@ export const ScoreArrowBox = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    gap: 10%;
+    gap: 7%;
     cursor: pointer;
 `;
 
@@ -90,10 +90,14 @@ export const ScoreInfo = styled.div`
     gap: 5px;
     bottom: 20px;
     cursor: default;
-
     div{
         display: flex;
         gap: 10px;
+        span{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
     }
 `
 

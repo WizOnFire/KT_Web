@@ -34,7 +34,7 @@ export type TCoachData = {
 
 const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
   const { data: staffs, isLoading, error } = useFetchData<TStaff[]>(apiUrl);
-  const [searchTerm, setSearchTerm] = useState<string>(''); 
+  const [searchTerm, setSearchTerm] = useState<string>(""); 
   const navigate=useNavigate();
     let stafflist: TStaff[] = [];
 
@@ -43,7 +43,7 @@ const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
     } else {
     stafflist = staffs as TStaff[];
     }
-    console.log("스태프 리스트: ",stafflist);
+    //console.log("스태프 리스트: ",stafflist);
 
   if(isLoading) return <ListSkeleton columns={4} margin="0px" width="240px" height="275px" borderRadius="0px"/>
   if (error) return <p>{error}</p>;
@@ -63,12 +63,9 @@ const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
     <Container >
       <SearchBarContainer>    
         <SearchBar 
-        placeholder="검색어를 입력해주세요." 
-        containerWidth="200px" 
-        height="29px" 
-        buttonWidth="45px"
-        onSearch={(term)=>setSearchTerm(term)} 
-        />
+        placeholder="검색어를 입력해주세요." containerWidth="220px"
+         height="29px" buttonWidth="45px"
+         onSearch={(term)=>setSearchTerm(term)} />
       </SearchBarContainer>
         <GridContainer columns={4}>
           {staffs ? (

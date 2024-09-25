@@ -65,6 +65,26 @@ export const ContentContainer = styled.div`
   text-align: left;
 `;
 
+
+export const SubCategoryContainer = styled.div`
+  display: flex;
+  justify-content: center;  /* 수평 가운데 정렬 */
+  margin-top: 47px;  /* 메인 카테고리와의 간격 */
+  flex-wrap: wrap;   /* 화면이 작아지면 줄 바꿈 */
+  position: absolute;
+  gap:15px;
+  margin-right: -1%;
+  transition: all;
+`;
+
+export const SidebarButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* 카테고리 및 서브 카테고리 정렬 */
+`;
+
+
+
 // export const ContentText = styled.p`
 //   font-size: 20px;
 //   line-height: 1;

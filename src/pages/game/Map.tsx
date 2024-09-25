@@ -45,20 +45,20 @@ const Map = () => {
 
                 <td>
                     <ButtonWrapper>
-                        <Button width="60px" height="30px" fontColor={colors.white} borderRadius="20px" border="none" fontSize="14px"
+                        <Button width="70px" height="30px" fontColor={colors.white} borderRadius="20px" border="none" fontSize="14px" margin="0 10px 0 0"
                         backgroundColor={colors.green} padding="6px 18px 6px 17px">일반</Button><span> 25, 25-2, 27, 36, 55, 62-1, 99, 99-2, 300-1</span><br/>
                     </ButtonWrapper>
                    <ButtonWrapper>
-                            <Button width="60px" height="30px" fontColor={colors.white}  borderRadius="20px" border="none"
+                            <Button width="70px" height="30px" fontColor={colors.white}  borderRadius="20px" border="none" margin="0 10px 0 0"
                             backgroundColor={colors.green} padding="6px 18px 6px 17px">일반</Button><span> 310, 777</span><br/>
                     </ButtonWrapper>
                     <ButtonWrapper>
-                        <Button width="60px" height="30px" fontColor={colors.white}  borderRadius="20px" border="none"
+                        <Button width="70px" height="30px" fontColor={colors.white}  borderRadius="20px" border="none" margin="0 10px 0 0"
                         backgroundColor={colors.redPrimary} padding="6px 18px 6px 17px">일반</Button><span> 2007,3000,7770</span><br/>
                     </ButtonWrapper>
                     
                     <ButtonWrapper>
-                            <Button width="60px" height="30px" fontColor={colors.white}  borderRadius="20px" border="none"
+                            <Button width="70px" height="30px" fontColor={colors.white}  borderRadius="20px" border="none" margin="0 10px 0 0"
                             backgroundColor={colors.ligthBlue} padding="6px 18px 6px 17px">일반</Button><span> 300,900</span>
                      </ButtonWrapper>
 

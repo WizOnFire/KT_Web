@@ -20,7 +20,7 @@ import StaffDetail from "../components/player/staffDetailList/StaffDetail";
 import Infielder from "../pages/player/Infielder";
 import Outfielder from "../pages/player/Outfielder";
 import Ranking from "../pages/regular/ranking/Ranking";
-import PitcherRanking from "../pages/regular/ranking/pitcher/PitcherRanking";
+import PitcherRanking from "../pages/regular/ranking/pitcher/PitcherRank";
 //import Location from "../pages/wizpark/Location";
 
 const router = createBrowserRouter([
@@ -129,8 +129,16 @@ const router = createBrowserRouter([
             element:<Infielder/>
           },
           {
+            path:"infielder/detail",
+            element:<StaffDetail detailPath="infielderdetail"/>
+          },
+          {
             path:"outfielder",
             element:<Outfielder/>
+          },
+          {
+            path:"outfielder/detail",
+            element:<StaffDetail detailPath="outfielderdetail"/>
           },
           {
             path: "cheer",

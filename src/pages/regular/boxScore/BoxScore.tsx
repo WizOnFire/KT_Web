@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MenuBar from "./MenuBar";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Score from "./recordButton/score/Score";
 
 const BoxScoreContainer = styled.div`
@@ -14,8 +14,7 @@ const BoxScoreContainer = styled.div`
 const BoxScore = () => {
     const [apiUrl, setApiUrl] = useState<string>("");
     const { gameDate, gmkey } = useParams<string>();
-    //const params=useSearchParams();
-    //console.log(params.toString());
+    const navigate = useNavigate();
     
     useEffect(() => {
         if (!gameDate || !gmkey) {
@@ -27,9 +26,21 @@ const BoxScore = () => {
         }
     }, [gameDate, gmkey]);
 
+    const handlePrevGameClick = (prevGameDate: string, preGmkey: string) => {
+        navigate(`/game/regular/boxscore/${prevGameDate}/${preGmkey}`);
+    }
+
+    const handleNextGameClick = (nextGameDate: string, nextGmkey: string) => {
+        navigate(`/game/regular/boxscore/${nextGameDate}/${nextGmkey}`);
+    };
+
     return (
         <BoxScoreContainer>
-            <Score apiUrl={apiUrl}/>
+            <Score
+                apiUrl={apiUrl}
+                onPrevClick={handlePrevGameClick}
+                onNextClick={handleNextGameClick}
+                />
             <MenuBar apiUrl={apiUrl}/>
         </BoxScoreContainer>
     );

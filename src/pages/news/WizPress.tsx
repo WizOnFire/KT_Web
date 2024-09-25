@@ -76,11 +76,13 @@ const WizPress = () => {
     <WizPressContainer>
       <SearchBarWrapper>
         <SearchBar 
-          containerWidth="15%" 
-          height="40px" 
-          lineHeight="1.5" 
-          buttonWidth="60px" 
-          placeholder="검색어를 입력해주세요"
+          containerWidth="15%"
+          height="40px"
+          lineHeight="1.5"
+          buttonWidth="60px"
+          placeholder="검색어를 입력해주세요" onSearch={function (term: string): void {
+            throw new Error('Function not implemented.');
+          }}
           // onSearch={handleSearchSubmit}
         />
       </SearchBarWrapper>

@@ -1,30 +1,32 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import useFetchData from "../../../../../hooks/useFetchData";
-import colors from "../../../../../assets/Colors";
+import useFetchData from "../../../../hooks/useFetchData";
+import colors from "../../../../assets/Colors";
+import { bronze, gold, silver } from "../../../../assets/assets";
 
 const AvgPitContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 100px;
+    justify-content: center;
+    margin-right: 40px;
 `;
 
-const AvgPitImgBlend = styled.div<{ imageUrl: string }>`
+const AvgPitImgBlend = styled.div<{ $imageurl: string }>`
     display: flex;
     width: 160px;
     height: 250px;
     border-radius: 60px;
-    background-image: url(${(props) => props.imageUrl});
+    background-image: url(${(props) => props.$imageurl});
     background-size: cover;
     background-position: center;
     mix-blend-mode: screen;
-    scale: 65%;
+    scale: 55%;
 `;
 
 const AvgPitText = styled.div`
-    width: 37%;
-    height: auto;
+    margin-left: 55px;
+    margin-bottom: 20px;
     text-align: center;
     h1 {
         margin: 0;
@@ -40,16 +42,15 @@ const AvgPitText = styled.div`
 const AvgPitImg = styled.div`
     display: flex;
     li {
-        width: 115px;
-        display: flex;
+        width: 100px;
         list-style: none;
         flex-direction: column;
-        mix-blend-mode: multiply;
         &:first-child {
             position: relative;
             z-index: 42;
             order: 2;
             scale: 130%;
+            right: 8px;
         }
         &:nth-child(2) {
             position: relative;
@@ -65,19 +66,18 @@ const AvgPitImg = styled.div`
 `;
 
 const AvgPitName = styled.div`
-display: flex;
-    width: 100%;
-    gap: 40px;
-    margin-bottom: 80px;
+    display: flex;
     justify-content: center;
+    width: 100%;
+    gap: 25px;
+    margin-bottom:100px;
+    margin-left: 50px;
     li {
         list-style: none;
-        span {
-            margin-right: 10px;
-        }
         &:first-child {
             order: 2;
             font-weight: 600;
+            font-size: 16px;
         }
         &:nth-child(2) {
             order: 1;
@@ -87,45 +87,65 @@ display: flex;
         }
     }
 `;
+const MedalImg = styled.img<{$isFirst: boolean}>`
+    width: ${({$isFirst}) => ($isFirst ? '30px' : '20px')};
+    margin-right: 10px;
+    margin-bottom: -5px;
+`
+
+const getMedalImg = (index: number) : string => {
+    switch (index) {
+        case 0:
+            return gold;
+        case 1:
+            return silver;
+        case 2:
+            return bronze;
+        default:
+            return "";
+    }
+};
 
 type TTopConditionRankType = {
-    imageUrl?: string;
     condition: string;
     children: React.ReactNode;
 };
 
-interface FetchDataResponse<T> {
+type TPlayerData = {
+    playerPrvwImg: string;
+    playerName: string;
+}
+
+type FetchDataResponse = {
     data?: {
-        list?: T[];
+        list?: TPlayerData[];
     };
 }
 
-const CommonTopPitRank = ({ imageUrl, condition, children }: TTopConditionRankType) => {
+const SharedTop3 = ({ condition, children }: TTopConditionRankType) => {
     const [apiUrl, setApiUrl] = useState<string>("");
 
-    // API URL 설정
     useEffect(() => {
-        if (condition === "pitcherEra") {
-            setApiUrl("/game/rank/pitcher/era/top3");
-        } else if (condition === "pitcherWins") {
-            setApiUrl("/game/rank/pitcher/win/top3");
-        } else if (condition === "batterHra") {
-            setApiUrl("/api/game/rank/batter/hra/top3");
-        } else if (condition === "batterHr") {
-            setApiUrl("/api/game/rank/batter/hr/top3");
+        switch (condition) {
+            case "pitcherEra":
+                setApiUrl("/game/rank/pitcher/era/top3");
+                break;
+            case "pitcherWins":
+                setApiUrl("/game/rank/pitcher/win/top3");
+                break;
+            case "batterHra":
+                setApiUrl("/game/rank/batter/hra/top3");
+                break;
+            case "batterHr":
+                setApiUrl("/game/rank/batter/hr/top3");
+                break;
+            default:
+                setApiUrl("");
         }
     }, [condition]);
 
-    let transformedData: any[] = [];
-
-    const { data } = useFetchData<FetchDataResponse<any>>(apiUrl);  
-    if (data && data?.data?.list) {
-        transformedData = data?.data?.list || [];
-    }
-
-    if (transformedData.length === 0) {
-        return <div>Loading...</div>;
-    }
+    const { data } = useFetchData<FetchDataResponse>(apiUrl);
+    const transformedData = data?.data?.list || [];
 
     return (
         <AvgPitContainer>
@@ -133,14 +153,14 @@ const CommonTopPitRank = ({ imageUrl, condition, children }: TTopConditionRankTy
             <AvgPitImg>
                 {transformedData.map((player, index) => (
                     <li key={index}>
-                        <AvgPitImgBlend imageUrl={player.playerPrvwImg || imageUrl || 'defaultImageUrl.jpg'} />
+                        <AvgPitImgBlend $imageurl={player.playerPrvwImg} />
                     </li>
                 ))}
             </AvgPitImg>
             <AvgPitName>
                 {transformedData.map((player, index) => (
                     <li key={index}>
-                        <span>{index + 1})</span>
+                        <MedalImg src={getMedalImg(index)} alt="Medal" $isFirst={index === 0}/>
                         <span>{player.playerName}</span>
                     </li>
                 ))}
@@ -149,4 +169,4 @@ const CommonTopPitRank = ({ imageUrl, condition, children }: TTopConditionRankTy
     );
 };
 
-export default CommonTopPitRank;
+export default SharedTop3;

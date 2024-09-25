@@ -28,6 +28,7 @@ import colors from "../../../assets/Colors";
     margin: 0 20px;
     width: 400px; // 크기 조정
     height: 450px; // 크기 조정
+    margin-top:-60px;
   `;
 
   export const LineUpBox = styled.div`
@@ -39,11 +40,9 @@ import colors from "../../../assets/Colors";
 
   `
 
-
     export const TeamLogo = styled.img`
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
     `;
 
     export const VSWrapper = styled.div`
@@ -54,7 +53,7 @@ import colors from "../../../assets/Colors";
 
     export const VS = styled.div`
     font-size: 48px;
-    color: red;
+    color: ${colors.redQuaternary};
     font-weight: bold;
     margin: 0 40px;
     `;

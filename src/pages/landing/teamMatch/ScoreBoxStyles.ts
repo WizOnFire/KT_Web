@@ -8,11 +8,13 @@ type LeftProps = {
     fontSize?: string;
     scale?: string;
     margin?: string;
+    padding?: string;
 }
 
 type TEachTeamBoxType = {
     width?: string;
     height?: string;
+    border?: string;
 }
 
 export const EachTeamBox = styled.div<TEachTeamBoxType>`
@@ -20,19 +22,21 @@ export const EachTeamBox = styled.div<TEachTeamBoxType>`
     width: ${(props) => props.width || "250px"};
     height: ${(props) => props.height || "250px"};
     margin-top: 70px;
-    border: 1px solid ${colors.ashGray};
+    border: ${(props) => props.border || `1px solid ${colors.mediumGray}`};
     border-radius: 15px;
     caret-color: transparent;
     align-content: center;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px 0px inset, rgba(17, 17, 26, 0.05) 0px 8px 32px 0px;
+    &:hover{
+        box-shadow: rgba(255, 255, 255, 0.5) 0px 4px 16px 0px inset, rgba(17, 17, 26, 0.05) 0px 8px 32px 0px;
+    }
 
     div{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 30px;
-
     }
-
     img{
         width: 150px; 
         height: auto; 
@@ -65,6 +69,6 @@ export const ScoreLogo = styled.img<LeftProps>`
 
 export const ScoreTeamName = styled.span<LeftProps>`
     scale: ${(props) => props.scale || ""};
-    margin:${(props) => props.margin || ""};  
+    margin:${(props) => props.margin || "-25px 0 20px 0"};  
 `
 

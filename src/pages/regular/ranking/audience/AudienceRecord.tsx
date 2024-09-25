@@ -1,6 +1,7 @@
 import { ColumnDef, flexRender } from "@tanstack/react-table";
 import { useTable } from "../../../../hooks/useTable";
 import { TAudienceResponse, TAudienceType } from "../../../../types/ranking";
+import { useRankStore } from "../../../../stores/useRank.store";
 import {
     TeamRankingTable,
     TeamRankingRow,
@@ -9,17 +10,27 @@ import {
 } from "../team/records/TeamRecordStyles"
 import Graph from "./Graph";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import SearchAndSelect from "../../../../components/ranking/searchAndSelect/SearchAndSelect";
+import SeasonSelect from "../../../../components/ranking/seasonSelect/SeasonSelect";
 
+const AudienceWrapperContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+`
 const AudienceWrapper = styled.h3`
+    margin-top: 50px;
+    margin-bottom: 20px;
+`
+const AudienceSelect = styled.div`
     margin-top: 50px;
 `
 
 const AudienceRecord = () => {
-    // const [apiUrl, setApiUrl] = useState<string>("");
-    // const {gyear} = useParams<string>();
+    const { year,setYear } = useRankStore();
+    
+    const handleYearChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
+        setYear(e.target.value);
+    }
 
     const columnDefs: ColumnDef<TAudienceType>[] = [
         { header: "순위", accessorKey: "num" }, 
@@ -50,7 +61,7 @@ const AudienceRecord = () => {
     */
 
     const {getHeaderGroups, getRowModel} = useTable({
-        apiUrl: (`/game/rank/crowd?gyear=2024`),
+        apiUrl: (`/game/rank/crowd?gyear=${year}`),
         columnDefs,
         transformData: (data: TAudienceResponse) => {
             return data?.data?.list.map((audience, index) => {
@@ -74,9 +85,14 @@ const AudienceRecord = () => {
     }))
     return (
     <>
-        <AudienceWrapper>2024 시즌 누적관중</AudienceWrapper>
+        <AudienceWrapper>{year} 시즌 누적관중</AudienceWrapper>
         <Graph graphData={graphData}/>
-        <AudienceWrapper>2024 시즌 관중기록</AudienceWrapper>
+        <AudienceWrapperContainer>
+            <AudienceWrapper>{year} 시즌 관중기록</AudienceWrapper>
+            <AudienceSelect>
+                <SeasonSelect />
+            </AudienceSelect>
+        </AudienceWrapperContainer>
         <TeamRankingTable>
             <thead>
             {getHeaderGroups().map(headerGroup => (
@@ -93,7 +109,7 @@ const AudienceRecord = () => {
             {getRowModel().rows.map(row => (
                 <TeamRankingRow key={row.id}>
                 {row.getVisibleCells().map(cell => (
-                    <TeamRankingCell key={cell.id} isKT={row.original.teamName === 'KT'}>
+                    <TeamRankingCell key={cell.id} $isKT={row.original.teamName === 'KT'}>
                     {typeof cell.getValue() === 'number' ?
                     (cell.getValue() as number).toLocaleString() :String(cell.getValue())}
                     </TeamRankingCell>

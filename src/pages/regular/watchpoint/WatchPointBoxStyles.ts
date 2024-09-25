@@ -36,10 +36,12 @@ export const TeamInfoBox = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 1px solid ${colors.silverGray};
+    
     margin-top: 200px;
     width: 200px;
     height: 200px;
+    border-radius: 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px 0px inset, rgba(17, 17, 26, 0.05) 0px 8px 32px 0px;
     span {
         margin-bottom: 10px;
         font-size: 14px;
@@ -92,6 +94,6 @@ export const LineUpWrapper = styled.div`
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 200px;
-    gap:50px;
+    margin-top: 100px;
+    gap:60px;
 `

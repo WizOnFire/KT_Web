@@ -11,36 +11,7 @@ export const SearchBarContainer = styled.div`
   position: relative;
   // margin-right: 60%;
   top: -87px;  /* 현재 위치에서 20px 위로 이동 */
-  //left: -420px;  /* 현재 위치에서 10px 왼쪽으로 이동 */
-  //z-index: 100; /* 다른 요소 위에 고정되도록 설정 */
-  //left: -30%;
-  //display: inline-block;
-  //top: 00px; /* 위로 이동 */
-  //padding-right: 10px;
-   /* @media (max-width: 1300px) {
-      left: -37%;
-    }
-   @media (max-width: 1200px) {
-      left: -34%;
-    }
-   @media (max-width: 1170px) {
-      left: -34%;
-    }
-    @media (max-width: 1150px) {
-      left: -33%;
-    }
-    @media (max-width: 1100px) {
-      left:-34%;
-    }
-    @media (max-width: 1000px) {
-    left:-25%
-    }
-    /* @media (max-width: 768px) {
-        left:-25%;
-    } */
-    /* @media (max-width: 480px) {
-      left: -20%;
-    } */ 
+
 `;
 
 export type TGridContainerProps={

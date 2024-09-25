@@ -25,6 +25,10 @@ import parkView from "./images/landing/parkView.webp"
 import baseball from "./images/common/baseball.png"
 import select from "./images/common/select.png"
 import redBaseball from "./images/common/redBaseball.png"
+import gold from "./images/player/gold.png"
+import silver from "./images/player/silver.png"
+import bronze from "./images/player/bronze.png"
+import notfound from "./images/common/notfound.png"
 
 const addressIcon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAc1JREFUeNp8009IVFEUx/GnmOJMCNofEyTduDTBpE1JwVAEs1BBUDONaCPiwoWoFFG6EdRVKzdWYjgojji5KAQXQguVcCMoRImEgoKBC0FB/PM98HtxGd7zwGfm3Td3zr3vnXMz9iNRz4kM3Ee9vm/p3h6WkMQiTv//wUlwE314gVwvOE7wBW+x4yYoxiieaOIGEviDc5SiEXf0+w8ttJnJRzYGnD8PohopZCEH3/BQO7SEDzCMiO0gzsVXWLIP6FGSNlxR0jN8QifeoFf3GyxBQtv7hUd4jY6Qd/AZXVhABeZs1Ur9mNJ2X3nh0YwCVcOi3BLkafAXt5UkLOyRyrClcY4lONYgH//cGgfEqXriul9WS/Bbgxh21Sh+nKclWFFpYxpvZzrPY2WqQyt+Op3pxxqe4yniujdrVbjGxXdU4QAvtQubfE/ltYTjuKvvG1jHY78TrXGm1Pv2TiYxYVvUSkVWczThqt7VM8y7Z6EFH9V9ft8f6jqqjvXfSztG0g+TxXu88y6PIXQHnUZPq4ypM4Mipcc4CktgUYhpHRg3VlHjvJfQBJ763FYr0dj6oxbL6RPDEniqd1KPZRWYCZp0WQJPJy+C/rAJFwIMAKPmZvp5dQo6AAAAAElFTkSuQmCC"
 const busIcon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAYAAACAl21KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYFJREFUeNqklE8oBVEUxmfuG9TzJzakvEe9lcRGWFgQdsrSTtbKyt7Gwtb22SmlxIpYeAs2tiQbLCjKn6gXHok3w3fqmzqmMeO999Wve8+Zueeee2busZ+StRaVBhNgFPSDFpCwfusd3IEjsEeu5YHNQGNgF1RxQQF8gC/g0eeAalADkvS5YBZk/UD7YJgPl8CcFa1JsK7sOoeTTo5vYASsSbZ/BPkGbcxaMjMg47AWwitoB42gmQvCJBu8gFuwAwYFh4Yor7iy/qcCx0VJqzewWynyP06DqSCIljGq+pUEOpdAWRpeRIHjapSTYrfSaAILJQbr1v+Rfw3qwXyZR0uYMo4TXm1QVLb82cvgJGLNM985Uz5PjvapHDNglV+wyI2CmgLbvAF5P5Bha/DVxXEgIqMejn3K58rtH8LkQDlvQCqmJG6gV23J0U7BJrNIkUNezDBJT8qADtrHYMNWHXIFTDOjdExG0h0eOB+XpqiLKcd7ZKeMk3TPC3APLsXxI8AAEZlQ6LkqLcwAAAAASUVORK5CYII="
@@ -60,5 +64,9 @@ export {
     parkView,
     baseball,
     redBaseball,
-    select
+    select,
+    gold,
+    silver,
+    bronze,
+    notfound,
 };

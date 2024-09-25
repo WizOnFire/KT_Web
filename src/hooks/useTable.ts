@@ -38,6 +38,7 @@ export const useTable = <TData,>({
     }, [apiUrl]);
 
     const columns = useMemo(() => columnDefs, [columnDefs]);
+
     const table = useReactTable({
         data,
         columns,

@@ -5,7 +5,7 @@ import { GradientCircle } from "../../../components/common/gradientChip/Gradient
 import { GrNext } from "react-icons/gr";
 import useFetchData from "../../../hooks/useFetchData";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { TGameResponse } from "../../../types/landing";
 import {
     TeamMatchContainer,
@@ -23,7 +23,6 @@ const TeamMatch = () => {
     const { data : game } = useFetchData<TGameResponse>("/game/recentGames");
     const { current, prev, next } = game?.data || {};
     const [ index, setIndex ] = useState(1);
-    console.log('Gamedata',game);
 
     const games = [prev, current, next].filter(Boolean);
     const show = games[index];
@@ -48,7 +47,6 @@ const TeamMatch = () => {
         const year = date?.substring(0, 4) || "";
         const month = date?.substring(4, 6) || "";
         const day = date?.substring(6, 8) || "";
-        
         return  `${year}.${month}.${day}`;
     }
     const formattedDate = show ? formatDate(show.displayDate) : "";
@@ -93,7 +91,7 @@ const TeamMatch = () => {
                     height="35px"
                     fontFamily="KBO_Gothic_bold"
                     padding="0 0 0 7px"
-                    onClick={()=>navigate("/game/regular/boxscore")}// 임의경로설정
+                    onClick={()=>navigate(`/game/regular/boxscore?gameDate=${show.gameDate}&gmkeye=${show.gmkey}`)}
                     >
                     경기정보 
                     <GrNext />

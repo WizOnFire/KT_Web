@@ -1,19 +1,23 @@
-import { ColumnDef, SortingState, Updater, flexRender } from "@tanstack/react-table";
 import { useTable } from "../../../../hooks/useTable";
-import SearchAndSelect from "../../../../components/ranking/searchAndSelect/SearchAndSelect";
+import { useMemo } from "react";
+import { ColumnDef, SortingState, Updater, flexRender } from "@tanstack/react-table";
+import SeasonSelect from "../../../../components/ranking/seasonSelect/SeasonSelect";
+import SearchBar from "../../../../components/common/searchbar/SearchBar";
 import {
     BattRankingTable,
     BattRankingHeaderCell,
     BattRankingRow,
-    BattRankingCell
+    BattRankingCell,
+    SelectAndSearch
 } from "./css/BatterRankStyles";
 
 type RankingTableProps<T> = {
     apiUrl: string;
-    columnDefs?: ColumnDef<T>[]; 
+    columnDefs?: ColumnDef<T>[];
     transformData?: (data: any) => T[];
     sorting: SortingState;
     onSortingChange: (updaterOrValue: Updater<SortingState>) => void;
+    setSearchTerm: React.Dispatch<React.SetStateAction<string>>
 };
 
 const BatterRankTable = <T,>({
@@ -21,10 +25,13 @@ const BatterRankTable = <T,>({
     columnDefs: customColumnDefs,
     transformData,
     sorting,
-    onSortingChange
+    onSortingChange,
+    setSearchTerm
 }: RankingTableProps<T>) => {
-
-    const defaultColumnDefs: ColumnDef<T>[] = [
+    const defaultSorting: SortingState = useMemo(() => [{ id: "avg", desc: false }], []);
+    
+    // columnDefs는 useMemo로 메모이제이션
+    const defaultColumnDefs: ColumnDef<T>[] = useMemo(() => [
         { header: "선수명", accessorKey: "playerName", enableSorting: false },
         { header: "팀명", accessorKey: "teamName", enableSorting: false },
         { header: "타율", accessorKey: "avg", enableSorting: true }, //타율 = (안타 (hit) / 타수(ab))
@@ -41,21 +48,36 @@ const BatterRankTable = <T,>({
         { header: "사구", accessorKey: "hp", enableSorting: true },
         { header: "삼진", accessorKey: "kk", enableSorting: true },
         { header: "장타율", accessorKey: "slg", enableSorting: true },
-        { header: "출루율", accessorKey: "obp", enableSorting: true },// 출루율 = (안타(hit) + 볼넷(bb) + 사구(hp)) / (타수(ab) + 볼넷(bb) + 사구(hp) + 희생플라이(sf))
-    ];
-    
-    const columnDefs = customColumnDefs ? [...customColumnDefs, ...defaultColumnDefs] : defaultColumnDefs; 
+        { header: "출루율", accessorKey: "obp", enableSorting: true } // 출루율 계산
+    ], []);
+
+    // customColumnDefs가 있으면 결합, 없으면 defaultColumnDefs 사용
+    const columnDefs = useMemo(() => {
+        return customColumnDefs ? [...customColumnDefs, ...defaultColumnDefs] : defaultColumnDefs;
+    }, [customColumnDefs, defaultColumnDefs]);
+
+    // sorting 상태가 변경될 때만 새로운 배열을 만들지 않도록 useMemo 사용
     const table = useTable<T>({
         apiUrl,
         columnDefs,
         transformData,
-        sorting,
+        sorting: sorting.length === 0 ? defaultSorting : sorting,
         onSortingChange
     });
-
+console.log('apiurl 테이블 먼저니?!?!!?');
     return (
     <>
-        <SearchAndSelect/>
+    <SelectAndSearch>
+        <SeasonSelect />
+        <SearchBar 
+        placeholder="선수의 전체 이름을 입력해주세요 (예: 로하스 전상현)" 
+        containerWidth="350px" 
+        height="25px" 
+        buttonWidth="45px"
+        onSearch={(term)=>setSearchTerm(term)} 
+        />
+        <span>*각 항목을 클릭하시면 순위를 보실 수 있습니다.</span>
+    </SelectAndSearch>
         <BattRankingTable>
             <thead>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -66,6 +88,7 @@ const BatterRankTable = <T,>({
                         colSpan={header.colSpan}
                         onClick={header.column.getToggleSortingHandler()}
                         style={{ cursor: "pointer" }}
+                        issorted = {!!header.column.getIsSorted()}
                     >
                         {flexRender(header.column.columnDef.header, header.getContext())}
                         {header.column.getCanSort() && "▼"}

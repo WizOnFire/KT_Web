@@ -1,32 +1,30 @@
 import { SortingState } from "@tanstack/react-table";
 import { useRankStore } from "../../../../stores/useRank.store";
-import RankingApiTabel from "./PitcherRankTable";
+import RankingApiTable from "./PitcherRankTable";
 import { useState } from "react";
 import { TPitcherResponse } from "../../../../types/ranking";
-import TopPitRank from "./topRank/TopPitRank";
 
-const PitcherRanking = () => {
+const PitcherRank = () => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const { year } = useRankStore();
-  const  apiUrl = `/game/rank/kt/pitcher?gyear=${year}&pname=&sortKey=`;
+  const [searchTerm, setSearchTerm] = useState<string>("");  // 실시간 검색어 상태
+  const apiUrl = `/game/rank/kt/pitcher?gyear=${year}&pname=${searchTerm}&sortKey=`;
+
   const transformData = (data: TPitcherResponse) => {
     return data?.data?.list || [];
   };
 
   return (
     <>
-      <TopPitRank/>
-      <RankingApiTabel
+      <RankingApiTable
         apiUrl={apiUrl}
         sorting={sorting}
         onSortingChange={setSorting}
         transformData={transformData}
+        setSearchTerm={setSearchTerm}
       />
     </>
   );
 }
 
-export default PitcherRanking;
-{/* 평균자책점 top3 */}
-{/* 승리 top3 */}
-{/* 전체 투수평균자책점 top5 */}
+export default PitcherRank;

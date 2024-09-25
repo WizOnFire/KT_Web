@@ -102,6 +102,7 @@ export const CalendarHeader = styled.div`
       border: none;
       cursor: pointer;
       font-size: 14px;
+  }
 `;
 
 export const MonthSelector = styled.div`

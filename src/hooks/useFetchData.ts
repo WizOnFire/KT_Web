@@ -15,12 +15,14 @@ const useFetchData = <T>(url:string) => {
             setIsLoading(false);
         } catch (error) {
             setError("데이터 통신 오류!")
-            setIsLoading(true);
+            setIsLoading(false);
         }
     };
 
     useEffect(()=>{
-        fetchData();
+        if (url) {  // URL이 빈 값일 경우 요청하지 않도록 조건 추가
+            fetchData();
+        }
     },[url]);
     return { data, isLoading, error };
 }

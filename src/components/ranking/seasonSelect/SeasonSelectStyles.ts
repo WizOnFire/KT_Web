@@ -15,7 +15,7 @@ export const SelectBoxRank = styled.div`
 export const SelectBoxPitRank = styled.select`
     width: 100px;
     height: 25px;
-    /* border-radius: 8px;  */
+    border-radius: 8px; 
     padding-left: 10px;
     appearance: none;
     background-image: url(${select});

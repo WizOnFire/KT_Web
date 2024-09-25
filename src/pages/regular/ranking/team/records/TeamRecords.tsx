@@ -55,7 +55,7 @@ const TeamRecords = () => {
           {getRowModel().rows.map(row => (
             <TeamRankingRow key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <TeamRankingCell key={cell.id} isKT={row.original.teamName === 'KT'}>
+                <TeamRankingCell key={cell.id} $isKT={row.original.teamName === 'KT'}>
                   {String(cell.getValue())}
                 </TeamRankingCell>
               ))}

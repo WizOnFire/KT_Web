@@ -3,7 +3,7 @@ import StaffList from "../../components/player/staffDetailList/StaffList";
 const Outfielder = () => {
   return (
     <>
-      <StaffList apiUrl="player/outfielder" staffType="outfielder"/>
+      <StaffList apiUrl="player/outfielderlist" staffType="outfielder"/>
     </>
   );
 }

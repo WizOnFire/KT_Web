@@ -36,12 +36,12 @@ export const TeamRankingRow = styled.tr`
     }
 `;
 
-export const TeamRankingCell = styled.td<{isKT?:boolean, isKTColumn?:boolean}>`
+export const TeamRankingCell = styled.td<{$isKT?:boolean; $isKTColumn?:boolean}>`
     padding-block: 10px;
     text-align: center;
     border: 1px solid ${colors.silverGray};
-    color : ${({isKT,isKTColumn}) =>( isKT || isKTColumn ? colors.redPrimary : "inherit")};
-    background-color: ${({isKT,isKTColumn}) => (isKT || isKTColumn ? 'rgba(255, 153, 153, 0.1)' : "inherit")};
+    color : ${({$isKT,$isKTColumn}) =>( $isKT || $isKTColumn ? colors.redPrimary : "inherit")};
+    background-color: ${({$isKT,$isKTColumn}) => ($isKT || $isKTColumn ? 'rgba(255, 153, 153, 0.1)' : "inherit")};
     &:nth-child(1) {
         border-left: none;
     }

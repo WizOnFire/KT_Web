@@ -12,7 +12,7 @@ export const PageLocationBox = styled.div`
     margin-top: 100px;//진주: 마진 조정했습니다!
     height: 33px;
     font-size: 15px;
-     @media (max-width: 1200px) {
+     /* @media (max-width: 1200px) {
         max-width: 900px; 
     }
 
@@ -22,12 +22,13 @@ export const PageLocationBox = styled.div`
 
     @media (max-width: 480px) {
         max-width: 400px; 
-    }
+    } */
 ` 
 
 export const PageLocationInfo = styled.div`
     width: 100%;
     border-bottom : 2.5px solid ${colors.redPrimary};
+    //margin:0 auto;
     text-align: right;
     z-index: 20;
     padding-bottom: 15px;
@@ -37,6 +38,9 @@ export const PageLocationInfo = styled.div`
          /* &:last-child{
         color: ${colors.redPrimary};
         }  */
+        cursor: pointer;
     }
-
+    span :last-child{
+        pointer-events: none;
+    }
 `

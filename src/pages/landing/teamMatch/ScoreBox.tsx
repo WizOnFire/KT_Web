@@ -19,6 +19,7 @@ type TScoreBoxType = {
     height?: string;
     scale?: string;
     margin?: string;
+    border?: string;
 }
 
 const ScoreBox = ({ 
@@ -33,11 +34,12 @@ const ScoreBox = ({
     width,
     height,
     scale,
-    margin
+    margin,
+    border,
   }:TScoreBoxType) => {
     return (
       <>
-          <EachTeamBox width={width} height={height}>
+          <EachTeamBox width={width} height={height} border={border}>
             <HiddenBlackBox
               left={hiddenLeft}
               backgroundColor={backgroundColor}

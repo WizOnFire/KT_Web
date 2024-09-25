@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import GradientChip from "../../../components/common/gradientChip/GradientChip";
 import useFetchData from "../../../hooks/useFetchData";
 import {
@@ -6,89 +5,20 @@ import {
     HighLightNews,
     HighLightLine,
     HighLightTitle,
+    HighLightVedioBox,
+    IframeContainer,
+    LargeIframe,
+    SmallIframeList,
+    SmallIframeItem,
+    MediumIframeList,
+    MediumIframeItem,
+    IframeItemInfo,
+    IframeItemTitle
 } from "./HighLightStyles";
 import { GrNext } from "react-icons/gr";
 import { GradientCircle } from "../../../components/common/gradientChip/GradientChipStyles";
 import colors from "../../../assets/Colors";
-
-const HighLightVedioBox = styled.section`
-    max-width: 1110px;
-    width: 100%;
-    display: flex;
-    margin-bottom: 30px;
-    gap: 15px;
-    `;
-
-const IframeContainer = styled.section`
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-`;
-
-const LargeIframe = styled.iframe`
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 10px;
-    border: none;
-    overflow: hidden;
-    border: none;
-`;
-
-const SmallIframeList = styled.ul`
-    display: flex;
-    width: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    gap: 10px;
-`;
-
-const SmallIframeItem = styled.li`
-    flex: 1;
-    overflow: hidden;
-    position: relative;
-    
-    iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 10px;
-    }
-`;
-
-const MediumIframeList = styled.ul`
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    gap: 75px;
-`;
-
-const MediumIframeItem = styled.li`
-    aspect-ratio: 16/9;
-    iframe {
-        width: 100%;
-        height: 80%;
-        border: none;
-        border-radius: 10px;
-        padding-top: 15px;
-    }
-`;
-
-const IframeItemInfo = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-`;
-
-const IframeItemTitle = styled.span`
-    font-size:14px;
-`;
-
-
+import { THighLightResponse } from "../../../types/landing";
 
 const HighLight = () => {
     const { data } = useFetchData<THighLightResponse>("/media/highlightlist?count=10");

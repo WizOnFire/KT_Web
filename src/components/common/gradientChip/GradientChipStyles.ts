@@ -16,6 +16,8 @@ export type TGradientCircle = {
     backgroundColor?: string;
     color?: string;
     border?: string;
+    hoverBackgroundColor?: string;
+    hoverColor?: string;
 }
 
 export const GradientContainer = styled.div<TGradient>`
@@ -40,6 +42,11 @@ export const GradientCircle = styled.div<TGradientCircle>`
     padding: ${({padding}) => padding || '0'};
     margin: ${({margin}) => margin || '0'};
     cursor: pointer;
+    &:hover {
+        background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor || colors.redQuaternary};
+        color: ${({ hoverColor }) => hoverColor || colors.white};
+        border: none;
+    }
     span{
         font-family:"PartialSansKR" ;
         font-weight: 500;

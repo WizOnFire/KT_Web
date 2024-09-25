@@ -12,7 +12,7 @@ export const PitMenuSelected = styled.div<{ isSelected: boolean }>`
     transform: translateY(${({ isSelected }) => (isSelected ? "0" : "-15%")});
     opacity: ${({ isSelected }) => (isSelected ? 1 : 0)};
     caret-color: transparent;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 
     &::before {
         content: "";

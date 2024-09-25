@@ -262,20 +262,6 @@ export type TWinPitType = {
     [key:string]: any;
 };
 
-//전체 투수 평균자책점 TOP5
-export type TAllAvgPitResponse = {
-    data: {
-        list: TAllAvgPitType[]; 
-    };
-};
-
-export type TAllAvgPitType = {
-    era: string;
-    playerName: string;
-    teamName: string;
-    [key:string]: any;
-};
-
 //----------------------------
 //타자 - 평균자책점 top3
 export type TAvgBattResponse = {
@@ -305,16 +291,19 @@ export type TWinBattType = {
     [key:string]: any;
 };
 
-//전체 타자 평균자책점 TOP5
-export type TAllAvgBattResponse = {
+//----------------------------
+//전체 투수 / 타자 평균자책점 TOP5
+export type TAllAvgResponse = {
     data: {
-        list: TAllAvgBattType[]; 
+        list: TAllAvgType[]; 
     };
 };
 
-export type TAllAvgBattType = {
+export type TAllAvgType = {
     era: string;
     playerName: string;
     teamName: string;
     [key:string]: any;
 };
+
+
