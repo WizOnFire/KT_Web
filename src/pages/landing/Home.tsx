@@ -21,12 +21,12 @@ const Home = () => {
       {/* 랜딩페이지 */}
       <StartImage>
         <StartWizNews>
-          <GradientChip main="KTWIZ" title="위즈소식" />
+          <GradientChip main="KTWIZ" title="위즈소식"/>
           {data && (
             <>
               <p>{data[0].artcTitle}</p>
               <p>{data[0].artcContents}</p>
-              <a href="https://www.ktwiz.co.kr/media/wizpress/184875"> 
+              <a href="/media/wiznews/190436"> 
                 자세히보기&nbsp;&gt;
               </a>
             </>

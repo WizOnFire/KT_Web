@@ -8,8 +8,8 @@ const AllPitcherRank = () => {
   const { year } = useRankStore();
   const [sorting, setSorting] = useState<SortingState>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");  // 실시간 검색어 상태
-  const apiUrl = `/game/rank/kt/pitcher?gyear=${year}&pname=${searchTerm}&sortKey=`;
-
+  const apiUrl = `/game/rank/total/pitcher?gyear=${year}&pname=${searchTerm}&sortKey=`;
+  
   const transformData = (data: TPitcherResponse) => {
     return (
       data?.data?.list.map((pitcher,index) => ({
