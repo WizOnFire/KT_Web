@@ -54,7 +54,7 @@
 
 ## 🔗 배포 URL 바로가기
 
-> [배포주소]( wizonfire-publish.vercel.app/)
+> [ wizonfire 배포주소](https://wizonfire-publish.vercel.app/)
 
 
 
