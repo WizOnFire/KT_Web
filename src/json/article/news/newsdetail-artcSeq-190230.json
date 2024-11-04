@@ -1,0 +1,22 @@
+{
+    "data": {
+        "article": {
+            "artcContents": "<p style=\"text-align: center;\">안녕하세요, kt wiz 야구단입니다. 9/18~19 vs 삼성 홈경기 이벤트를 안내 드립니다. 자세한 내용은 공지 내 이미지를 확인해 주세요.</p><p style=\"text-align: center;\"><img src=\"https://wizzap.ktwiz.co.kr/files/article/2024/09/16/20240916201423.e41-4e2ea7ae66dc.jpg\" class=\"txc-image\" style=\"clear:none;float:none;\" /></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p>",
+            "artcNextSeq": 190228,
+            "artcPrevSeq": 190234,
+            "artcSeq": 190230,
+            "artcTitle": "[안내] 홈경기 이벤트 안내(9/18~19 vs 삼성)",
+            "boardCatSeq": 0,
+            "boardCode": "001",
+            "delYn": "N",
+            "imgFilePath": "https://wizzap.ktwiz.co.kr/files/article/2024/09/16/20240916185525.0a7-251bb5710b91.jpg",
+            "maxArticlePerPage": 0,
+            "regDttm": 1726480525000,
+            "regr": "gsc02063",
+            "updDttm": 1726485271000,
+            "updr": "gsc02063",
+            "useYn": "Y",
+            "viewCnt": 392
+        }
+    }
+}

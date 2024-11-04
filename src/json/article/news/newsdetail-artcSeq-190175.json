@@ -1,0 +1,22 @@
+{
+    "data": {
+        "article": {
+            "artcContents": "<p style=\"text-align: center;\">안녕하세요, kt wiz 야구단입니다. 9/16 vs KIA 홈경기 이벤트를 안내 드립니다. 자세한 내용은 공지 내 이미지를 확인해 주세요.</p><p style=\"text-align: center;\"><span style=\"font-size: 10pt;\"><br></span></p><p style=\"text-align: center;\"><img src=\"https://wizzap.ktwiz.co.kr/files/article/2024/09/12/20240912151024.786-d620a2da193a.jpg\" class=\"txc-image\" style=\"clear:none;float:none;\"></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p>",
+            "artcNextSeq": 190173,
+            "artcPrevSeq": 190176,
+            "artcSeq": 190175,
+            "artcTitle": "[안내] 홈경기 이벤트 안내(9/16 vs KIA)",
+            "boardCatSeq": 0,
+            "boardCode": "001",
+            "delYn": "N",
+            "imgFilePath": "https://wizzap.ktwiz.co.kr/files/article/2024/09/12/20240912151611.5da-2635d8068485.jpg",
+            "maxArticlePerPage": 0,
+            "regDttm": 1726121771000,
+            "regr": "gsc02063",
+            "updDttm": 1726137673000,
+            "updr": "gsc02063",
+            "useYn": "Y",
+            "viewCnt": 206
+        }
+    }
+}

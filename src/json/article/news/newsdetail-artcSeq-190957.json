@@ -1,0 +1,22 @@
+{
+    "data": {
+        "article": {
+            "artcContents": "<p style=\"text-align: center;\">이번 2024-25 시즌부터 위잽에서 KT소닉붐 티켓 예매가 가능합니다! 자세한 내용은 공지 내 이미지를 확인해 주세요.</p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><img src=\"https://wizzap.ktwiz.co.kr/files/article/2024/10/15/20241015114608.350-c04bbc4e8fee.png\" class=\"txc-image\" style=\"clear:none;float:none;\" /></p><p style=\"text-align: center;\"><br></p>",
+            "artcNextSeq": 190925,
+            "artcPrevSeq": 190958,
+            "artcSeq": 190957,
+            "artcTitle": "[안내] wizzap x 수원 KT 소닉붐 티켓 예매 안내",
+            "boardCatSeq": 0,
+            "boardCode": "001",
+            "delYn": "N",
+            "imgFilePath": "https://wizzap.ktwiz.co.kr/files/article/2024/10/15/20241015114621.496-afdcfc9d560f.jpg",
+            "maxArticlePerPage": 0,
+            "regDttm": 1728960381000,
+            "regr": "gsc02063",
+            "updDttm": 1728960381000,
+            "updr": "gsc02063",
+            "useYn": "Y",
+            "viewCnt": 71
+        }
+    }
+}

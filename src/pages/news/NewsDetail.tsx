@@ -24,7 +24,7 @@ export const formatArticleContents = (contents: string) => {
 };
 const NewsDetail = () => {
   const { newsId } = useParams<{ newsId: string }>();
-  const { data, isLoading } = useFetchData<ApiResponse>(`/article/newsdetail?artcSeq=${newsId}`);
+  const { data, isLoading } = useFetchData<ApiResponse>(`/article/newsdetail-artcSeq-${newsId}.json`);
 
   // useEffect(() => {
   //   console.log(data);

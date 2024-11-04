@@ -24,7 +24,7 @@ const formatArticleContents = (contents: string) => {
 export const WizPressDetail = () => {
     const { wizpressId } = useParams<{ wizpressId: string }>();
 
-    const { data, isLoading } = useFetchData<ApiResponse>(`article/wizpressdetail?artcSeq=${wizpressId}`);
+    const { data, isLoading } = useFetchData<ApiResponse>(`article/wizpressdetail-artcSeq-${wizpressId}.json`);
     // useEffect(() => {
     //     console.log(data);
     // }, [data]);

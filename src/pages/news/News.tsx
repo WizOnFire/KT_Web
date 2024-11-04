@@ -31,7 +31,7 @@ const formatThumbnail = (thumbnailUrl: string) => {
 
 const News = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const { data, isLoading, error } = useFetchData<ApiResponse>(`/article/newslist?searchWord=${searchTerm}`);
+  const { data, isLoading, error } = useFetchData<ApiResponse>(`/article/newslist-searchWord-${searchTerm}.json`);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [currentItems, setCurrentItems] = useState<Article[]>([]);

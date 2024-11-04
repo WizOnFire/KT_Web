@@ -1,0 +1,22 @@
+{
+    "data": {
+        "article": {
+            "artcContents": "<p style=\"text-align: center;\">안녕하세요, kt wiz 야구단입니다. 한국프로야구선수협회 천만관중 달성 기념 이벤트를 안내 드립니다. 자세한 내용은 공지 내 이미지를 확인해 주세요.</p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><img src=\"https://wizzap.ktwiz.co.kr/files/article/2024/09/18/20240918194542.6bd-c2085ad7759e.jpg\" class=\"txc-image\" style=\"clear:none;float:none;\"></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p>",
+            "artcNextSeq": 190235,
+            "artcPrevSeq": 190327,
+            "artcSeq": 190291,
+            "artcTitle": "[안내] 한국프로야구선수협회 천만관중 달성 기념 이벤트",
+            "boardCatSeq": 0,
+            "boardCode": "001",
+            "delYn": "N",
+            "imgFilePath": "https://wizzap.ktwiz.co.kr/files/article/2024/09/19/20240919153646.b8a-ba8acf7d8a38.jpg",
+            "maxArticlePerPage": 0,
+            "regDttm": 1726656347000,
+            "regr": "gsc02063",
+            "updDttm": 1726727806000,
+            "updr": "gsc02063",
+            "useYn": "Y",
+            "viewCnt": 318
+        }
+    }
+}

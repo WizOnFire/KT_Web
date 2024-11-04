@@ -1,0 +1,22 @@
+{
+    "data": {
+        "article": {
+            "artcContents": "<p><span style=\"font-size: 13.3333px;\">안녕하세요, kt wiz 야구단입니다. 2024 신한 SOL 뱅크 KBO 준플레이오프 온라인 일반 예매 안내 드립니다. 자세한 내용은 공지 내 이미지를 확인해 주세요.</span><br></p><p><span style=\"font-size: 13.3333px;\"></span><br></p><p style=\"text-align: center;\"><img src=\"https://wizzap.ktwiz.co.kr/files/article/2024/10/03/20241003170232.f08-3879afd84db2.jpg\" class=\"txc-image\" style=\"clear:none;float:none;\" /></p><p><span style=\"font-size: 13.3333px;\"><br></span></p>",
+            "artcNextSeq": 190671,
+            "artcPrevSeq": 190673,
+            "artcSeq": 190672,
+            "artcTitle": "[안내] 2024 신한 SOL 뱅크 KBO 준플레이오프 온라인 일반 예매 안내",
+            "boardCatSeq": 0,
+            "boardCode": "001",
+            "delYn": "N",
+            "imgFilePath": "https://wizzap.ktwiz.co.kr/files/article/2024/10/03/20241003170248.1f4-f428c119d16b.jpg",
+            "maxArticlePerPage": 0,
+            "regDttm": 1727942568000,
+            "regr": "gsc02063",
+            "updDttm": 1727942568000,
+            "updr": "gsc02063",
+            "useYn": "Y",
+            "viewCnt": 174
+        }
+    }
+}

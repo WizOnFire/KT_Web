@@ -23,7 +23,7 @@ interface ApiResponse {
 
 const WizPress = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');  // 검색어 상태 추가
-  const { data, isLoading } = useFetchData<ApiResponse>(`article/wizpresslist?searchWord=${searchTerm}`);
+  const { data, isLoading } = useFetchData<ApiResponse>(`article/wizpresslist-searchWord-${searchTerm}.json`); 
   const [currentPage, setCurrentPage] = useState(1);
   const [currentItems, setCurrentItems] = useState<Article[]>([]);
   const itemsPerPage = 5;

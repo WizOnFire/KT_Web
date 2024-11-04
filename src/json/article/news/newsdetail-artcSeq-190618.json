@@ -1,0 +1,22 @@
+{
+    "data": {
+        "article": {
+            "artcContents": "<p style=\"text-align: center;\"><span style=\"font-size: 10pt;\">안녕하세요, kt wiz 야구단입니다. 2024 신한 SOL 뱅크 KBO 와일드카드 결정전 입장권 예매 안내 드립니다. 자세한 내용은 공지 내 이미지를 확인해 주세요.</span><br></p><div style=\"text-align: center;\"><p style=\"text-align: center;\"><img src=\"https://wizzap.ktwiz.co.kr/files/article/2024/10/01/20241001195625.7c0-679e5fe04bc1.jpg\" class=\"txc-image\" style=\"clear:none;float:none;\" /></p><p><br></p><br></div><p style=\"text-align: center;\"><br></p>",
+            "artcNextSeq": 190563,
+            "artcPrevSeq": 190620,
+            "artcSeq": 190618,
+            "artcTitle": "[안내] 2024 신한 SOL 뱅크 KBO 와일드카드 결정전 입장권 예매 안내",
+            "boardCatSeq": 0,
+            "boardCode": "001",
+            "delYn": "N",
+            "imgFilePath": "https://wizzap.ktwiz.co.kr/files/article/2024/10/01/20241001195637.51e-752568f981fe.jpg",
+            "maxArticlePerPage": 0,
+            "regDttm": 1727780197000,
+            "regr": "gsc02063",
+            "updDttm": 1727780197000,
+            "updr": "gsc02063",
+            "useYn": "Y",
+            "viewCnt": 106
+        }
+    }
+}
