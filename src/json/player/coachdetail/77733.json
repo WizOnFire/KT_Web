@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "72",
+            "birth": "1988.10.16",
+            "career": "광주화정초-무등중-광주제일고-한화-상무-두산",
+            "career2": "정보없음",
+            "engName": "KIM KANG",
+            "gyear": "2024",
+            "height": "188 cm",
+            "heightWeight": "188 cm,92 kg",
+            "hittype": "좌투좌타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77733_2024-03-06_110536.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77733_2024-03-06_110550.jpg",
+            "pcode": "77733",
+            "playerName": "김강",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77733_2024-03-06_110456.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/77733_2024-03-06_110511.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/77733_2024-03-06_110523.jpg",
+            "position": "타격보조 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "92 kg"
+        }
+    }
+}

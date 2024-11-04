@@ -2,35 +2,35 @@ import styled from "styled-components";
 import colors from "../../../../../assets/Colors";
 
 export const ScoreWrapper = styled.div`
-    width: 100%;
-    height: 300px;
-    margin: 0 auto;
     display: flex;
     position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
     margin-bottom: 50px;
     caret-color: transparent;
 `
 export const ScoreTable = styled.table`
-    width: 32%;
-    border-collapse: collapse;
-    caret-color: transparent;
-    table-layout: fixed;
-    font-size: 12px;
-    color: ${colors.mediumGray};
-    margin: 0 auto;
-    z-index: 37;
     position: absolute;
-    top: 650px;
-    left: 34%;
+    top: 150px;
+    left: 25%;
+    margin: 0 auto;
+    width: 50%;
+    font-size: 12px;
+    table-layout: fixed;
+    color: ${colors.mediumGray};
+    caret-color: transparent;
+    border-collapse: collapse;
+    z-index: 37;
 `;
 
 export const ScoreHeaderCell   = styled.td`
     padding-block: 10px;
     text-align: center;
     border-top: 1.5px solid ${colors.redQuaternary};
-    background-color: ${colors.mediumIvory};
-    color: ${colors.black};
     font-weight: 500;
+    color: ${colors.black};
+    background-color: ${colors.mediumIvory};
     &:nth-child(1) {
         width: 10%;
     }

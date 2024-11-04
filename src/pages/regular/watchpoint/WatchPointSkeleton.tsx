@@ -101,7 +101,7 @@ const WatchPointSkeleton = () => {
         </TableSkeletonWrapper>
       </PitchTable>
 
-      <LineUpContainer>
+      <LineUpContainer style={{marginTop:'-21px'}}>
         <PitchRecordLabel>라인업</PitchRecordLabel>
         <LineUpWrapper>
           <LineUpBox>

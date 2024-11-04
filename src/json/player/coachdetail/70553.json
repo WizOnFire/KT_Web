@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "76",
+            "birth": "1981.06.04",
+            "career": "대구수창초-성광중-대구상고-롯데-KT",
+            "career2": "정보없음",
+            "engName": "PARK KI HYEOK",
+            "gyear": "2024",
+            "height": "179 cm",
+            "heightWeight": "179 cm,77 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/70553_2024-03-06_110656.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/70553_2024-03-06_110714.jpg",
+            "pcode": "70553",
+            "playerName": "박기혁",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/70553_2024-03-06_110608.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/70553_2024-03-06_110625.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/70553_2024-03-06_110646.jpg",
+            "position": "주루/외야 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "77 kg"
+        }
+    }
+}

@@ -28,7 +28,7 @@ const LargePhoto = styled.img`
 `
 
 const Gallery = () => {
-    const { data } = useFetchData<TGalleryResponse>("media/photolist?count=10");
+    const { data } = useFetchData<TGalleryResponse>('media/photolist-count-10.json');
     const galleryData = data?.data.list;
     const imagePaths = galleryData?.map((item)=>item.imgFilePath) || [];
 

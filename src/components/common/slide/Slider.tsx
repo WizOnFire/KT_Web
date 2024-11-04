@@ -40,7 +40,7 @@ const Slider = ({ images }: TSliderProps) => {
                     slidesPerView={4} // 한 번에 보여지는 슬라이드 개수
                     spaceBetween={30} // 슬라이드 간격
                     autoplay={{
-                        delay: 300,
+                        delay: 1000,
                         disableOnInteraction: false, // 사용자 상호작용 후에도 자동 슬라이드 유지
                     }}
                     centeredSlides={true}

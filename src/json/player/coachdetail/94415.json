@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "70",
+            "birth": "1971.08.19",
+            "career": "부산수영초-부산동성중-부산고-중앙대-삼성-롯데-SK",
+            "career2": "정보없음",
+            "engName": "KIM TAE GYUN",
+            "gyear": "2024",
+            "height": "176 cm",
+            "heightWeight": "176 cm,82 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/94415_2024-03-06_104939.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/94415_2024-03-06_104952.jpg",
+            "pcode": "94415",
+            "playerName": "김태균",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/94415_2024-03-06_104853.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/94415_2024-03-06_104853.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/94415_2024-03-06_104922.jpg",
+            "position": "수석 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "82 kg"
+        }
+    }
+}

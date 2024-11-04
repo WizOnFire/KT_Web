@@ -13,6 +13,7 @@ export const HighLightContainer = styled.section`
 `;
 
 export const HighLightNews = styled.div`
+    max-width: 1100px;
     width: 65%;
     font-size: 14px;
     color: ${colors.redGradient};

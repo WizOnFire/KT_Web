@@ -7,13 +7,15 @@ import { TGameResponse } from "../../../types/landing";
 import MatchBoxSkeleton from "../../../components/common/skeleton/scheduleskeleton/MatchBoxSkeleton";
 import LottieComponent from "../../../lottie/LottieComponent";
 import loadingAnimation from "../../../lottie/lottieloading.json"
+import useLoading from "../../../hooks/useLoading";
 
 const MatchBox = () => {
   const navigate = useNavigate();
-  const { data : game,isLoading } = useFetchData<TGameResponse>("game/recentGames");
+  const { data : game } = useFetchData<TGameResponse>("game/recentGames.json");
   const {current, prev, next} = game?.data || {};
   //console.log('Gamedata', game);
 
+  const isLoading = useLoading();
 
   // 날짜 포맷팅 함수
   const formatDate = (date:string | undefined):string => {

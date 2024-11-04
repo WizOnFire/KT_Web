@@ -31,7 +31,7 @@ const TeamBatter = () => {
   ];
 
   const { getHeaderGroups, getRowModel } = useTable<TBattRankType>({
-    apiUrl: '/game/rank/batting',
+    apiUrl: '/game/rank-batting.json',
     columnDefs,
     transformData: (data: TBattRankResponse) => {
       return data?.data?.list || [];

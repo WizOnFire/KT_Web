@@ -130,16 +130,16 @@ const SharedTop3 = ({ condition, children }: TTopConditionRankType) => {
     useEffect(() => {
         switch (condition) {
             case "pitcherEra":
-                setApiUrl("/game/rank/pitcher/era/top3");
-                break;
+              setApiUrl('/game/rank-pitcher-era-top3.json');
+              break;
             case "pitcherWins":
-                setApiUrl("/game/rank/pitcher/win/top3");
-                break;
+              setApiUrl('/game/rank-pitcher-win-top3.json');
+              break;
             case "batterHra":
-                setApiUrl("/game/rank/batter/hra/top3");
-                break;
-            case "batterHr":
-                setApiUrl("/game/rank/batter/hr/top3");
+              setApiUrl('/game/rank-batter-hra-top3.json');
+              break;
+              case "batterHr":
+                setApiUrl('/game/rank-batter-hr-top3.json');
                 break;
             default:
                 setApiUrl("");

@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "89",
+            "birth": "1988.05.09",
+            "career": "고명초-덕수중-경기고-(영남사이버대)-LG-경찰-LG-한화",
+            "career2": "정보없음",
+            "engName": "BAEK JIN WOO",
+            "gyear": "2024",
+            "height": "179 cm",
+            "heightWeight": "179 cm,79 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/60100_2024-03-06_112528.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/60100_2024-03-06_112539.jpg",
+            "pcode": "60100",
+            "playerName": "백진우",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/60100_2024-03-06_112447.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/60100_2024-03-06_112500.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/60100_2024-03-06_112512.jpg",
+            "position": "육성/재활군 수비 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "79 kg"
+        }
+    }
+}

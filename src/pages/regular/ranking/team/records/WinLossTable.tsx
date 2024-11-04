@@ -22,7 +22,7 @@ const WinLossTable = () => {
   ];
 
   const { getHeaderGroups, getRowModel } = useTable<TTeamMatchupTableType>({
-    apiUrl: '/game/rank/teamvs',
+    apiUrl: '/game/rank-teamvs.json',
     columnDefs,
       transformData: (data: TTeamMatchupResponse) => {
         //teamCodes[index]에 해당하는 팀의 경기 데이터 꺼내오기

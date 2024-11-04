@@ -11,8 +11,8 @@ export const UpNav = styled(motion.nav)<{isHovered:boolean,scrollY:number}>`
     left:0px;
     top: 0;
     height: 110px;
-    z-index: 101;
-    gap: 40px;
+    z-index: 103;
+    gap: 42px;
     transition: color 0.3s ease-in-out;
     background-color:${({ isHovered  }) => (isHovered ? `${colors.white}` :`${colors.black}`)} ;//이 로직에서 문제가 생기는 건 확실함
     //will-change:none;
@@ -141,7 +141,7 @@ export const SubCategoryColumn=styled.div`
     align-items: center;
     gap: 24px;
     position:relative;
-    left: -26px;
+    left: -18px;
     &:hover{
         cursor: pointer;
     }
@@ -152,8 +152,11 @@ export const SubCategoryColumn=styled.div`
     &:nth-child(2){
         margin-right: 5px;
     } 
+    &:nth-child(4){
+        margin-right: 10px;
+    } 
     &:nth-child(5){
-        margin-left:200px;
+        margin-left:195px;
     } 
     &:nth-child(7){
         margin-left:10px;

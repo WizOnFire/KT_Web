@@ -65,7 +65,7 @@ const CustomizedDot = (props: any) => {
 };
 
 const Chart = () => {
-  const { data } = useFetchData<TTotalTeamRankResponse>("/game/rank/periodteamrank"); 
+  const { data } = useFetchData<TTotalTeamRankResponse>("/game/rank-periodteamrank.json"); 
   const transFormedData = data?.data?.list || [];
   const lastestDate = transFormedData[transFormedData.length - 1]?.date || "";
   const transFormedDate = transFormedData.map((item) => {

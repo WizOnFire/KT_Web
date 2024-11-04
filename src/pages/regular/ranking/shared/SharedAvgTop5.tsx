@@ -62,9 +62,9 @@ const SharedAvgTop5 = ({condition, children} :TTopConditionRankType) => {
 
   useEffect(() => {
     if (condition === "pitcher") {
-      setApiUrl("/game/rank/pitcher/total/top5");
+      setApiUrl('/game/rank-pitcher-total-top5.json');
     } else if (condition === "batter") {
-      setApiUrl("/game/rank/batter/total/top5");
+      setApiUrl('/game/rank-batter-total-top5.json');
     }
   }, [condition]);
 

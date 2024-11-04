@@ -11,6 +11,7 @@ import { Container } from "../../../pages/PagesStyles";
 import { useNavigate} from "react-router-dom";
 import ListSkeleton from "../../common/skeleton/gridskeleton/ListSkeleton";
 import { useState } from "react";
+import useLoading from "../../../hooks/useLoading";
 
 export type TStaff = {
   playerName: string;
@@ -33,7 +34,7 @@ export type TCoachData = {
 };
 
 const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
-  const { data: staffs, isLoading, error } = useFetchData<TStaff[]>(apiUrl);
+  const { data: staffs, error } = useFetchData<TStaff[]>(apiUrl);
   const [searchTerm, setSearchTerm] = useState<string>(""); 
   const navigate=useNavigate();
     let stafflist: TStaff[] = [];
@@ -44,6 +45,7 @@ const StaffList = ({apiUrl,staffType}:TStaffListProps) => {
     stafflist = staffs as TStaff[];
     }
 
+    const isLoading=useLoading();
   if(isLoading) return <ListSkeleton columns={4} count={20} margin="0px" width="240px" height="275px" borderRadius="0px"/>
   if (error) return <p>{error}</p>;
 

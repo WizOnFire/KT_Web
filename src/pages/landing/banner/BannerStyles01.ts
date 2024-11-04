@@ -13,13 +13,19 @@ export const BannerContainer = styled.section`
 export const BannerImg01 = styled.img`
     margin: 20px 0 0 50px;
 `
+
 export const BannerImg02 = styled.img`
-    margin: -54px -70px 0 50px;
-    width: 50%;
-    height: auto;
-    position: absolute;
-    right: 0;
-    scale: 70%;
+        width: 50rem;
+        height: 18rem;
+        position: absolute;
+        top: -45px;
+        left: 930px;
+        scale: 70%;
+    @media screen and (max-width: 1560px) {
+        top: -38px;
+        left: 780px;
+        scale: 65%;
+    }
 `
 export const BannerRanking = styled.div`
     z-index: 27;
@@ -63,6 +69,9 @@ export const BannerCenterLine = styled.div`
     left: 50%;
     top: 15%;
     transform: translateX(-50%);
+    @media screen and (max-width: 1560px) {
+        left: 55%;
+    }
 `
 export const BannerBottomLine = styled.div`
     border-bottom: 1px solid ${colors.lightGray};
@@ -81,6 +90,10 @@ export const BannerParkBox = styled.div`
         font-size: 25px;
         }
         
+    }
+    @media screen and (max-width: 1560px) {
+        right: -85px;
+        top: 15%;
     }
 `
 export const BannerParkLink = styled(Link)`

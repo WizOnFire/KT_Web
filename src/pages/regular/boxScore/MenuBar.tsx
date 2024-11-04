@@ -16,7 +16,7 @@ const MenuBar = ({ apiUrl }: { apiUrl: string }) => {
     ];
 
     const [selectedMenu, setSelectedMenu] = useState("주요기록");
-    const isLoading = useLoading(300);
+    const isLoading = useLoading();
 
     const handleClick = (title: string) => {
         setSelectedMenu(title);

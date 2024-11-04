@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "71",
+            "birth": "1966.05.24",
+            "career": "광주서림초-무등중-광주제일고-동국대-해태-삼성-해태-KIA",
+            "career2": "정보없음",
+            "engName": "LEE KANG CHEOL",
+            "gyear": "2024",
+            "height": "180 cm",
+            "heightWeight": "180 cm,78 kg",
+            "hittype": "우언우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/89620_2024-03-06_104359.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/89620_2024-03-06_104534.jpg",
+            "pcode": "89620",
+            "playerName": "이강철",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/89620_2024-03-06_104036.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/89620_2024-03-06_104311.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/89620_2024-03-06_104336.jpg",
+            "position": "감독",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "78 kg"
+        }
+    }
+}

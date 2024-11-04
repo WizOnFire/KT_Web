@@ -36,7 +36,7 @@ export const TeamInfoBox = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 1px solid ${colors.silverGray};
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px 0px inset, rgba(17, 17, 26, 0.05) 0px 8px 32px 0px;
     margin-top: 200px;
     width: 200px;
     height: 200px;

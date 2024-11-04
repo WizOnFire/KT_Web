@@ -56,6 +56,7 @@ const SkeletonWinLossText = styled(SkeletonBox)`
 `
 
 const SkeletonRankBox = styled(SkeletonBox)`
+    max-width: 1100px;
     width: 100%;
     height: 400px;
     font-size: 12px;

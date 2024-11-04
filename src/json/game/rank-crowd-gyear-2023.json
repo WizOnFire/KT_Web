@@ -1,0 +1,66 @@
+{
+  "data": {
+    "list": [
+      {
+        "crowd": 1202637,
+        "game": 71,
+        "teamCode": "LG",
+        "teamName": "LG"
+      },
+      {
+        "crowd": 1068211,
+        "game": 73,
+        "teamCode": "SK",
+        "teamName": "SSG"
+      },
+      {
+        "crowd": 969562,
+        "game": 73,
+        "teamCode": "OB",
+        "teamName": "두산"
+      },
+      {
+        "crowd": 891745,
+        "game": 73,
+        "teamCode": "LT",
+        "teamName": "롯데"
+      },
+      {
+        "crowd": 845775,
+        "game": 71,
+        "teamCode": "SS",
+        "teamName": "삼성"
+      },
+      {
+        "crowd": 717025,
+        "game": 71,
+        "teamCode": "HT",
+        "teamName": "KIA"
+      },
+      {
+        "crowd": 697350,
+        "game": 73,
+        "teamCode": "KT",
+        "teamName": "KT"
+      },
+      {
+        "crowd": 583629,
+        "game": 71,
+        "teamCode": "WO",
+        "teamName": "키움"
+      },
+      {
+        "crowd": 566785,
+        "game": 73,
+        "teamCode": "HH",
+        "teamName": "한화"
+      },
+      {
+        "crowd": 557607,
+        "game": 71,
+        "teamCode": "NC",
+        "teamName": "NC"
+      }
+    ]
+  }
+}

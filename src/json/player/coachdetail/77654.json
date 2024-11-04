@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "79",
+            "birth": "1988.06.17",
+            "career": "백운초-신일중-신일고-한화-KT",
+            "career2": "정보없음",
+            "engName": "LEE JUN SOO",
+            "gyear": "2024",
+            "height": "176 cm",
+            "heightWeight": "176 cm,80 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77654_2024-03-06_111244.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77654_2024-03-06_111255.jpg",
+            "pcode": "77654",
+            "playerName": "이준수",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77654_2024-03-06_111204.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/77654_2024-03-06_111214.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/77654_2024-03-06_111229.jpg",
+            "position": "퓨쳐스 배터리 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "80 kg"
+        }
+    }
+}

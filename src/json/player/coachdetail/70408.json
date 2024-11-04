@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "80",
+            "birth": "1977.10.23",
+            "career": "효제초-청원중-동대문상고-동국대-삼성-SK",
+            "career2": "정보없음",
+            "engName": "PARK JEONG HWAN",
+            "gyear": "2024",
+            "height": "180 cm",
+            "heightWeight": "180 cm,88 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/70408_2024-03-06_111958.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/70408_2024-03-06_112017.jpg",
+            "pcode": "70408",
+            "playerName": "박정환",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/70408_2024-03-06_111427.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/70408_2024-03-06_111519.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/70408_2024-03-06_111841.jpg",
+            "position": "퓨처스 수비 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "88 kg"
+        }
+    }
+}

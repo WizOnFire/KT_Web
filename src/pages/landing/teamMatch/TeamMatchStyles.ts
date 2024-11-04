@@ -7,7 +7,6 @@ export const TeamMatchContainer = styled.section`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center ;
-    max-width: 1690px;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -40,11 +39,21 @@ export const TeamMatchLine = styled.div`
 export const TeamMatchArrowBox = styled.div`
     display: flex;
     gap: 75vh;
+    
 `;
 
 export const TeamMatchArrow = styled.img`
+
     width: 40px;
-    height: auto;
+    height: 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+    &:hover{
+        box-shadow: 4px 4px 7px rgba(255, 255, 255, 0.7); /* 섀도우 값은 조정 가능 */
+        border-radius:50%;
+        padding:8px;
+    }
+    
 `;
 
 export const MatchInfo = styled.div`

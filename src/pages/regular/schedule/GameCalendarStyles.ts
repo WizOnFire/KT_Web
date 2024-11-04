@@ -1,4 +1,3 @@
-
 import 'moment/locale/ko'; // 한국어 로케일 추가
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import styled from 'styled-components';

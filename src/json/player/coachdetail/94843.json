@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "75",
+            "birth": "1971.05.19",
+            "career": "서울학동초-선린중-선린상고-건국대-쌍방울-SK-LG-SK",
+            "career2": "정보없음",
+            "engName": "JANG JAE JUNG",
+            "gyear": "2024",
+            "height": "172 cm",
+            "heightWeight": "172 cm,72 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/94843_2024-03-06_105515.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/94843_2024-03-06_105534.jpg",
+            "pcode": "94843",
+            "playerName": "장재중",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/94843_2024-03-06_105426.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/94843_2024-03-06_105440.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/94843_2024-03-06_105456.jpg",
+            "position": "배터리 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "72 kg"
+        }
+    }
+}

@@ -16,6 +16,7 @@ import { useSubCategoryStore } from "../../../stores/useSubCategory.store"
 
 
 const RankingContainer = styled.div`
+    max-width: 1100px;
     width: 65%;
     font-size: 14px;
     box-sizing: border-box;
@@ -142,6 +143,4 @@ const Ranking = () => {
 }
 export default Ranking 
 
-function useRankCateogoryStore(): { selectedRanking: any; } {
-    throw new Error("Function not implemented.");
-}
+

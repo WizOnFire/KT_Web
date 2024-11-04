@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "84",
+            "birth": "1974.03.04",
+            "career": "대동초-충남중-대전고-단국대-현대-LG-롯데",
+            "career2": "정보없음",
+            "engName": "CHOI MAN HO",
+            "gyear": "2024",
+            "height": "170 cm",
+            "heightWeight": "170 cm,73 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/97351_2024-03-06_110254.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/97351_2024-03-06_110308.jpg",
+            "pcode": "97351",
+            "playerName": "최만호",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/97351_2024-03-06_110219.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/97351_2024-03-06_110231.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/97351_2024-03-06_110242.jpg",
+            "position": "주루/작전 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "73 kg"
+        }
+    }
+}

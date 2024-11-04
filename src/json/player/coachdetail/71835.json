@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "90",
+            "birth": "1982.12.20",
+            "career": "석천초-상인천중-동산고-SK-현대-히어로즈-KT",
+            "career2": "정보없음",
+            "engName": "CHO JUNG GEUN",
+            "gyear": "2024",
+            "height": "183 cm",
+            "heightWeight": "183 cm,98 kg",
+            "hittype": "좌투좌타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/71835_2024-03-06_111354.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/71835_2024-03-06_111404.jpg",
+            "pcode": "71835",
+            "playerName": "조중근",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/71835_2024-03-06_111310.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/71835_2024-03-06_111322.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/71835_2024-03-06_111339.jpg",
+            "position": "퓨처스 타격코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "98 kg"
+        }
+    }
+}

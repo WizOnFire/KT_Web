@@ -2,7 +2,6 @@ import colors from "../../../assets/Colors";
 import { item01, item02 } from "../../../assets/assets";
 import GradientChip from "../../../components/common/gradientChip/GradientChip";
 import useFetchData from "../../../hooks/useFetchData";
-import { TRanking } from "../../../types/landing";
 import {
   BannerContainer,
   BannerImg01,
@@ -13,13 +12,14 @@ import {
   BannerBottomLine,
   BannerCenterLine,
   BannerParkBox,
-  BannerParkLink
+  BannerParkLink,
 } from "./BannerStyles01"
 import { TRanking } from "../../../types/landing";
 
+
 const Banner01 = () => {
 
-  const { data } = useFetchData<TRanking>("game/ktwizteamrank"); 
+  const { data } = useFetchData<TRanking>("game/ktwizteamrank.json"); 
   const ranking = data?.data?.ktWizTeamRank;
 
   return (
@@ -44,19 +44,21 @@ const Banner01 = () => {
         }
       </BannerRanking>
       <BannerCenterLine/> 
-      <BannerImg02 src={item02}/>
-      <BannerParkBox>
-        <GradientChip
-          width="150px"
-          margin="0 0 20px 0 "
-          textGradient={`linear-gradient(to bottom,${colors.white}, ${colors.white})`}
-          main="수원 케이티 위즈 파크" title=""
-        />
-        <span>사전 주차 예약제 안내</span>
-        <BannerParkLink to="/wizpark/parking">
-          사전주차 예약하기 →
-        </BannerParkLink>
-      </BannerParkBox>
+      <div>
+        <BannerImg02 src={item02}/>
+        <BannerParkBox>
+          <GradientChip
+            width="150px"
+            margin="0 0 10px 0 "
+            textGradient={`linear-gradient(to bottom,${colors.white}, ${colors.white})`}
+            main="수원 케이티 위즈 파크" title=""
+          />
+          <span>사전 주차 예약제 안내</span>
+          <BannerParkLink to="https://suwonparkingbaseball.or.kr/suwonwps/EgovPageLink.do?link=main/menu/prs/ParkingReservationPrivacy">
+            사전주차 예약하기 →
+          </BannerParkLink>
+        </BannerParkBox>
+      </div>
     </BannerContainer>
   );
 }

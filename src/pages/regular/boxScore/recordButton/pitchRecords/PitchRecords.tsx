@@ -9,6 +9,25 @@ import {
   PitchRecordRow,
   PitchRecordCell
 } from "./PitchRecordStyles"
+import styled from "styled-components";
+import { SkeletonBox } from "../score/ScoreSkeleton";
+import useLoading from "../../../../../hooks/useLoading";
+
+const SkeletonText = styled(SkeletonBox)`
+  display: inline-block;
+  width: 100px; 
+  height: 25px;
+  margin: 50px 0 5px 0 ;
+`
+
+const SkeletonRankBox = styled(SkeletonBox)`
+    max-width: 1100px;
+    width: 100%;
+    height: 200px;
+    font-size: 12px;
+    box-sizing: border-box;
+    caret-color: transparent;
+`
 
 const PitchRecords = ({apiUrl} : {apiUrl: string}) => {
 
@@ -41,6 +60,8 @@ const PitchRecords = ({apiUrl} : {apiUrl: string}) => {
     const roundedEra = Math.round(era * 100)/100;
     return roundedEra.toFixed(2);
   }
+
+  const isLoading = useLoading();
 
   const homeTable = useTable<ThpitchersAndvpitchers>({
     apiUrl: apiUrl,
@@ -83,21 +104,56 @@ const PitchRecords = ({apiUrl} : {apiUrl: string}) => {
 
   return (
     <>
+      {isLoading ? (
+        <>
+          <SkeletonText/>
+          <SkeletonRankBox/>
+          <SkeletonText/>
+          <SkeletonRankBox/>
+        </>
+      ):(
+      <>
       <PitchRecordLabel>{homeTeam} 투수 기록</PitchRecordLabel>
-      <PitchRecordTable>
-        <thead>
-          {homeTable.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
-                <PitchRecordHeaderCell key={header.id} colSpan={header.colSpan}>
-                  {flexRender(header.column.columnDef.header, header.getContext())}
-                </PitchRecordHeaderCell>
+        <PitchRecordTable>
+          <thead>
+            {homeTable.getHeaderGroups().map(headerGroup => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map(header => (
+                  <PitchRecordHeaderCell key={header.id} colSpan={header.colSpan}>
+                    {flexRender(header.column.columnDef.header, header.getContext())}
+                  </PitchRecordHeaderCell>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {homeTable.getRowModel().rows.map(row => (
+                <PitchRecordRow key={row.id}>
+                  {row.getVisibleCells().map(cell=> (
+                    <PitchRecordCell key={cell.id}>
+                        {String(cell.getValue())}
+                    </PitchRecordCell>
+                  ))}
+                </PitchRecordRow>
               ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {homeTable.getRowModel().rows.map(row => (
+          </tbody>
+        </PitchRecordTable>
+    
+        <PitchRecordLabel>{visitTeam} 투수 기록</PitchRecordLabel>
+        <PitchRecordTable>
+          <thead>
+            {visitTable.getHeaderGroups().map(headerGroup => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map(header => (
+                  <PitchRecordHeaderCell key={header.id} colSpan={header.colSpan}>
+                    {flexRender(header.column.columnDef.header, header.getContext())}
+                  </PitchRecordHeaderCell>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {visitTable.getRowModel().rows.map(row => (
               <PitchRecordRow key={row.id}>
                 {row.getVisibleCells().map(cell=> (
                   <PitchRecordCell key={cell.id}>
@@ -106,34 +162,10 @@ const PitchRecords = ({apiUrl} : {apiUrl: string}) => {
                 ))}
               </PitchRecordRow>
             ))}
-        </tbody>
-      </PitchRecordTable>
-  
-      <PitchRecordLabel>{visitTeam} 투수 기록</PitchRecordLabel>
-      <PitchRecordTable>
-        <thead>
-          {visitTable.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
-                <PitchRecordHeaderCell key={header.id} colSpan={header.colSpan}>
-                  {flexRender(header.column.columnDef.header, header.getContext())}
-                </PitchRecordHeaderCell>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {visitTable.getRowModel().rows.map(row => (
-            <PitchRecordRow key={row.id}>
-              {row.getVisibleCells().map(cell=> (
-                <PitchRecordCell key={cell.id}>
-                    {String(cell.getValue())}
-                </PitchRecordCell>
-              ))}
-            </PitchRecordRow>
-          ))}
-        </tbody>
-      </PitchRecordTable>
+          </tbody>
+        </PitchRecordTable>
+      </>
+      )}
     </>
   );
 }

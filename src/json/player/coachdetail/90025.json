@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "78",
+            "birth": "1967.05.03",
+            "career": "성호초-마산중-마산고-경성대-쌍방울-SK-해태-두산",
+            "career2": "정보없음",
+            "engName": "KIM HO",
+            "gyear": "2024",
+            "height": "175 cm",
+            "heightWeight": "175 cm,80 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/90025_2024-03-06_110113.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/90025_2024-03-06_110131.jpg",
+            "pcode": "90025",
+            "playerName": "김호",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/90025_2024-03-06_105947.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/90025_2024-03-06_110049.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/90025_2024-03-06_110101.jpg",
+            "position": "수비코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "80 kg"
+        }
+    }
+}

@@ -12,14 +12,15 @@ import LineUp from "./LineUp";
 import { VSWrapper } from "./LineUpStyles";
 import { vs } from "../../../assets/assets";
 import WatchPointSkeleton from "./WatchPointSkeleton";
+//import useLoading from "../../../hooks/useLoading";
 
 const WatchPointBox = () => {
-  const { data: game } = useFetchData<TGameResponse>("game/recentGames");
+  const { data: game, isLoading: isLoadingRecent } = useFetchData<TGameResponse>("//game/recentGames.json");
   const current: TGameData | undefined = game?.data?.current;
 
   const [apiUrl, setApiUrl] = useState<string>(""); // apiUrl 상태 추가
-  const { data: gameData, isLoading } = useFetchData<TWatchPointResponse>(apiUrl); // apiUrl을 사용하여 데이터 가져오기
-
+  const { data: gameData,isLoading } = useFetchData<TWatchPointResponse>(apiUrl); // apiUrl을 사용하여 데이터 가져오기
+  //const isLoading=useLoading();
   // 계산된 승률
   const calculatedWinRate = gameData
     ? (
@@ -180,7 +181,7 @@ const WatchPointBox = () => {
 
   useEffect(() => {
     if (current) {
-      setApiUrl(`/game/watchpoint?gameDate=${current.gameDate}&gmkey=${current.gmkey}`);
+      setApiUrl(`/game/watchpoint-gameDate-${current.gameDate}-gmkey-${current.gmkey}.json`);
     }
   }, [current]);
 
@@ -189,7 +190,7 @@ const WatchPointBox = () => {
     if (gameData?.data?.schedule?.next) {
       const nextGameDate = gameData.data.schedule.next.gameDate;
       const nextGmkey = gameData.data.schedule.next.gmkey;
-      setApiUrl(`/game/watchpoint?gameDate=${nextGameDate}&gmkey=${nextGmkey}`);
+      setApiUrl(`/game/watchpoint-gameDate-${nextGameDate}-gmkey-${nextGmkey}.json`);
     }
   };
 
@@ -198,10 +199,14 @@ const WatchPointBox = () => {
     if (gameData?.data?.schedule?.prev) {
       const prevGameDate = gameData.data.schedule.prev.gameDate;
       const prevGmkey = gameData.data.schedule.prev.gmkey;
-      setApiUrl(`/game/watchpoint?gameDate=${prevGameDate}&gmkey=${prevGmkey}`);
+      setApiUrl(`/game/watchpoint-gameDate-${prevGameDate}-gmkey-${prevGmkey}.json`);
     }
   };
 
+    // 로딩 중일 때 스켈레톤 반환
+  if (isLoadingRecent) {
+        return <WatchPointSkeleton />;
+      }
     // 로딩 중일 때 스켈레톤 반환
   if (isLoading) {
     return <WatchPointSkeleton />;
@@ -289,7 +294,7 @@ const WatchPointBox = () => {
                       color: (index === 0 ? 'red' : 'inherit'), // index가 0일 때 빨간색
                       backgroundColor: (index === 0 ? 'rgba(255, 153, 153, 0.1)' : 'inherit') // index가 0일 때 배경색 적용
                   }}>
-                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </ScoreCell>
                 ))}
               </ScoreRow>

@@ -19,9 +19,10 @@ import { GrNext } from "react-icons/gr";
 import { GradientCircle } from "../../../components/common/gradientChip/GradientChipStyles";
 import colors from "../../../assets/Colors";
 import { THighLightResponse } from "../../../types/landing";
+import { Link } from "react-router-dom";
 
 const HighLight = () => {
-    const { data } = useFetchData<THighLightResponse>("media/highlightlist?count=10");
+    const { data } = useFetchData<THighLightResponse>('media/highlightlist-count-10.json');
 
     return (
         <HighLightContainer>
@@ -75,6 +76,7 @@ const HighLight = () => {
                     ))}
                 </MediumIframeList>
             </HighLightVedioBox>
+            <Link to="/media/wiznews" style={{color: "inherit", textDecoration:"none"}}>
             <GradientCircle
                     width="160px"
                     height="35px"
@@ -84,6 +86,7 @@ const HighLight = () => {
                     더 많은 영상보기
                     <GrNext />
                 </GradientCircle>
+            </Link>
         </HighLightContainer>
     );
 };

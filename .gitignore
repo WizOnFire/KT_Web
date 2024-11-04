@@ -25,4 +25,4 @@ dist-ssr
 
 #custom ignore
 package-lock.json
-.env
+#.env

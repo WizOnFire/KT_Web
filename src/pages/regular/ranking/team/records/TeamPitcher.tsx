@@ -29,7 +29,7 @@ const TeamPitcher = () => {
   ];
 
   const { getHeaderGroups, getRowModel } = useTable<TPitRankType>({
-    apiUrl: '/game/rank/pitching',
+    apiUrl: '/game/rank-pitching.json',
     columnDefs,
       transformData: (data: TPitRankResponse) => {
         return data?.data?.list || [];

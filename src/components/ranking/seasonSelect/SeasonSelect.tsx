@@ -10,7 +10,7 @@ const SeasonSelect = () => {
     return (
     <SelectBoxRank>
         <SelectBoxPitRank onChange={handleYearChange}>
-        {Array(2024 - 2014 + 1).fill(0).map((_,index) => {
+        {Array(2024 - 2019 + 1).fill(0).map((_,index) => {
             const indexYear = 2024 - index;
             return (
             <option key={indexYear} value={indexYear}>

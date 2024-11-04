@@ -4,7 +4,6 @@ const WatchPoint = () => {
   return (
     <>
      <WatchPointBox/>
-     {/* <Starter/> */}
     </>
   );
 }

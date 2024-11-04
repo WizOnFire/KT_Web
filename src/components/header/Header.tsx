@@ -158,16 +158,29 @@ const Header = () => {
     setSelectedSidebar(sidebars[categories.indexOf(category)][0][0] || null);
 
     const forNav = categoriesForNav[index];
-    if(forNav=="game"){
+    console.log(forNav);
+    if(forNav==="game"){
        navigate(`/${forNav}/regular/${subCategoriesForNav[index][0]}`);
-    }else{
+    }else if(forNav==="sponsor"){
+      //window.open("https://b2b.ktwiz.co.kr/",'_blank'); 
+      window.location.href=("https://b2b.ktwiz.co.kr/");
+    }
+    else if(forNav==="shop"){
+      //window.open("https://www.ktwizstore.co.kr/",'_blank'); 
+      window.location.href=("https://www.ktwizstore.co.kr/");
+    }
+    else if(forNav==="ticket"){
+
+      window.location.href=("https://www.ktwiz.co.kr/ticket/reservation");
+    }
+    else{
       navigate(`/${forNav}/${subCategoriesForNav[index][0]}`);
     }
 
     //setIsHovered(false)
     // console.log(category)
     // console.log(index)
-    console.log("clicked!");
+    //console.log("clicked!");
     
     //
   };
@@ -188,7 +201,7 @@ const Header = () => {
       else{
         navigate(`/${forNav}/regular/${subCategoriesForNav[categoryIndex][subIndex]}`);
       }
-      console.log(forNav)
+      //console.log(forNav)
       return;
     }
     navigate(`/${forNav}/${subCategoriesForNav[categoryIndex][subIndex]}`); // 경로를 제대로 작성
@@ -284,7 +297,7 @@ const Header = () => {
                   </SubCategory>
                 ))
               ) : (
-                <div style={{ width: "50px" }} /> 
+                <div style={{ width: "59px" }} /> 
               )}
             </SubCategoryColumn>
           ))}

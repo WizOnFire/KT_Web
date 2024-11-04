@@ -40,7 +40,7 @@ export const Outcome = styled.span<{ outcome: string }>`
     }};
     color: white;
     border-radius: 3px;
-    z-index: 1000;
+    z-index: 100;
     position: relative;
     margin-top: -7px;
     margin-left: 5px;

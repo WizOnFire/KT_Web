@@ -48,7 +48,8 @@ const AudienceRecord = () => {
     ];
 
     const {getHeaderGroups, getRowModel} = useTable({
-        apiUrl: (`/game/rank/crowd?gyear=${year}`),
+        // apiUrl: (`/game/rank/crowd?gyear=${year}`),
+        apiUrl: (`/game/rank-crowd-gyear-${year}.json`),
         columnDefs,
         transformData: (data: TAudienceResponse) => {
             return data?.data?.list.map((audience, index) => {

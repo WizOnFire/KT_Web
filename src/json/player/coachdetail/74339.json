@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "81",
+            "birth": "1981.07.01",
+            "career": "부천신흥초-부천중-유신고-동국대-현대-히어로즈-상무-히어로즈-KT",
+            "career2": "정보없음",
+            "engName": "YOO HAN JUN",
+            "gyear": "2024",
+            "height": "186 cm",
+            "heightWeight": "186 cm,97 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/74339_2024-03-06_105839.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/74339_2024-03-06_105852.jpg",
+            "pcode": "74339",
+            "playerName": "유한준",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/74339_2024-03-06_105751.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/74339_2024-03-06_105804.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/74339_2024-03-06_105823.jpg",
+            "position": "타격코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "97 kg"
+        }
+    }
+}

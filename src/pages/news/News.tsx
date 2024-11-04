@@ -94,6 +94,7 @@ const News = () => {
 
   if (isLoading) {
     return (
+      <>
       <NewsContainer>
         <Skeleton width={169} height={29} style={{ marginBottom: '-2px', top: '-40px' }} />
         <NewsList>
@@ -109,6 +110,7 @@ const News = () => {
           ))}
         </NewsList>
       </NewsContainer>
+      </>
     );
   }
 
@@ -117,6 +119,7 @@ const News = () => {
   }
 
   return (
+    <>
     <NewsContainer>
       <SearchBarWrapper>
         <SearchBar 
@@ -190,8 +193,8 @@ const News = () => {
     &gt;&gt;
   </Button>
 </Pagination>
-
     </NewsContainer>
+    </>
   );
 };
 

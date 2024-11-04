@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "85",
+            "birth": "1984.07.13",
+            "career": "순천북초-순천이수중-효천고-LG-두산-히어로즈-한화",
+            "career2": "정보없음",
+            "engName": "LEE SEONG YEOL",
+            "gyear": "2024",
+            "height": "185 cm",
+            "heightWeight": "185 cm,102 kg",
+            "hittype": "우투좌타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/73136_2024-03-06_112412.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/73136_2024-03-06_112423.jpg",
+            "pcode": "73136",
+            "playerName": "이성열",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/73136_2024-03-06_112342.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/73136_2024-03-06_112351.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/73136_2024-03-06_112402.jpg",
+            "position": "육성/재활군 타격 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "102 kg"
+        }
+    }
+}

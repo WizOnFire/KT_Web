@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "87",
+            "birth": "1984.10.14",
+            "career": "동일중앙초-부산중-부산고-두산-KIA-SK",
+            "career2": "정보없음",
+            "engName": "JEON BYEONG DU",
+            "gyear": "2024",
+            "height": "181 cm",
+            "heightWeight": "181 cm,77 kg",
+            "hittype": "좌투좌타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/73228_2024-03-06_110423.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/73228_2024-03-06_110434.jpg",
+            "pcode": "73228",
+            "playerName": "전병두",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/73228_2024-03-06_110346.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/73228_2024-03-06_110355.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/73228_2024-03-06_110406.jpg",
+            "position": "불펜 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "77 kg"
+        }
+    }
+}

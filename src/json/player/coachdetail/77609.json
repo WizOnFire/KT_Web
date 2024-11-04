@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "86",
+            "birth": "1984.12.23",
+            "career": "군산초-군산남중-군산상고-성균관대-KIA-SK-KT",
+            "career2": "정보없음",
+            "engName": "KIM YEON HUN",
+            "gyear": "2024",
+            "height": "180 cm",
+            "heightWeight": "180 cm,80 kg",
+            "hittype": "우투우타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77609_2024-03-06_112139.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77609_2024-03-06_112148.jpg",
+            "pcode": "77609",
+            "playerName": "김연훈",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/77609_2024-03-06_112102.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/77609_2024-03-06_112114.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/77609_2024-03-06_112124.jpg",
+            "position": "퓨처스 작전/주루 코치",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "80 kg"
+        }
+    }
+}

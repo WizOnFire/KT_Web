@@ -30,7 +30,7 @@ const TeamRecords = () => {
   ];
 
   const { getHeaderGroups, getRowModel } = useTable<TTeamRankType>({
-    apiUrl: '/game/teamrankbyyear',
+    apiUrl: '/game/teamrankbyyear.json',
     columnDefs,
       transformData: (data: TTeamRankResponse) => {
         return data?.data?.list || [];

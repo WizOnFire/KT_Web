@@ -1,0 +1,26 @@
+{
+    "data": {
+        "coachstep": {
+            "backnum": "77",
+            "birth": "1969.10.22",
+            "career": "대구초-대구중-대구상고-계명대-삼성-SK",
+            "career2": "정보없음",
+            "engName": "KIM TAE HAN",
+            "gyear": "2024",
+            "height": "181 cm",
+            "heightWeight": "181 cm,87 kg",
+            "hittype": "좌투좌타",
+            "mobilePlayerImg1": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/92401_2024-03-06_104746.jpg",
+            "mobilePlayerImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/92401_2024-03-06_104817.jpg",
+            "pcode": "92401",
+            "playerName": "김태한",
+            "playerPrvwImg": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg/92401_2024-03-06_104608.jpg",
+            "playerPrvwImg2": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg2/92401_2024-03-06_104638.jpg",
+            "playerPrvwImg3": "https://wizzap.ktwiz.co.kr/files/playerImg/ktImg3/92401_2024-03-06_104653.jpg",
+            "position": "퓨처스 감독",
+            "teamCode": "KT0",
+            "teamName": "KT0",
+            "weight": "87 kg"
+        }
+    }
+}

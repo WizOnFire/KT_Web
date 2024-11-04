@@ -12,14 +12,15 @@ export const ShopContainer = styled.section`
     margin-top: 100px;
 `
 export const ShopImg01 = styled.img`
-scale: 40%;
-margin: -300px 0 0 0;
+    scale: 40%;
+    margin: -300px 0 0 0;
 `
 export const ShopImg02 = styled.img`
-z-index: 30;
-position: relative;
-scale: 65%;
-left: 0;
+    z-index: 30;
+    position: relative;
+    scale: 65%;
+    left: 0;
+
 `
 export const ShopImgBox = styled.span`
     display: flex;
@@ -63,8 +64,25 @@ export const BannerPlayerBox = styled.div`
             font-size: 30px;
             color: ${colors.white};
             letter-spacing: 8px;
+            margin: 10px 0 0 25px;
+        }
+    }
+    @media screen and (max-width: 1560px) {
+        right: -150px;
+        span {
+        &:nth-child(2){
+            font-size: 60px;
+            font-family: PartialSansKR;
+            color: ${colors.redGradient};
+            margin-left: 30px;
+        }
+        &:nth-child(3){
+            font-size: 30px;
+            color: ${colors.white};
+            letter-spacing: 8px;
             margin: 10px 0 0 15px;
         }
+    }
     }
 `
 export const BannerLogo = styled.img`
@@ -81,6 +99,11 @@ export const BannerPlayerImg = styled.div<{imgFilePath: string | undefined}>`
     background-size: cover;
     background-position: center;
     z-index: 32;
+    @media screen and (max-width: 1560px) {
+        transform: translateX(-35%);
+        z-index: -5;
+    }
+
 `
 export const BannerLight = styled.img`
     z-index: 33;

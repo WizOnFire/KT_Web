@@ -41,10 +41,10 @@ import colors from "../../../assets/Colors";
 
 
     export const TeamLogo = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin-top: 20px;
-    margin-bottom: -30px;
+    margin-bottom: -20px;
     `;
 
     export const VSWrapper = styled.div`

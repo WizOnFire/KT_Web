@@ -23,6 +23,7 @@ const MainRecords = ({apiUrl} : {apiUrl: string}) => {
             }
         },
 });
+
     if (isLoading) return <MainRecordSkeleton columnDefs={columnDefs} />;
     if(error) return <>Error...</>;
 

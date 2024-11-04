@@ -9,7 +9,6 @@ export const StartImage = styled(SkeletonBox)`
     align-items: center;
     width: auto;
     height: 1000px;
-    background-color: ${colors.lightGray}; 
 `;
 
 const StartWizNews = styled.section`
@@ -17,7 +16,6 @@ const StartWizNews = styled.section`
     bottom: 100px;
     left: 20%;
     font-size: 14px;
-    color: ${colors.white};
     z-index: 23;
     
     p:nth-of-type(1) {
